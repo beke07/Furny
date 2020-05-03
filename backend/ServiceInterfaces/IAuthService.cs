@@ -10,5 +10,9 @@ namespace Furny.ServiceInterfaces
         Task RegisterAsync(RegisterDto register);
 
         Task LogoutAsync();
+
+        Task<bool> IsNotRegistratedAsync(string email);
+
+        Task CreateUserAsync(FirebaseUserDto user);
     }
 }

@@ -1,4 +1,3 @@
-using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,8 +15,6 @@ namespace Furny
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCorsWithOrigins();
-
             services.AddServices();
 
             services.AddSwagger();
@@ -28,9 +25,11 @@ namespace Furny
 
             services.AddMongoIdentity(configuration: Configuration);
 
+            services.AddCorsWithOrigins();
+
             services.AddJwtAuthentication(configuration: Configuration);
 
-            services.AddExternalAuthentication(configuration: Configuration);
+            services.AddHttpClient();
         }
 
         public void Configure(IApplicationBuilder app)
@@ -48,6 +47,8 @@ namespace Furny
             app.UseEndpointsWithCors();
 
             app.UseSwaggerWithUI();
+
+            app.RegisterMiddlewares();
         }
     }
 }

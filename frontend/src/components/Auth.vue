@@ -1,0 +1,39 @@
+<template ref="auth" lang="html">
+<div class="container">
+  <button v-if="!user.isAuthenticated" @click="login">Login</button>
+  <div v-if="user.isAuthenticated">
+  <button @click="logout">Logout</button>
+  <h1>Hi {{ user.name }}!</h1>
+  </div>  
+</div>
+</template>
+
+<script>
+import Firebase from "../helpers/firebase";
+
+export default {
+  name: "Auth",
+  methods: {
+    login() {
+      Firebase.login();
+    },
+    logout() {
+      Firebase.logout();
+    }
+  },
+  mounted: function() {
+    Firebase.auth.onAuthStateChanged(result => {
+      if (result) {
+        this.user.isAuthenticated = true;
+        this.user.name = result.displayName.split(" ")[0];
+      } else {
+        this.user.isAuthenticated = false;
+        this.user.name = null;
+      }
+    });
+  }
+};
+</script>
+
+<style scoped>
+</style>

@@ -4,7 +4,7 @@ namespace Furny.Data
 {
     public class RegisterDto
     {
-        public string Username { get; set; }
+        public string UserName { get; set; }
 
         [EmailAddress]
         public string Email { get; set; }

@@ -1,16 +1,11 @@
-﻿using Furny.Data;
+﻿using AutoMapper;
+using Furny.Data;
 using Furny.Filters;
 using Furny.Models;
 using Furny.ServiceInterfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
-using System.IdentityModel.Tokens.Jwt;
 using System.Net;
-using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Furny.Services
@@ -19,16 +14,24 @@ namespace Furny.Services
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IConfiguration _configuration;
+        private readonly IMapper _mapper;
         private readonly UserManager<ApplicationUser> _userManager;
 
         public AuthService(
             SignInManager<ApplicationUser> signInManager,
             IConfiguration configuration,
+            IMapper mapper,
             UserManager<ApplicationUser> userManager)
         {
             _signInManager = signInManager;
             _configuration = configuration;
+            _mapper = mapper;
             _userManager = userManager;
+        }
+
+        public async Task<bool> IsNotRegistratedAsync(string email)
+        {
+            return await _userManager.FindByEmailAsync(email) == null;
         }
 
         public async Task<string> LoginAsync(LoginDto login)
@@ -38,7 +41,7 @@ namespace Furny.Services
             if (result.Succeeded)
             {
                 var user = await _userManager.FindByNameAsync(login.UserName);
-                return GenerateJwtToken(user);
+                return _configuration.GenerateToken(user);
             }
 
             throw new HttpResponseException("Username or password is wrong!", HttpStatusCode.BadRequest);
@@ -51,7 +54,7 @@ namespace Furny.Services
 
         public async Task RegisterAsync(RegisterDto register)
         {
-            var result = await _userManager.CreateAsync(new ApplicationUser(register.Username, register.Email), register.Password);
+            var result = await _userManager.CreateAsync(_mapper.Map<ApplicationUser>(register), register.Password);
 
             if (!result.Succeeded)
             {
@@ -59,28 +62,14 @@ namespace Furny.Services
             }
         }
 
-        private string GenerateJwtToken(ApplicationUser user)
+        public async Task CreateUserAsync(FirebaseUserDto user)
         {
-            var claims = new List<Claim>
+            var result = await _userManager.CreateAsync(_mapper.Map<ApplicationUser>(user));
+
+            if (!result.Succeeded)
             {
-                new Claim(JwtRegisteredClaimNames.Sub, user.Email),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
-            };
-
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
-            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-            var expires = DateTime.Now.AddDays(Convert.ToDouble(_configuration["Jwt:ExpireDays"]));
-
-            var token = new JwtSecurityToken(
-                _configuration["Jwt:Issuer"],
-                _configuration["Jwt:Issuer"],
-                claims,
-                expires: expires,
-                signingCredentials: creds
-            );
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
+                throw new HttpResponseException(result.Errors, HttpStatusCode.InternalServerError);
+            }
         }
     }
 }

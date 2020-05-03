@@ -5,7 +5,7 @@ namespace Microsoft.Extensions.DependencyInjection
     public static class CorsConfiguration
     {
         private const string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
-        private const string ForntendUrl = "http://localhost:8080";
+        private const string FrontendUrl = "http://localhost:8080";
 
         public static void AddCorsWithOrigins(this IServiceCollection services)
         {
@@ -14,7 +14,9 @@ namespace Microsoft.Extensions.DependencyInjection
                 options.AddPolicy(name: MyAllowSpecificOrigins,
                 builder =>
                 {
-                    builder.WithOrigins(ForntendUrl);
+                    builder.WithOrigins(FrontendUrl)
+                           .AllowAnyHeader()
+                           .AllowAnyMethod();
                 });
             });
         }

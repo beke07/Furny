@@ -10,7 +10,11 @@
   "dependencies": {
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
-    "vue": "^2.6.11"
+    "firebase": "^7.14.2",
+    "firebaseui": "^4.5.0",
+    "vue": "^2.6.11",
+    "vue-cookies": "^1.7.0",
+    "vue-router": "^3.1.6"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.3.0",

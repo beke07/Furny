@@ -12,5 +12,11 @@ namespace Furny.Models
 
 		public ApplicationUser(string userName, string email) : base(userName, email)
 		{ }
+
+		public string Name { get; set; }
+
+		public string UserId { get; set; }
+
+		public string ImageUrl { get; set; }
 	}
 }
