@@ -1,4 +1,4 @@
-# furny
+# Furny
 
 ## Project setup
 ```
