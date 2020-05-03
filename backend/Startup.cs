@@ -29,6 +29,8 @@ namespace Furny
             services.AddMongoIdentity(configuration: Configuration);
 
             services.AddJwtAuthentication(configuration: Configuration);
+
+            services.AddExternalAuthentication(configuration: Configuration);
         }
 
         public void Configure(IApplicationBuilder app)
