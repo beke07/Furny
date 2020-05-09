@@ -1,7 +1,6 @@
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import { firebaseConfig } from "./firebase-config";
-import axios from "axios";
 
 firebase.initializeApp(firebaseConfig);
 
@@ -17,7 +16,6 @@ export default {
       })
       .then((idToken) => {
         document.cookie = `token=${idToken}`;
-        axios.get("https://localhost:44348/api/auth/user-sync");
       })
       .catch((error) => {
         console.log(error);

@@ -1,5 +1,7 @@
-﻿using Furny.Models;
+﻿using AspNetCore.Identity.MongoDbCore.Models;
+using Furny.Models;
 using Microsoft.IdentityModel.Tokens;
+using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -10,7 +12,7 @@ namespace Microsoft.Extensions.Configuration
 {
     public static class JwtHelper
     {
-        public static string GenerateToken(this IConfiguration configuration, ApplicationUser user)
+        public static string GenerateToken(this IConfiguration configuration, MongoIdentityUser<ObjectId> user)
         {
             var claims = new List<Claim>
             {

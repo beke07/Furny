@@ -10,6 +10,7 @@
 
 <script>
 import Firebase from "../helpers/firebase";
+import axios from "axios";
 
 export default {
   name: "Auth",
@@ -24,6 +25,14 @@ export default {
   mounted: function() {
     Firebase.auth.onAuthStateChanged(result => {
       if (result) {
+        axios.get("https://localhost:44348/api/auth/user-sync").then(
+          function(response) {
+            if (response.status === 202) {
+              //TODO: itt kell feldobni a választós cuccot, aztán kiküldeni role-al együtt.
+              axios.get("https://localhost:44348/api/auth/user-sync", { params: { role: 'designer' } })
+            }
+          }
+        );
         this.user.isAuthenticated = true;
         this.user.name = result.displayName.split(" ")[0];
       } else {

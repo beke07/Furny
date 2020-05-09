@@ -1,4 +1,7 @@
-﻿using Furny.Data;
+﻿using AspNetCore.Identity.MongoDbCore.Models;
+using Furny.Data;
+using Furny.Models;
+using MongoDB.Bson;
 using System.Threading.Tasks;
 
 namespace Furny.ServiceInterfaces
@@ -7,12 +10,16 @@ namespace Furny.ServiceInterfaces
     {
         Task<string> LoginAsync(LoginDto login);
 
-        Task RegisterAsync(RegisterDto register);
+        Task RegisterDesigner(DesignerRegisterDto registerDto);
+
+        Task RegisterPanelCutter(PanelCutterRegisterDto registerDto);
+
+        Task<ObjectId> RegisterAsync<T, U>(U register, string role)
+             where T : ApplicationUser
+             where U : RegisterBaseDto;
 
         Task LogoutAsync();
 
         Task<bool> IsNotRegistratedAsync(string email);
-
-        Task CreateUserAsync(FirebaseUserDto user);
     }
 }

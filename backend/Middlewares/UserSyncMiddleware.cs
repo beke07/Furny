@@ -1,12 +1,20 @@
 ﻿using Furny.Data;
+using Furny.Models;
 using Furny.ServiceInterfaces;
 using Microsoft.AspNetCore.Http;
+using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Furny.Middlewares
 {
+    public enum RoleTypes
+    {
+        Designer = 1,
+        PanelCutter = 2
+    }
+
     public class FurnyClaimTypes
     {
         public static string UserId = "user_id";
@@ -20,6 +28,8 @@ namespace Furny.Middlewares
 
     public class UserSyncMiddleware
     {
+        private const string RoleQueryString = "role";
+
         private readonly RequestDelegate _next;
 
         public UserSyncMiddleware(RequestDelegate next)
@@ -42,11 +52,28 @@ namespace Furny.Middlewares
 
                 if (await authService.IsNotRegistratedAsync(email))
                 {
+                    if (!context.Request.Query.ContainsKey(RoleQueryString))
+                    {
+                        context.Response.StatusCode = StatusCodes.Status202Accepted;
+                        return;
+                    }
+
                     var userId = claims.FirstOrDefault(e => e.Type == FurnyClaimTypes.UserId).Value;
                     var name = claims.FirstOrDefault(e => e.Type == FurnyClaimTypes.Name).Value;
                     var picture = claims.FirstOrDefault(e => e.Type == FurnyClaimTypes.Picture).Value;
+                    var role = context.Request.Query.First(e => e.Key == RoleQueryString).Value;
 
-                    await authService.CreateUserAsync(new FirebaseUserDto() { Email = email, Name = name, ImageUrl = picture, UserId = userId });
+                    if (Enum.TryParse<RoleTypes>(role, ignoreCase: true, out var roleType))
+                    {
+                        if (roleType == RoleTypes.Designer)
+                        {
+                            await authService.RegisterDesigner(new DesignerRegisterDto() { Email = email, UserName = email, UserId = userId });
+                        }
+                        else if (roleType == RoleTypes.PanelCutter)
+                        {
+                            await authService.RegisterPanelCutter(new PanelCutterRegisterDto() { Email = email, UserName = email, UserId = userId });
+                        }
+                    }
                 }
             }
 

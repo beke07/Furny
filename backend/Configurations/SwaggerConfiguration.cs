@@ -52,7 +52,7 @@ namespace Microsoft.Extensions.DependencyInjection
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My Supplement V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Furny V1");
             });
         }
     }

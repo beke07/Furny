@@ -8,9 +8,13 @@ namespace Furny.MappingProfiles
     {
         public AuthMappingProfile()
         {
-            CreateMap<FirebaseUserDto, ApplicationUser>().ReverseMap();
+            CreateMap<FirebaseUserDto, Designer>().ReverseMap();
 
-            CreateMap<RegisterDto, ApplicationUser>().ReverseMap();
+            CreateMap<FirebaseUserDto, PanelCutter>().ReverseMap();
+
+            CreateMap<DesignerRegisterDto, Designer>().ReverseMap();
+
+            CreateMap<PanelCutterRegisterDto, PanelCutter>().ReverseMap();
         }
     }
 }

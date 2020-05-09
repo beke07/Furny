@@ -1,5 +1,6 @@
 ﻿using AspNetCore.Identity.MongoDbCore.Extensions;
 using AspNetCore.Identity.MongoDbCore.Infrastructure;
+using AspNetCore.Identity.MongoDbCore.Models;
 using Furny.Models;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Bson;

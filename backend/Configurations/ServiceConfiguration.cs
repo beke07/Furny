@@ -8,6 +8,7 @@ namespace Microsoft.Extensions.DependencyInjection
         public static void AddServices(this IServiceCollection services)
         {
             services.AddTransient<IAuthService, AuthService>();
+            services.AddTransient<IFileHandlerService, FileHandlerService>();
         }
     }
 }

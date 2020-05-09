@@ -1,10 +1,12 @@
-﻿using AutoMapper;
+﻿using AspNetCore.Identity.MongoDbCore.Models;
+using AutoMapper;
 using Furny.Data;
 using Furny.Filters;
 using Furny.Models;
 using Furny.ServiceInterfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
+using MongoDB.Bson;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -13,20 +15,24 @@ namespace Furny.Services
     public class AuthService : IAuthService
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly RoleManager<ApplicationRole> _roleManager;
         private readonly IConfiguration _configuration;
         private readonly IMapper _mapper;
-        private readonly UserManager<ApplicationUser> _userManager;
 
         public AuthService(
             SignInManager<ApplicationUser> signInManager,
+            UserManager<ApplicationUser> userManager,
+            RoleManager<ApplicationRole> roleManager,
             IConfiguration configuration,
-            IMapper mapper,
-            UserManager<ApplicationUser> userManager)
+            IMapper mapper
+            )
         {
             _signInManager = signInManager;
             _configuration = configuration;
             _mapper = mapper;
             _userManager = userManager;
+            _roleManager = roleManager;
         }
 
         public async Task<bool> IsNotRegistratedAsync(string email)
@@ -52,24 +58,46 @@ namespace Furny.Services
             await _signInManager.SignOutAsync();
         }
 
-        public async Task RegisterAsync(RegisterDto register)
+        public async Task<ObjectId> RegisterAsync<T, U>(U register, string role)
+            where T: ApplicationUser
+            where U: RegisterBaseDto
         {
-            var result = await _userManager.CreateAsync(_mapper.Map<ApplicationUser>(register), register.Password);
+            var user = _mapper.Map<T>(register);
+
+            IdentityResult result;
+
+            if (string.IsNullOrEmpty(register.UserId))
+            {
+                result = await _userManager.CreateAsync(user, register.Password);
+            }
+            else
+            {
+                result = await _userManager.CreateAsync(user);
+            }
+
+            if(!await _roleManager.RoleExistsAsync(role))
+            {
+                await _roleManager.CreateAsync(new ApplicationRole(role));
+            }
+
+            await _userManager.AddToRoleAsync(user, role);
 
             if (!result.Succeeded)
             {
                 throw new HttpResponseException(result.Errors, HttpStatusCode.InternalServerError);
             }
+
+            return user.Id;
         }
 
-        public async Task CreateUserAsync(FirebaseUserDto user)
+        public async Task RegisterDesigner(DesignerRegisterDto registerDto)
         {
-            var result = await _userManager.CreateAsync(_mapper.Map<ApplicationUser>(user));
+            await RegisterAsync<Designer, DesignerRegisterDto>(registerDto, RoleNames.Designer);
+        }
 
-            if (!result.Succeeded)
-            {
-                throw new HttpResponseException(result.Errors, HttpStatusCode.InternalServerError);
-            }
+        public async Task RegisterPanelCutter(PanelCutterRegisterDto registerDto)
+        {
+            await RegisterAsync<PanelCutter, PanelCutterRegisterDto>(registerDto, RoleNames.PanelCutter);         
         }
     }
 }
