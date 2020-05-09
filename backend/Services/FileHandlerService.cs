@@ -9,10 +9,15 @@ using System.Threading.Tasks;
 
 namespace Furny.Services
 {
-    public class FileHandlerService : BaseService, IFileHandlerService
+    public class FileHandlerService : IFileHandlerService
     {
-        public FileHandlerService(IConfiguration configuration) : base(configuration)
-        { }
+        private readonly IMongoDatabase _database;
+
+        public FileHandlerService(IConfiguration configuration)
+        {
+            var client = new MongoClient(configuration.GetConnectionString("FurnyDb"));
+            _database = client.GetDatabase("FurnyDb");
+        }
 
         public IGridFSBucket CreateBucket(string name)
         {
@@ -44,10 +49,13 @@ namespace Furny.Services
             return await bucket.UploadFromStreamAsync(fileName, file);
         }
 
-        public async Task<byte[]> DownloadFileAsync(ObjectId id)
+        public async Task<Stream> DownloadFileAsync(string id)
         {
             var bucket = CreateBucket("images");
-            return await bucket.DownloadAsBytesAsync(id);
+            var file = new MemoryStream();
+            await bucket.DownloadToStreamAsync(new ObjectId(id), file);
+            file.Position = 0;
+            return file;
         }
     }
 }

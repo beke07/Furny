@@ -48,7 +48,7 @@ namespace Microsoft.Extensions.DependencyInjection
             {
                 options.DefaultPolicy = new AuthorizationPolicyBuilder()
                     .RequireAuthenticatedUser()
-                    .AddAuthenticationSchemes("Firebase", "Default", "Google")
+                    .AddAuthenticationSchemes("Firebase", "Default")
                     .Build();
             });
         }

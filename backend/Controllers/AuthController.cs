@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Furny.Controllers
 {
-    [Route("api/auth")]
+    [Route("api/[controller]")]
     [ApiController]
     [Authorize]
     public class AuthController : ControllerBase
@@ -37,13 +37,6 @@ namespace Furny.Controllers
         {
             await _authService.RegisterPanelCutter(registerDto);
             return Ok();
-        }
-
-        [AllowAnonymous]
-        [HttpPost("register/panelcutter/logo")]
-        public async Task<IActionResult> UploadFIle(IFormFile file)
-        {
-            return Ok(new { imageId = await _fileHandlerService.UploadFileAsync(file) });
         }
 
         [AllowAnonymous]

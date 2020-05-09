@@ -4,7 +4,9 @@
   <div v-if="user.isAuthenticated">
   <button @click="logout">Logout</button>
   <h1>Hi {{ user.name }}!</h1>
-  </div>  
+  </div>
+
+  <img src="https://localhost:44348/api/PanelCutter/5eb6810fee11170b21ec3a3d/profile" width="1000"/>  
 </div>
 </template>
 

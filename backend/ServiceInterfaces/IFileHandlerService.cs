@@ -11,6 +11,6 @@ namespace Furny.ServiceInterfaces
 
         Task<string> UploadFileAsync(IFormFile file);
 
-        Task<byte[]> DownloadFileAsync(ObjectId id);
+        Task<Stream> DownloadFileAsync(string id);
     }
 }
