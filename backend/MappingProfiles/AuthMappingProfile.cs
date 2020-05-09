@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Furny.Data;
 using Furny.Models;
+using Furny.ServiceInterfaces;
+using System;
 
 namespace Furny.MappingProfiles
 {
@@ -12,9 +14,41 @@ namespace Furny.MappingProfiles
 
             CreateMap<FirebaseUserDto, PanelCutter>().ReverseMap();
 
-            CreateMap<DesignerRegisterDto, Designer>().ReverseMap();
+            CreateMap<AddressDto, Address>().ReverseMap();
 
-            CreateMap<PanelCutterRegisterDto, PanelCutter>().ReverseMap();
+            CreateMap<UserAddress, UserAddressDto>();
+
+            CreateMap<DesignerRegisterDto, Designer>()
+                .ForMember(e => e.UserAddress, opt => opt.MapFrom<AddressResolver>())
+                .ReverseMap();
+
+            CreateMap<PanelCutterRegisterDto, PanelCutter>()
+                .ForMember(e => e.UserAddress, opt => opt.MapFrom<AddressResolver>())
+                .ReverseMap();
+        }
+    }
+
+    public class AddressResolver : IValueResolver<RegisterBaseDto, ApplicationUser, UserAddress>
+    {
+        private readonly IAddressService _addressService;
+
+        public AddressResolver(IAddressService addressService)
+        {
+            _addressService = addressService;
+        }
+
+        public UserAddress Resolve(RegisterBaseDto source, ApplicationUser destination, UserAddress destMember, ResolutionContext context)
+        {
+            if (source?.UserAddress == null)
+            {
+                throw new Exception("Mappelés nem sikerült, mert a megadott tulajdonság üres!");
+            }
+
+            return new UserAddress()
+            {
+                Address = _addressService.FindByIdAsync(source.UserAddress.Address.Id).Result,
+                StreetAndHouse = source.UserAddress.StreetAndHouse
+            };
         }
     }
 }

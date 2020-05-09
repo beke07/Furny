@@ -24,7 +24,7 @@ namespace Furny.Models
 
         public string ImageId { get; set; }
 
-        public string Address { get; set; }
+        public UserAddress UserAddress { get; set; }
 
         public string Phone { get; set; }
 

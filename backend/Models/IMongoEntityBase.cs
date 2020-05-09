@@ -17,13 +17,18 @@ namespace Furny.Models
         public MongoEntityBase()
         {
             Id = ObjectId.GenerateNewId();
-            CreatedOn = DateTime.Now;
+            CreatedOn = Id.CreationTime;
         }
 
         public MongoEntityBase(string id)
         {
-            Id = ObjectId.TryParse(id, out ObjectId _id) ? _id : ObjectId.GenerateNewId();
-            CreatedOn = DateTime.Now;
+            if (ObjectId.TryParse(id, out ObjectId _id))
+            {
+                Id = _id;
+                CreatedOn = _id.CreationTime;
+            }
+
+            throw new Exception("Id nem lehet üres!");
         }
 
         public DateTime CreatedOn { get; }

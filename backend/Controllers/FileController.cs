@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace Furny.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/file")]
     [ApiController]
-    [Authorize]
     public class FileController : ControllerBase
     {
         private readonly IFileHandlerService _fileHandlerService;
@@ -19,13 +18,13 @@ namespace Furny.Controllers
             _fileHandlerService = fileHandlerService;
         }
 
-        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Upload(IFormFile file)
         {
             return Ok(new { imageId = await _fileHandlerService.UploadFileAsync(file) });
         }
 
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> Download(string id)
         {

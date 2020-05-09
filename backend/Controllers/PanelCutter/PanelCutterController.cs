@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Furny.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/panelCutter")]
     [ApiController]
     public class PanelCutterController : ControllerBase
     {
@@ -17,11 +17,5 @@ namespace Furny.Controllers
         {
             _panelCutterService = panelCutterService;
         }
-
-        //[HttpGet]
-        //public async Task<IActionResult> GetHome()
-        //{
-
-        //}
     }
 }

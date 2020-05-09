@@ -26,6 +26,6 @@ namespace Furny.Data
         public string Phone { get; set; }
 
         [Required]
-        public string Address { get; set; }
+        public UserAddressDto UserAddress { get; set; }
     }
 }

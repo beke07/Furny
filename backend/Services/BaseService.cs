@@ -1,8 +1,10 @@
-﻿using Furny.Models;
+﻿using Furny.Filters;
+using Furny.Models;
 using Furny.ServiceInterfaces;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace Furny.Services
@@ -23,7 +25,14 @@ namespace Furny.Services
 
         public async Task<T> FindByIdAsync(string id)
         {
-            return await _collection.Find(e => e.Id == ObjectId.Parse(id)).FirstOrDefaultAsync();
+            var entity = await _collection.Find(e => e.Id == ObjectId.Parse(id)).FirstOrDefaultAsync();
+
+            if (entity == null)
+            {
+                throw new HttpResponseException("Elem nem található!", HttpStatusCode.BadRequest);
+            }
+
+            return entity;
         }
 
         public async Task UpdateAsync(T entity)

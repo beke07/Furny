@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using MongoDB.Bson.Serialization.Attributes;
 
 namespace Furny.Models
 {
     public class Ad : MongoEntityBase
     {
-        public Ad() : base()
+        internal Ad()
         { }
 
         public Ad(string id) : base(id)

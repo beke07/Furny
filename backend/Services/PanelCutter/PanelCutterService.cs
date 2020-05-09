@@ -1,10 +1,14 @@
 ﻿using AutoMapper;
 using Furny.Data;
+using Furny.Data.Designer;
 using Furny.Models;
 using Furny.ServiceInterfaces;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.Extensions.Configuration;
+using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Policy;
 using System.Threading.Tasks;
 
@@ -21,6 +25,40 @@ namespace Furny.Services
         {
             _mapper = mapper;
         }
+
+        public async Task<IList<DesignerAdDto>> GetAdsByCountry(string country)
+        {
+            var panelCutters = await _collection
+                .OfType<PanelCutter>()
+                .Find(e => e.UserAddress.Address.Country == country)
+                .ToListAsync();
+
+            var ads = panelCutters.Select(e => e.Ads);
+
+            IList<DesignerAdDto> result = new List<DesignerAdDto>();
+
+            panelCutters.ForEach(panelCutter =>
+            {
+                panelCutter.Ads.ToList().ForEach(ad =>
+                {
+                    var ago = DateTime.Now.Subtract(ad.Id.CreationTime);
+
+                    result.Add(new DesignerAdDto()
+                    {
+                        PanelCutterId = _mapper.Map<string>(panelCutter.Id),
+                        PanelCutterImageId = panelCutter.ImageId,
+                        PanelCutterUserName = panelCutter.UserName,
+                        HourAgo = ago.Hours < 1 ?
+                            $"{ago.Minutes} perce" :
+                            $"{ago.Hours} órája",
+                        Text = ad.Text
+                    });
+                });
+            });
+
+            return result;
+        }
+
         public async Task<PanelCutterProfileDto> GetProfileAsync(string id)
         {
             var panelCutter = await FindByIdAsync(id);

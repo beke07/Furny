@@ -7,19 +7,15 @@ using System.Threading.Tasks;
 
 namespace Furny.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/auth")]
     [ApiController]
-    [Authorize]
     public class AuthController : ControllerBase
     {
-        private readonly IFileHandlerService _fileHandlerService;
         private readonly IAuthService _authService;
 
         public AuthController(
-            IFileHandlerService fileHandlerService,
             IAuthService authService)
         {
-            _fileHandlerService = fileHandlerService;
             _authService = authService;
         }
 
@@ -32,7 +28,7 @@ namespace Furny.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost("register/panelcutter")]
+        [HttpPost("register/panel-cutter")]
         public async Task<IActionResult> RegisterPanelCutter(PanelCutterRegisterDto registerDto)
         {
             await _authService.RegisterPanelCutter(registerDto);
@@ -47,6 +43,7 @@ namespace Furny.Controllers
             return Ok(new { token });
         }
 
+        [Authorize]
         [HttpPost("logout")]
         public async Task<IActionResult> Logout()
         {
