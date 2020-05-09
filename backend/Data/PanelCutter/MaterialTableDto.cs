@@ -7,7 +7,7 @@ namespace Furny.Data
 {
     public class MaterialTableDto
     {
-        public string Id { get; set; }
+        public string _id { get; set; }
 
         public string Name { get; set; }
 

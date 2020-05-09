@@ -11,10 +11,7 @@ namespace Furny.MappingProfiles
             CreateMap<PanelCutterProfileDto, PanelCutter>().ReverseMap();
             CreateMap<MaterialDto, Material>().ReverseMap();
             CreateMap<MaterialTableDto, Material>().ReverseMap();
-            CreateMap<AdDto, Ad>()
-                .ForMember(e => e.Id, opt => opt.Ignore())
-                .ConstructUsing(e => new Ad())
-                .ReverseMap();
+            CreateMap<AdDto, Ad>().ReverseMap();
         }
     }
 }

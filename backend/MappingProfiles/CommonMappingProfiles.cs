@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Furny.Data;
+using Furny.Models;
 using MongoDB.Bson;
 using System;
 using System.Collections.Generic;

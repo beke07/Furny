@@ -7,7 +7,7 @@ namespace Furny.Data
 {
     public class AddressDto
     {
-        public string Id { get; set; }
+        public string _id { get; set; }
 
         public long ZipCode { get; set; }
 

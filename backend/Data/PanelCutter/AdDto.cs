@@ -7,7 +7,7 @@ namespace Furny.Data
 {
     public class AdDto
     {
-        public string Id { get; set; }
+        public string _id { get; set; }
 
         public string Text { get; set; }
 
