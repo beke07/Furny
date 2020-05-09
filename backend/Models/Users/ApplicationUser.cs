@@ -2,6 +2,9 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Furny.Models
 {
@@ -26,5 +29,17 @@ namespace Furny.Models
         public string Phone { get; set; }
 
         public bool IsDeleted { get; set; }
+
+        public IList<Notification> Notifications { get; set; } = new List<Notification>();
+
+        internal void AddNotification(Notification notification)
+        {
+            Notifications.Add(notification);
+        }
+
+        internal void DoneNotification(string id)
+        {
+            Notifications.SingleOrDefault(e => e.Id == ObjectId.Parse(id)).IsDone = true;
+        }
     }
 }

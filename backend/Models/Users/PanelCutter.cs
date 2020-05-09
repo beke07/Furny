@@ -27,6 +27,8 @@ namespace Furny.Models
 
         public IList<Material> Materials { get; set; } = new List<Material>();
 
+        public IList<Ad> Ads { get; set; } = new List<Ad>();
+
         internal void AddMaterial(Material material)
         {
             if(Materials.Select(e => e.Name).Contains(material.Name))
@@ -35,6 +37,35 @@ namespace Furny.Models
             }
 
             Materials.Add(material);
+        }
+
+        internal void RemoveAd(string id)
+        {
+            var ad = GetAd(id);
+            Ads.Remove(ad);
+        }
+
+        internal Ad GetAd(string id)
+        {
+            var ad = Ads.SingleOrDefault(e => e.Id == ObjectId.Parse(id));
+
+            if (ad == null)
+            {
+                throw new HttpResponseException("Hirdetés nem található!", HttpStatusCode.BadRequest);
+            }
+
+            return ad;
+        }
+
+        internal void AddAd(Ad ad)
+        {
+            Ads.Add(ad);
+        }
+
+        internal void UpdateAd(Ad ad, string id)
+        {
+            RemoveAd(id);
+            AddAd(ad);
         }
 
         internal void RemoveMaterial(string id)
@@ -55,9 +86,9 @@ namespace Furny.Models
             return material;
         }
 
-        internal void UpdateMaterial(Material material, string mid)
+        internal void UpdateMaterial(Material material, string id)
         {
-            RemoveMaterial(mid);
+            RemoveMaterial(id);
             AddMaterial(material);
         }
     }

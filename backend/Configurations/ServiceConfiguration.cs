@@ -10,6 +10,8 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddTransient<IAuthService, AuthService>();
             services.AddTransient<IFileHandlerService, FileHandlerService>();
             services.AddTransient<IPanelCutterService, PanelCutterService>();
+            services.AddTransient<IAdService, AdService>();
+            services.AddTransient<IMaterialService, MaterialService>();
         }
     }
 }
