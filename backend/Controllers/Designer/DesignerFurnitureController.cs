@@ -6,7 +6,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson.Serialization.Conventions;
+using System.IO;
 using System.Threading.Tasks;
+using static Furny.Common.Enums;
 
 namespace Furny.Controllers
 {
@@ -73,6 +75,18 @@ namespace Furny.Controllers
         {
             await _furnitureService.RemoveComponentAsync(id, fid, cid);
             return Ok();
+        }
+
+        [HttpGet("{id}/furnitures/{fid}/export")]
+        public async Task<FileStreamResult> Excel([FromQuery]ExcelType excelType, string id, string fid)
+        {
+            var result = await _furnitureService.ExportAsync(excelType, id, fid);
+
+            const string contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            return new FileStreamResult(result.Item1, contentType)
+            {
+                FileDownloadName = Path.GetFileName(result.Item2)
+            };
         }
     }
 }

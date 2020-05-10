@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using DocumentFormat.OpenXml.Drawing.Diagrams;
+using Furny.Common;
 using Furny.Data;
 using Furny.Data.Designer;
 using Furny.Data.Designer.TableDto;
@@ -6,30 +8,50 @@ using Furny.Models;
 using Furny.ServiceInterfaces;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.Extensions.Configuration;
+using Microsoft.OpenApi.Extensions;
 using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using static Furny.Common.Enums;
 
 namespace Furny.Services
 {
     public class FurnitureService : SingleElementBaseService<Designer, Furniture, FurnitureDto, FurnitureTableDto>, IFurnitureService
     {
         private readonly IMapper _mapper;
+        private readonly IExportService _exportService;
 
         public FurnitureService(
             IMapper mapper,
             IConfiguration configuration,
+            IExportService exportService,
             string collectionName = "applicationUsers") : base(mapper, configuration, collectionName)
         {
             _mapper = mapper;
+            _exportService = exportService;
         }
 
         public override async Task CreateAsync(FurnitureDto element, string id)
         {
             element.DesignerId = id;
             await base.CreateAsync(element, id);
+        }
+
+        public async Task<Tuple<MemoryStream, string>> ExportAsync(ExcelType excelType, string id, string fid)
+        {
+            var furniture = await FindByIdAsync(id, fid);
+            var fileName = excelType.GetDescription();
+
+            var components = new List<Component>();
+            components.AddRange(furniture.Moduls.SelectMany(e => e.Components));
+            components.AddRange(furniture.Components);
+
+            var result = components.GroupBy(e => e.Name).Select(e => e.ToList());
+
+            return await _exportService.ExportAsync(excelType, result); 
         }
 
         public async Task AddModulAsync(string id, string fid, string mid)

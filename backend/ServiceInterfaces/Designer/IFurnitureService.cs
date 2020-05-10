@@ -3,8 +3,10 @@ using Furny.Data.Designer;
 using Furny.Data.Designer.TableDto;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using static Furny.Common.Enums;
 
 namespace Furny.ServiceInterfaces
 {
@@ -19,5 +21,7 @@ namespace Furny.ServiceInterfaces
         Task CopyComponentAsync(string id, string fid, string cid);
 
         Task RemoveComponentAsync(string id, string fid, string cid);
+
+        Task<Tuple<MemoryStream, string>> ExportAsync(ExcelType excelType, string id, string fid);
     }
 }

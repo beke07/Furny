@@ -1,14 +1,16 @@
 using Furny.Seed;
+using Furny.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using System.Threading.Tasks;
 
 namespace Furny
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            DataSeeder.SeedAddressesAsync();
+            await DataSeeder.SeedAddressesAsync();
             CreateHostBuilder(args).Build().Run();
         }
 

@@ -9,6 +9,8 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             services.AddTransient<IAuthService, AuthService>();
             services.AddTransient<IFileHandlerService, FileHandlerService>();
+            services.AddTransient<IExcelService, ExcelService>();
+            services.AddTransient<IExportService, ExportService>();
             services.AddTransient<IPanelCutterService, PanelCutterService>();
             services.AddTransient<IAdService, AdService>();
             services.AddTransient<IMaterialService, MaterialService>();
