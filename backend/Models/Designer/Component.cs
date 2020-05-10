@@ -35,8 +35,6 @@ namespace Furny.Models
 
     public class ComponentClosing
     {
-        public Closing Closing { get; set; }
-
         public bool IsClosed { get; set; }
     }
 }

@@ -22,27 +22,27 @@ namespace Furny.Controllers
         }
 
         [HttpPost("{id}/ads")]
-        public async Task<IActionResult> PostMaterial(AdDto ad, string id)
+        public async Task<IActionResult> PostAd(AdDto ad, string id)
         {
             await _adService.CreateAsync(ad, id);
             return Ok();
         }
 
         [HttpGet("{id}/ads")]
-        public async Task<IActionResult> GetMaterials(string id)
+        public async Task<IActionResult> GetAds(string id)
         {
             return Ok(await _adService.GetAsync(id));
         }
 
         [HttpDelete("{id}/ads/{adId}")]
-        public async Task<IActionResult> DeleteMaterial(string id, string adId)
+        public async Task<IActionResult> DeleteAd(string id, string adId)
         {
             await _adService.RemoveAsync(id, adId);
             return Ok();
         }
 
         [HttpPatch("{id}/ads/{adId}")]
-        public async Task<IActionResult> DeleteMaterial([FromBody]JsonPatchDocument<AdDto> jsonPatch, string id, string adId)
+        public async Task<IActionResult> DeleteAd([FromBody]JsonPatchDocument<AdDto> jsonPatch, string id, string adId)
         {
             await _adService.UpdateAsync(jsonPatch, id, adId);
             return Ok();

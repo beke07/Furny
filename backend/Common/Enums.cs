@@ -17,7 +17,19 @@ namespace Furny.Common
         public enum ExcelType
         {
             [Description("szabaszati-megrendelo-arajanlat")]
-            ErFa
+            ErFa = 1
+        }
+
+        public enum OfferState
+        {
+            Created = 1,
+            Done = 2
+        }
+
+        public enum OrderState
+        {
+            Created = 1,
+            Done = 2
         }
     }
 }

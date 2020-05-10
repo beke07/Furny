@@ -45,7 +45,7 @@ namespace Furny.Controllers
         }
 
         [HttpPatch("{id}/materials/{mid}")]
-        public async Task<IActionResult> DeleteMaterial([FromBody]JsonPatchDocument<MaterialDto> jsonPatch, string id, string mid)
+        public async Task<IActionResult> UpdateMaterial([FromBody]JsonPatchDocument<MaterialDto> jsonPatch, string id, string mid)
         {
             await _materialService.UpdateAsync(jsonPatch, id, mid);
             return Ok();

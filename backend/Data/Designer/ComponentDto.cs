@@ -29,8 +29,6 @@ namespace Furny.Data
 
     public class ComponentClosingDto
     {
-        public ClosingDto Closing { get; set; }
-
         public bool IsClosed { get; set; }
     }
 }
