@@ -1,14 +1,11 @@
 ﻿using AutoMapper;
-using DocumentFormat.OpenXml.Drawing.Diagrams;
 using Furny.Common;
 using Furny.Data;
 using Furny.Data.Designer;
 using Furny.Data.Designer.TableDto;
 using Furny.Models;
 using Furny.ServiceInterfaces;
-using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.Extensions.Configuration;
-using Microsoft.OpenApi.Extensions;
 using MongoDB.Bson;
 using System;
 using System.Collections.Generic;

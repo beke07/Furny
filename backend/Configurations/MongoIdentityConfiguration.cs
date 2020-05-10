@@ -1,6 +1,5 @@
 ﻿using AspNetCore.Identity.MongoDbCore.Extensions;
 using AspNetCore.Identity.MongoDbCore.Infrastructure;
-using AspNetCore.Identity.MongoDbCore.Models;
 using Furny.Models;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Bson;
@@ -8,7 +7,7 @@ using System;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
-	public static class MongoIdentityConfiguration
+    public static class MongoIdentityConfiguration
     {
         public static void AddMongoIdentity(this IServiceCollection services, IConfiguration configuration)
         {

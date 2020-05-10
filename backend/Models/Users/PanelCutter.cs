@@ -1,14 +1,4 @@
-﻿using AspNetCore.Identity.MongoDbCore.Models;
-using Furny.Data;
-using Furny.Filters;
-using Microsoft.AspNetCore.JsonPatch;
-using MongoDB.Bson;
-using MongoDbGenericRepository.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Xml.Serialization;
+﻿using System.Collections.Generic;
 
 namespace Furny.Models
 {

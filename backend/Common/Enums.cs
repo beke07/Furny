@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace Furny.Common
 {
@@ -28,8 +24,9 @@ namespace Furny.Common
 
         public enum OrderState
         {
-            Created = 1,
-            Done = 2
+            Accepted = 1,
+            Declined = 2,
+            Done = 3
         }
     }
 }

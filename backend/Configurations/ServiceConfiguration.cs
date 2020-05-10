@@ -21,6 +21,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddTransient<IFurnitureService, FurnitureService>();
             services.AddTransient<IOfferService, OfferService>();
             services.AddTransient<INotificationService, NotificationService>();
+            services.AddTransient<IOrderService, OrderService>();
         }
     }
 }

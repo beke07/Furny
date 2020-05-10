@@ -1,5 +1,4 @@
-﻿using AspNetCore.Identity.MongoDbCore.Models;
-using Furny.Data;
+﻿using Furny.Data;
 using Furny.Models;
 using MongoDB.Bson;
 using System.Threading.Tasks;

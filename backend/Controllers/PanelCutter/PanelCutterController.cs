@@ -1,8 +1,5 @@
-﻿using Furny.Data;
-using Furny.ServiceInterfaces;
-using Microsoft.AspNetCore.JsonPatch;
+﻿using Furny.ServiceInterfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace Furny.Controllers
 {

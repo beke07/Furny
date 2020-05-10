@@ -1,11 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using MongoDB.Bson.Serialization.Serializers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Furny.Data.Designer
+﻿namespace Furny.Data.Designer
 {
     public class DesignerAdDto
     {

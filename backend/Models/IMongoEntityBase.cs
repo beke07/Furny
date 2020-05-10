@@ -1,7 +1,5 @@
 ﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
 using MongoDbGenericRepository.Models;
-using Newtonsoft.Json;
 using System;
 
 namespace Furny.Models

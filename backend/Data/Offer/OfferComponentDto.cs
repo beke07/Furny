@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlTypes;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Furny.Data
+﻿namespace Furny.Data
 {
     public class OfferComponentDto
     {

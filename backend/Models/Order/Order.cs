@@ -16,6 +16,6 @@ namespace Furny.Models
 
         public string Comment { get; set; }
 
-        public OrderState State { get; set; }
+        public OrderState? State { get; set; }
     }
 }

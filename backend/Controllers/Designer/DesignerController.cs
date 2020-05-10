@@ -1,7 +1,4 @@
-﻿using Furny.Data;
-using Furny.ServiceInterfaces;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+﻿using Furny.ServiceInterfaces;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 

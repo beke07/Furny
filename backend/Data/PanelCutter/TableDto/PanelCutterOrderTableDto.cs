@@ -2,10 +2,10 @@
 
 namespace Furny.Data
 {
-    public class PanelCutterOfferTabeDto : TableDtoBase
+    public class PanelCutterOrderTableDto : TableDtoBase
     {
         public string DesignerName { get; set; }
 
-        public OfferState? State { get; set; }
+        public OrderState? State { get; set; }
     }
 }

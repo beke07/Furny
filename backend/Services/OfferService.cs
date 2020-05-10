@@ -22,18 +22,21 @@ namespace Furny.Services
         private readonly IMapper _mapper;
         private readonly IFurnitureService _furnitureService;
         private readonly IDesignerService _designerService;
+        private readonly IOrderService _orderService;
         private readonly INotificationService _notificationService;
 
         public OfferService(
             IMapper mapper,
             IFurnitureService furnitureService,
             IDesignerService designerService,
+            IOrderService orderService,
             INotificationService notificationService,
             IConfiguration configuration) : base(configuration, collectionName)
         {
             _mapper = mapper;
             _furnitureService = furnitureService;
             _designerService = designerService;
+            _orderService = orderService;
             _notificationService = notificationService;
         }
 
@@ -160,6 +163,7 @@ namespace Furny.Services
                 {
                     _id = offer.Id.ToString(),
                     CreatedOn = offer.Id.CreationTime,
+                    State = offer.State,
                     DesignerName = (await _designerService.FindByIdAsync(offer.DesginerId)).Name
                 });
             }
@@ -180,6 +184,8 @@ namespace Furny.Services
             offer.Price = offerDto.Price;
 
             await UpdateAsync(offer);
+
+            await _orderService.CreateAsnyc(offer);
 
             await _notificationService.CreateNotificationAsync(offer.DesginerId, new Notification()
             {

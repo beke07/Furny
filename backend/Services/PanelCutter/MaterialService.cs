@@ -2,12 +2,7 @@
 using Furny.Data;
 using Furny.Models;
 using Furny.ServiceInterfaces;
-using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Furny.Services
 {

@@ -1,6 +1,4 @@
-﻿using MongoDB.Bson;
-using System;
-using static Furny.Common.Enums;
+﻿using static Furny.Common.Enums;
 
 namespace Furny.Models
 {

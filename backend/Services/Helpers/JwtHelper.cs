@@ -1,5 +1,4 @@
 ﻿using AspNetCore.Identity.MongoDbCore.Models;
-using Furny.Models;
 using Microsoft.IdentityModel.Tokens;
 using MongoDB.Bson;
 using System;

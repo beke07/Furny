@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Furny.Data;
-using Furny.Data.Order;
 using Furny.Models;
 using Furny.ServiceInterfaces;
 using MongoDB.Bson;

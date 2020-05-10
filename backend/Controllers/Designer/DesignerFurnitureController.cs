@@ -1,11 +1,8 @@
 ﻿using Furny.Data;
 using Furny.Data.Designer;
 using Furny.ServiceInterfaces;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-using MongoDB.Bson.Serialization.Conventions;
 using System.IO;
 using System.Threading.Tasks;
 using static Furny.Common.Enums;

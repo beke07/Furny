@@ -1,5 +1,4 @@
 ﻿using Furny.Data;
-using Furny.Models;
 using Furny.ServiceInterfaces;
 using Microsoft.AspNetCore.Http;
 using System;

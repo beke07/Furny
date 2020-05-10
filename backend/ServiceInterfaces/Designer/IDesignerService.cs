@@ -2,9 +2,6 @@
 using Furny.Data.Designer;
 using Furny.Models;
 using Microsoft.AspNetCore.JsonPatch;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Furny.ServiceInterfaces

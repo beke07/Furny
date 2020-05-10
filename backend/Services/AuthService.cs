@@ -1,5 +1,4 @@
-﻿using AspNetCore.Identity.MongoDbCore.Models;
-using AutoMapper;
+﻿using AutoMapper;
 using Furny.Data;
 using Furny.Filters;
 using Furny.Models;

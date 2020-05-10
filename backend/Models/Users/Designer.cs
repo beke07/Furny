@@ -1,10 +1,6 @@
-﻿using MongoDB.Bson;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace Furny.Models
+﻿namespace Furny.Models
 {
-	public class Designer : ApplicationUser
+    public class Designer : ApplicationUser
 	{
 		public Designer() : base()
 		{ }

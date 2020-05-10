@@ -1,8 +1,5 @@
 ﻿using Furny.ServiceInterfaces;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Net.Mime;
 using System.Threading.Tasks;
 
 namespace Furny.Controllers

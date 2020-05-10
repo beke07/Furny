@@ -2,9 +2,7 @@
 using Furny.Data.Designer;
 using Furny.Data.Designer.TableDto;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using static Furny.Common.Enums;
 

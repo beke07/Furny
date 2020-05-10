@@ -6,6 +6,8 @@ namespace Furny.Data
 {
     public class OfferDto
     {
+        public string _id { get; set; }
+
         public IList<OfferComponentDto> Components { get; set; }
 
         public long? Price { get; set; }

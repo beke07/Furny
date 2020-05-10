@@ -1,6 +1,4 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
-
-namespace Furny.Models
+﻿namespace Furny.Models
 {
     public class Ad : MongoEntityBase
     {

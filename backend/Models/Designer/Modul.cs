@@ -1,9 +1,4 @@
-﻿using Furny.Common;
-using Furny.Filters;
-using MongoDB.Bson;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using MongoDB.Bson;
 
 namespace Furny.Models
 {
