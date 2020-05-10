@@ -16,5 +16,9 @@ namespace Furny.ServiceInterfaces
         Task UpdateProfileAsync(JsonPatchDocument<DesignerProfileDto> jsonPatch, string id);
 
         Task<DesignerHomeDto> GetAdsAsync(string id);
+
+        Task AddFavoritePanelCutterAsync(string id, string pid);
+
+        Task RemoveFavoritePanelCutterAsync(string id, string pid);
     }
 }

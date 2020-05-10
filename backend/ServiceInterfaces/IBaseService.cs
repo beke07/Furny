@@ -10,5 +10,9 @@ namespace Furny.ServiceInterfaces
         where T : IMongoEntityBase
     {
         Task<T> FindByIdAsync(string id);
+
+        Task UpdateAsync(T entity);
+
+        Task<IList<T>> Get();
     }
 }

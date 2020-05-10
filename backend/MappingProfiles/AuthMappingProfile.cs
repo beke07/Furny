@@ -46,7 +46,7 @@ namespace Furny.MappingProfiles
 
             return new UserAddress()
             {
-                Address = _addressService.FindByIdAsync(source.UserAddress.Address.Id).Result,
+                Address = _addressService.FindByIdAsync(source.UserAddress.Address._id).Result,
                 StreetAndHouse = source.UserAddress.StreetAndHouse
             };
         }

@@ -1,12 +1,10 @@
 ﻿using Furny.Data;
 using Microsoft.AspNetCore.JsonPatch;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Furny.ServiceInterfaces
 {
-    public interface IMaterialService : ISingleElementService<MaterialDto, MaterialTableDto>
+    public interface IClosingService : ISingleElementService<ClosingDto, ClosingTableDto>
     { }
 }

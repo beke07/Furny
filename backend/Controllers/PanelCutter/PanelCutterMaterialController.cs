@@ -34,7 +34,7 @@ namespace Furny.Controllers
         [HttpGet("{id}/materials/{mid}")]
         public async Task<IActionResult> GetMaterial(string id, string mid)
         {
-            return Ok(await _materialService.GetAsync(id, mid));
+            return Ok(await _materialService.GetByIdAsync(id, mid));
         }
 
         [HttpDelete("{id}/materials/{mid}")]

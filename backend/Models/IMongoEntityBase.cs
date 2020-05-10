@@ -1,6 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using MongoDbGenericRepository.Models;
+using Newtonsoft.Json;
 using System;
 
 namespace Furny.Models
@@ -31,11 +32,21 @@ namespace Furny.Models
             throw new Exception("Id nem lehet üres!");
         }
 
+        protected void SoftDelete()
+        {
+            IsDeleted = true;
+        }
+
+        protected void Restore()
+        {
+            IsDeleted = false;
+        }
+
+        public ObjectId Id { get; set; }
+
         public DateTime CreatedOn { get; }
 
         public bool IsDeleted { get; set; }
-
-        public ObjectId Id { get; set; }
 
         public int Version { get; set; }
     }

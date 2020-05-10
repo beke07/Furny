@@ -27,6 +27,23 @@ namespace Furny.Services
             _panelCutterService = panelCutterService;
         }
 
+        public async Task AddFavoritePanelCutterAsync(string id, string pid)
+        {
+            var designer = await FindByIdAsync(id);
+            var panelCutter = await _panelCutterService.FindByIdAsync(pid);
+            
+            designer.Favorites.Add(panelCutter);
+            await UpdateAsync(designer);
+        }
+
+        public async Task RemoveFavoritePanelCutterAsync(string id, string pid)
+        {
+            var designer = await FindByIdAsync(id);
+
+            designer.Favorites.RemoveById(pid);
+            await UpdateAsync(designer);
+        }
+
         public async Task<DesignerHomeDto> GetAdsAsync(string id)
         {
             var designer = await FindByIdAsync(id);

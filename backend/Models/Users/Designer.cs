@@ -1,6 +1,6 @@
-﻿using AspNetCore.Identity.MongoDbCore.Models;
-using MongoDB.Bson;
-using MongoDbGenericRepository.Attributes;
+﻿using MongoDB.Bson;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Furny.Models
 {
@@ -11,5 +11,9 @@ namespace Furny.Models
 
 		public Designer(string userName, string email) : base(userName, email)
 		{ }
+
+		public SingleElement<PanelCutter> Favorites { get; set; } = new SingleElement<PanelCutter>();
+
+		public SingleElement<Modul> Moduls { get; set; } = new SingleElement<Modul>();
 	}
 }

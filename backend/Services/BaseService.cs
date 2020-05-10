@@ -4,6 +4,7 @@ using Furny.ServiceInterfaces;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -25,7 +26,7 @@ namespace Furny.Services
 
         public async Task<T> FindByIdAsync(string id)
         {
-            var entity = await _collection.Find(e => e.Id == ObjectId.Parse(id)).FirstOrDefaultAsync();
+            var entity = await _collection.Find(e => e.Id == ObjectId.Parse(id) && !e.IsDeleted).FirstOrDefaultAsync();
 
             if (entity == null)
             {
@@ -33,6 +34,12 @@ namespace Furny.Services
             }
 
             return entity;
+        }
+
+        public async Task<IList<T>> Get()
+        {
+            var entities = await _collection.Find(e => !e.IsDeleted).ToListAsync();
+            return entities;
         }
 
         public async Task UpdateAsync(T entity)

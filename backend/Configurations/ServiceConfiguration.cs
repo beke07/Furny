@@ -16,6 +16,8 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddTransient<IMaterialService, MaterialService>();
             services.AddTransient<IDesignerService, DesignerService>();
             services.AddTransient<IAddressService, AddressService>();
+            services.AddTransient<IClosingService, ClosingService>();
+            services.AddTransient<IModulService, ModulService>();
         }
     }
 }
