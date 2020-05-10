@@ -17,5 +17,7 @@ namespace Furny.ServiceInterfaces
         Task<PanelCutterOfferDto> GetPanelCutterOfferAsync(string offerId);
 
         Task<IList<PanelCutterOfferTabeDto>> GetPanelCutterOfferTableAsync(string panelCutterId);
+
+        Task FillPanelCutterOfferAsync(PanelCutterFillOfferDto offerDto, string oid);
     }
 }

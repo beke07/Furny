@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using Furny.Data;
+using Furny.Filters;
 using Furny.Models;
 using Furny.ServiceInterfaces;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using static Furny.Common.Enums;
 
@@ -20,21 +22,25 @@ namespace Furny.Services
         private readonly IMapper _mapper;
         private readonly IFurnitureService _furnitureService;
         private readonly IDesignerService _designerService;
+        private readonly INotificationService _notificationService;
 
         public OfferService(
             IMapper mapper,
             IFurnitureService furnitureService,
             IDesignerService designerService,
+            INotificationService notificationService,
             IConfiguration configuration) : base(configuration, collectionName)
         {
             _mapper = mapper;
             _furnitureService = furnitureService;
             _designerService = designerService;
+            _notificationService = notificationService;
         }
 
         public async Task CreateAsnyc(OfferDto offerDto, string desginerId, string furnitureId)
         {
-            foreach (var components in offerDto.Components.GroupBy(e => e.PanelCutterId).Select(e => e.ToList()))
+            var componentsByPanelCuttes = offerDto.Components.GroupBy(e => e.PanelCutterId);
+            foreach (var components in componentsByPanelCuttes.Select(e => e.ToList()))
             {
                 components.ForEach(e =>
                 {
@@ -51,6 +57,16 @@ namespace Furny.Services
                 };
 
                 await _collection.InsertOneAsync(offer);
+            }
+
+            var panelCutters = componentsByPanelCuttes.Select(e => e.Key);
+
+            foreach (var panelCutter in panelCutters)
+            {
+                await _notificationService.CreateNotificationAsync(panelCutter, new Notification()
+                {
+                    Text = "Árajánlati kérelem érkezett!"
+                });
             }
         }
 
@@ -91,6 +107,8 @@ namespace Furny.Services
             {
                 result.Add(new DesignerOfferTableDto()
                 {
+                    _id = offer.Id.ToString(),
+                    CreatedOn = offer.Id.CreationTime,
                     FurnitureName = furniture.Name,
                     State = offer.State
                 });
@@ -117,13 +135,13 @@ namespace Furny.Services
                 {
                     var quantity = components.Sum(e => e.Component.Height * e.Component.Width) / _mm2Tom2;
                     countedPrice += (long)Math.Ceiling(material.Price * quantity);
-                    offerDto.MaterialQuantity.Add(material.Name, quantity);
+                    offerDto.MaterialQuantity.Add(material.Name, $"{quantity} m²");
                 }
                 else if (material.Type == MaterialType.Table)
                 {
                     var quantity = (long)Math.Ceiling(components.Sum(e => e.Component.Height * e.Component.Width) / (_tableWidth * _tableHeight));
                     countedPrice += material.Price * quantity;
-                    offerDto.MaterialQuantity.Add(material.Name, quantity);
+                    offerDto.MaterialQuantity.Add(material.Name, $"{quantity} tábla");
                 }
             }
 
@@ -140,11 +158,33 @@ namespace Furny.Services
             {
                 result.Add(new PanelCutterOfferTabeDto()
                 {
+                    _id = offer.Id.ToString(),
+                    CreatedOn = offer.Id.CreationTime,
                     DesignerName = (await _designerService.FindByIdAsync(offer.DesginerId)).Name
                 });
             }
 
             return result;
+        }
+
+        public async Task FillPanelCutterOfferAsync(PanelCutterFillOfferDto offerDto, string offerId)
+        {
+            var offer = await FindByIdAsync(offerId);
+
+            if(offer.State == OfferState.Done)
+            {
+                throw new HttpResponseException("Az árajánlat már ki van töltve!", HttpStatusCode.BadRequest);
+            }
+
+            offer.Deadline = offerDto.Deadline;
+            offer.Price = offerDto.Price;
+
+            await UpdateAsync(offer);
+
+            await _notificationService.CreateNotificationAsync(offer.DesginerId, new Notification()
+            {
+                Text = "Árajánlat érkezett!"
+            });
         }
     }
 }

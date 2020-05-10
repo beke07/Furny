@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Furny.Data;
 using Furny.Models;
 using MongoDB.Bson;
 using System;
@@ -12,6 +13,7 @@ namespace Furny.MappingProfiles
         {
             CreateMap<ObjectId, string>().ConvertUsing<ObjectIdConverter>();
             CreateMap<string, ObjectId>().ConvertUsing<StringConverter>();
+            CreateMap<NotificationDto, Notification>().ReverseMap();
         }
 
         public class ObjectIdConverter : ITypeConverter<ObjectId, string>

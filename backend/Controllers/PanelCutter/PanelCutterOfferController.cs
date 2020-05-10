@@ -18,9 +18,10 @@ namespace Furny.Controllers
             _offerService = offerService;
         }
 
-        [HttpPost("{id}/offers/{oid}")]
-        public async Task<IActionResult> Post(string id, string oid)
+        [HttpPost("offers/{oid}")]
+        public async Task<IActionResult> Post(PanelCutterFillOfferDto offerDto, string oid)
         {
+            await _offerService.FillPanelCutterOfferAsync(offerDto, oid);
             return Ok();
         }
 

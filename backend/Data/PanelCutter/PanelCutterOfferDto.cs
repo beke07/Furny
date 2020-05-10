@@ -9,7 +9,7 @@ namespace Furny.Data
     {
         public OfferDto Offer { get; set; }
 
-        public IDictionary<string, double> MaterialQuantity { get; set; } = new Dictionary<string, double>();
+        public IDictionary<string, string> MaterialQuantity { get; set; } = new Dictionary<string, string>();
 
         public long CountedPrice { get; set; }
     }

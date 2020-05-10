@@ -20,6 +20,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddTransient<IModulService, ModulService>();
             services.AddTransient<IFurnitureService, FurnitureService>();
             services.AddTransient<IOfferService, OfferService>();
+            services.AddTransient<INotificationService, NotificationService>();
         }
     }
 }
