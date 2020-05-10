@@ -13,6 +13,8 @@ namespace Furny.ServiceInterfaces
 
         Task<IList<TD>> GetAsync(string baseElementId);
 
+        Task<IList<TD>> QuickSearchAsync(string baseElementId, string term, string propertyName);
+
         Task<D> GetByIdAsync(string baseElementId, string elementId);
 
         Task UpdateAsync(JsonPatchDocument<D> jsonPatch, string baseElementId, string elementId);

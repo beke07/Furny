@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using Furny.MappingProfiles;
-using Furny.ServiceInterfaces;
+﻿using Furny.ServiceInterfaces;
 using Furny.Services;
 
 namespace Microsoft.Extensions.DependencyInjection
@@ -18,6 +16,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddTransient<IAddressService, AddressService>();
             services.AddTransient<IClosingService, ClosingService>();
             services.AddTransient<IModulService, ModulService>();
+            services.AddTransient<IFurnitureService, FurnitureService>();
         }
     }
 }

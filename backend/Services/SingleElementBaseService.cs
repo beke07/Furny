@@ -47,7 +47,7 @@ namespace Furny.Services
             return _mapper.Map<IList<TD>>(elements);
         }
 
-        protected async Task<T> FindByIdAsync(string id, string cid)
+        public async Task<T> FindByIdAsync(string id, string cid)
         {
             var elements = await GetPropertyAsync(id);
             return elements.GetById(cid);
@@ -90,12 +90,25 @@ namespace Furny.Services
             await UpdateAsync(await SetPropertyAsync(id, elements));
         }
 
-        public async Task CreateAsync(D element, string id)
+        public virtual async Task CreateAsync(D element, string id)
         {
             var elements = await GetPropertyAsync(id);
             elements.Add(_mapper.Map<T>(element));
 
             await UpdateAsync(await SetPropertyAsync(id, elements));
+        }
+
+        public async Task<IList<TD>> QuickSearchAsync(string id, string term, string propertyName)
+        {
+            var elements = await GetPropertyAsync(id);
+
+            return _mapper.Map<IList<TD>>(elements.Where(e => e
+                .GetType()
+                .GetProperty(propertyName)
+                .GetValue(e, null)
+                .ToString()
+                .ToLower()
+                .Contains(term.ToLower())));
         }
     }
 }
