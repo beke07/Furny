@@ -16,42 +16,42 @@ namespace Furny.Controllers
             _orderService = orderService;
         }
 
-        [HttpGet("offers/{id}")]
+        [HttpGet("orders/{id}")]
         public async Task<IActionResult> GetById(string id)
         {
             return Ok(await _orderService.GetById(id));
         }
 
-        [HttpGet("desginers/{id}/offers")]
+        [HttpGet("designers/{id}/orders")]
         public async Task<IActionResult> GetDesignerOffers(string id)
         {
             return Ok(await _orderService.GetDesignerOrdersAsnyc(id));
         }
 
-        [HttpGet("panelcutter/{id}/offers")]
+        [HttpGet("panelcutter/{id}/orders")]
         public async Task<IActionResult> GetPanelCutterOffers(string id)
         {
             return Ok(await _orderService.GetPanelOrdersAsnyc(id));
         }
 
-        [HttpPost("desginers/{id}/offers/{oid}/accept")]
-        public async Task<IActionResult> AcceptOrder(OrderFillDto orderDto, string id)
+        [HttpPost("orders/{oid}/accept")]
+        public async Task<IActionResult> AcceptOrder(OrderFillDto orderDto, string oid)
         {
-            await _orderService.AcceptAsnyc(id, orderDto);
+            await _orderService.AcceptAsnyc(oid, orderDto);
             return Ok();
         }
 
-        [HttpPost("desginers/{id}/offers/{oid}/decline")]
-        public async Task<IActionResult> DeclineOrder(string id)
+        [HttpPost("orders/{oid}/decline")]
+        public async Task<IActionResult> DeclineOrder(string oid)
         {
-            await _orderService.DeclineAsnyc(id);
+            await _orderService.DeclineAsnyc(oid);
             return Ok();
         }
 
-        [HttpPost("panelcutter/{id}/offers/{oid}/done")]
-        public async Task<IActionResult> DoneOrder(string id)
+        [HttpPost("orders/{oid}/done")]
+        public async Task<IActionResult> DoneOrder(string oid)
         {
-            await _orderService.DoneAsnyc(id);
+            await _orderService.DoneAsnyc(oid);
             return Ok();
         }
     }
