@@ -29,7 +29,7 @@ namespace Furny.Services
             await UpdateAsync(user);
         }
 
-        public async Task IsDoneNotificationAsync(string userId, string notificationId)
+        public async Task DoneNotificationAsync(string userId, string notificationId)
         {
             var user = await FindByIdAsync(userId);
             user.DoneNotification(notificationId);

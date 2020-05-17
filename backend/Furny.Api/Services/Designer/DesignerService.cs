@@ -5,6 +5,8 @@ using Furny.Models;
 using Furny.ServiceInterfaces;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.Extensions.Configuration;
+using MongoDB.Driver;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Furny.Services
@@ -66,6 +68,11 @@ namespace Furny.Services
             _mapper.Map(profile, designer);
 
             await UpdateAsync(designer);
+        }
+
+        public override async Task<IList<Designer>> Get()
+        {
+            return await _collection.OfType<Designer>().Find(e => !e.IsDeleted).ToListAsync();
         }
     }
 }

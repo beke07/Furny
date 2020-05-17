@@ -21,7 +21,7 @@ namespace Furny.Services
         {
             var client = new MongoClient(configuration.GetConnectionString("FurnyDb"));
             _database = client.GetDatabase("FurnyDb");
-            _collection = _database.GetCollection<T>(collectionName).OfType<T>();
+            _collection = _database.GetCollection<T>(collectionName);
         }
 
         public async Task<T> FindByIdAsync(string id)
@@ -36,7 +36,7 @@ namespace Furny.Services
             return entity;
         }
 
-        public async Task<IList<T>> Get()
+        public virtual async Task<IList<T>> Get()
         {
             var entities = await _collection.Find(e => !e.IsDeleted).ToListAsync();
             return entities;

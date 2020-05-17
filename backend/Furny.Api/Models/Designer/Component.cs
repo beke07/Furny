@@ -2,7 +2,7 @@
 {
     public class Component : MongoEntityBase
     {
-        internal Component()
+        public Component()
         { }
 
         public Component(string id) : base(id)

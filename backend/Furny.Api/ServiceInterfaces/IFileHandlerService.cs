@@ -7,8 +7,6 @@ namespace Furny.ServiceInterfaces
 {
     public interface IFileHandlerService
     {
-        Task<ObjectId> UploadFileAsync(string fileName, Stream file);
-
         Task<string> UploadFileAsync(IFormFile file);
 
         Task<Stream> DownloadFileAsync(string id);

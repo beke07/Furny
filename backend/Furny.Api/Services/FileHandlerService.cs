@@ -19,7 +19,7 @@ namespace Furny.Services
             _database = client.GetDatabase("FurnyDb");
         }
 
-        public IGridFSBucket CreateBucket(string name)
+        private IGridFSBucket CreateBucket(string name)
         {
             return new GridFSBucket(_database, new GridFSBucketOptions
             {
@@ -43,7 +43,7 @@ namespace Furny.Services
             }
         }
 
-        public async Task<ObjectId> UploadFileAsync(string fileName, Stream file)
+        private async Task<ObjectId> UploadFileAsync(string fileName, Stream file)
         {
             var bucket = CreateBucket("images");
             return await bucket.UploadFromStreamAsync(fileName, file);

@@ -11,5 +11,10 @@
         public Address Address { get; set; }
 
         public string StreetAndHouse { get; set; }
+
+        public override string ToString()
+        {
+            return Address.ToString() + $"{StreetAndHouse}";
+        }
     }
 }

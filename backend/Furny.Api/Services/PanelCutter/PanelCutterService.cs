@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DocumentFormat.OpenXml.Wordprocessing;
 using Furny.Data;
 using Furny.Data.Designer;
 using Furny.Models;
@@ -40,18 +41,12 @@ namespace Furny.Services
             {
                 panelCutter.Ads.ToList().ForEach(ad =>
                 {
-                    var ago = DateTime.Now.Subtract(ad.Id.CreationTime);
+                    var adDto = _mapper.Map<DesignerAdDto>(ad);
+                    adDto.PanelCutterId = panelCutter.Id.ToString();
+                    adDto.PanelCutterImageId = panelCutter.ImageId;
+                    adDto.PanelCutterUserName = panelCutter.UserName;
 
-                    result.Add(new DesignerAdDto()
-                    {
-                        PanelCutterId = _mapper.Map<string>(panelCutter.Id),
-                        PanelCutterImageId = panelCutter.ImageId,
-                        PanelCutterUserName = panelCutter.UserName,
-                        HourAgo = ago.Hours < 1 ?
-                            $"{ago.Minutes} perce" :
-                            $"{ago.Hours} órája",
-                        Text = ad.Text
-                    });
+                    result.Add(adDto);
                 });
             });
 
@@ -73,6 +68,11 @@ namespace Furny.Services
             _mapper.Map(profile, panelCutter);
 
             await UpdateAsync(panelCutter);
+        }
+
+        public override async Task<IList<PanelCutter>> Get()
+        {
+            return await _collection.OfType<PanelCutter>().Find(e => !e.IsDeleted).ToListAsync();
         }
     }
 }

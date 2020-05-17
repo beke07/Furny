@@ -9,7 +9,7 @@ namespace Furny.ServiceInterfaces
     {
         Task CreateNotificationAsync(string userId, Notification notification);
 
-        Task IsDoneNotificationAsync(string userId, string notificationId);
+        Task DoneNotificationAsync(string userId, string notificationId);
 
         Task<IList<NotificationDto>> GetNotificationsAsync(string userId);
     }

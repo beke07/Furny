@@ -9,7 +9,7 @@ namespace Furny.ServiceInterfaces
         where D : class
         where TD : TableDtoBase
     {
-        Task CreateAsync(D ad, string baseElementId);
+        Task CreateAsync(D element, string baseElementId);
 
         Task<IList<TD>> GetAsync(string baseElementId);
 

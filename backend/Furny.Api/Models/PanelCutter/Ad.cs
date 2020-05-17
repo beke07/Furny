@@ -2,7 +2,7 @@
 {
     public class Ad : MongoEntityBase
     {
-        internal Ad()
+        public Ad()
         { }
 
         public Ad(string id) : base(id)

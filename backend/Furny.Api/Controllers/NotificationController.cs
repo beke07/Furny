@@ -18,7 +18,7 @@ namespace Furny.Controllers
         [HttpPost("{id}/notifications/{nid}")]
         public async Task<IActionResult> Done(string id, string nid)
         {
-            await _notificationService.IsDoneNotificationAsync(id, nid);
+            await _notificationService.DoneNotificationAsync(id, nid);
             return Ok();
         }
 

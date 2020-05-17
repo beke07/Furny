@@ -7,8 +7,8 @@ namespace Furny.ServiceInterfaces
     {
         Task AddComponentAsync(ComponentDto component, string id, string mid);
 
-        Task CopyComponentAsync(string cid, string id, string mid);
+        Task CopyComponentAsync(string id, string mid, string cid);
 
-        Task RemoveComponentAsync(string cid, string id, string mid);
+        Task RemoveComponentAsync(string id, string mid, string cid);
     }
 }
