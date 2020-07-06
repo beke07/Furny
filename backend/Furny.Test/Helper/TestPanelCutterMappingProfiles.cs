@@ -3,9 +3,6 @@ using Furny.Data;
 using Furny.Data.Designer;
 using Furny.MappingProfiles.Resolvers;
 using Furny.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Furny.Test.Helper
 {

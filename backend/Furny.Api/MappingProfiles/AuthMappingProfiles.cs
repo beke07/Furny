@@ -2,8 +2,6 @@
 using Furny.Data;
 using Furny.MappingProfiles.Resolvers;
 using Furny.Models;
-using Furny.ServiceInterfaces;
-using System;
 
 namespace Furny.MappingProfiles
 {

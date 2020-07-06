@@ -1,5 +1,4 @@
 ﻿using Furny.Data;
-using Furny.Data.Designer;
 using Furny.Data.Designer.TableDto;
 using System;
 using System.IO;

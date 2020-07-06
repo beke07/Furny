@@ -2,9 +2,6 @@
 using Furny.Data.Designer;
 using Furny.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Furny.MappingProfiles.Resolvers
 {

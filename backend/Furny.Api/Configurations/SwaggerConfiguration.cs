@@ -14,7 +14,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 {
                     Title = "Furny API",
                     Version = "v1",
-                    Description = "Supplement API tutorial using MongoDB",
+                    Description = "Furny API",
                 });
 
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme

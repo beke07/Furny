@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Furny.Common;
 using Furny.Data;
-using Furny.Data.Designer;
 using Furny.Data.Designer.TableDto;
 using Furny.Models;
 using Furny.ServiceInterfaces;

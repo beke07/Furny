@@ -1,6 +1,4 @@
-﻿using Furny.Data;
-using Furny.Models;
-using System.Threading.Tasks;
+﻿using Furny.Models;
 
 namespace Furny.ServiceInterfaces
 {

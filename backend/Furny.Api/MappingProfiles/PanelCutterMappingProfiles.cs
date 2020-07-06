@@ -3,8 +3,6 @@ using Furny.Data;
 using Furny.Data.Designer;
 using Furny.MappingProfiles.Resolvers;
 using Furny.Models;
-using Furny.ServiceInterfaces;
-using System.Collections.Generic;
 
 namespace Furny.MappingProfiles
 {

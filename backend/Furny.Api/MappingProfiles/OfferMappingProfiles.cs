@@ -2,9 +2,6 @@
 using Furny.Data;
 using Furny.MappingProfiles.Resolvers;
 using Furny.Models;
-using Furny.ServiceInterfaces;
-using MongoDB.Bson;
-using System.Linq;
 
 namespace Furny.MappingProfiles
 {

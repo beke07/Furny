@@ -1,12 +1,8 @@
 ﻿using Furny.Filters;
-using Furny.Models;
 using Furny.ServiceInterfaces;
 using Furny.Services;
 using MongoDB.Bson;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 

@@ -1,10 +1,6 @@
 ﻿using AutoMapper;
 using Furny.Data;
 using Furny.Models;
-using MongoDB.Driver.Core.Operations;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Furny.Test.Helper
 {
