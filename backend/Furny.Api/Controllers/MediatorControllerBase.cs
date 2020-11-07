@@ -12,9 +12,9 @@ namespace Microsoft.AspNetCore.Mvc
             _mediator = mediator;
         }
 
-        public async Task SendAsync(INotification command)
+        public async Task<T> SendAsync<T>(IRequest<T> command)
         {
-            await _mediator.Publish(command);
+            return await _mediator.Send(command);
         }
     }
 }

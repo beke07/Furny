@@ -1,8 +1,6 @@
-using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
 
 namespace Furny
 {
@@ -17,8 +15,8 @@ namespace Furny
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMediatR(Assembly.GetExecutingAssembly());
-            
+            services.AddMediatR();
+
             services.AddServices();
 
             services.AddSwagger();

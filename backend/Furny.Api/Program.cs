@@ -10,6 +10,7 @@ namespace Furny
         public static async Task Main(string[] args)
         {
             await DataSeeder.SeedAddressesAsync();
+            await DataSeeder.SeedUsersAsync();
             CreateHostBuilder(args).Build().Run();
         }
 

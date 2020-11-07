@@ -9,13 +9,13 @@ namespace Furny.Common.Models
     public class SingleElement<T> : List<T>
         where T : IMongoEntityBase
     {
-        internal void RemoveById(string id)
+        public void RemoveById(string id)
         {
             var element = GetById(id);
             Remove(element);
         }
 
-        internal T GetById(string id)
+        public T GetById(string id)
         {
             var element = this.SingleOrDefault(e => e.Id == ObjectId.Parse(id));
 
@@ -27,7 +27,7 @@ namespace Furny.Common.Models
             return element;
         }
 
-        internal void Update(T element, string id)
+        public void Update(T element, string id)
         {
             RemoveById(id);
             Add(element);

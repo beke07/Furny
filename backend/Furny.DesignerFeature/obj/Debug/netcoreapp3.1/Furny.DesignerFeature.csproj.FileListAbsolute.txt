@@ -1,0 +1,14 @@
+C:\Users\Beke\Desktop\diploma\backend\Furny.DesignerFeature\bin\Debug\netcoreapp3.1\Furny.DesignerFeature.deps.json
+C:\Users\Beke\Desktop\diploma\backend\Furny.DesignerFeature\bin\Debug\netcoreapp3.1\Furny.DesignerFeature.dll
+C:\Users\Beke\Desktop\diploma\backend\Furny.DesignerFeature\bin\Debug\netcoreapp3.1\Furny.DesignerFeature.pdb
+C:\Users\Beke\Desktop\diploma\backend\Furny.DesignerFeature\bin\Debug\netcoreapp3.1\Furny.Common.dll
+C:\Users\Beke\Desktop\diploma\backend\Furny.DesignerFeature\bin\Debug\netcoreapp3.1\Furny.Model.dll
+C:\Users\Beke\Desktop\diploma\backend\Furny.DesignerFeature\bin\Debug\netcoreapp3.1\Furny.Common.pdb
+C:\Users\Beke\Desktop\diploma\backend\Furny.DesignerFeature\bin\Debug\netcoreapp3.1\Furny.Model.pdb
+C:\Users\Beke\Desktop\diploma\backend\Furny.DesignerFeature\obj\Debug\netcoreapp3.1\Furny.DesignerFeature.csprojAssemblyReference.cache
+C:\Users\Beke\Desktop\diploma\backend\Furny.DesignerFeature\obj\Debug\netcoreapp3.1\Furny.DesignerFeature.AssemblyInfoInputs.cache
+C:\Users\Beke\Desktop\diploma\backend\Furny.DesignerFeature\obj\Debug\netcoreapp3.1\Furny.DesignerFeature.AssemblyInfo.cs
+C:\Users\Beke\Desktop\diploma\backend\Furny.DesignerFeature\obj\Debug\netcoreapp3.1\Furny.DesignerFeature.csproj.CoreCompileInputs.cache
+C:\Users\Beke\Desktop\diploma\backend\Furny.DesignerFeature\obj\Debug\netcoreapp3.1\Furny.DesignerFeature.csproj.CopyComplete
+C:\Users\Beke\Desktop\diploma\backend\Furny.DesignerFeature\obj\Debug\netcoreapp3.1\Furny.DesignerFeature.dll
+C:\Users\Beke\Desktop\diploma\backend\Furny.DesignerFeature\obj\Debug\netcoreapp3.1\Furny.DesignerFeature.pdb

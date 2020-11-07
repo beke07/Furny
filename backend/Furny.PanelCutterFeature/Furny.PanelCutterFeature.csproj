@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Furny.Common\Furny.Common.csproj" />
+    <ProjectReference Include="..\Furny.Model\Furny.Model.csproj" />
+  </ItemGroup>
+
+</Project>
