@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using Furny.DesignerFeature.Commands;
+using Furny.DesignerFeature.Data;
 using Furny.Model;
 using Furny.Model.ServiceInterfaces;
 
 namespace Furny.DesignerFeature.MappingProfiles.Resolvers
 {
-    public class DesignerProfileAddressResolver : IValueResolver<DesignerProfileCommand, Designer, UserAddress>
+    public class DesignerProfileAddressResolver : IValueResolver<DesignerUpdateProfileDto, Designer, UserAddress>
     {
         private readonly IAddressService _addressService;
 
@@ -14,7 +14,7 @@ namespace Furny.DesignerFeature.MappingProfiles.Resolvers
             _addressService = addressService;
         }
 
-        public UserAddress Resolve(DesignerProfileCommand source, Designer destination, UserAddress destMember, ResolutionContext context)
+        public UserAddress Resolve(DesignerUpdateProfileDto source, Designer destination, UserAddress destMember, ResolutionContext context)
         {
             return new UserAddress()
             {

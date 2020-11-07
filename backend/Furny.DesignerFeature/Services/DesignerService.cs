@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Furny.Common.Services;
-using Furny.DesignerFeature.Commands;
+using Furny.DesignerFeature.Data;
 using Furny.DesignerFeature.ServiceInterfaces;
 using Furny.DesignerFeature.ViewModels;
 using Furny.Model;
@@ -62,10 +62,10 @@ namespace Furny.DesignerFeature.Services
             return _mapper.Map<DesignerProfileViewModel>(designer);
         }
 
-        public async Task UpdateProfileAsync(JsonPatchDocument<DesignerProfileCommand> jsonPatch, string id)
+        public async Task UpdateProfileAsync(JsonPatchDocument<DesignerUpdateProfileDto> jsonPatch, string id)
         {
             var designer = await FindByIdAsync(id);
-            var profile = _mapper.Map<DesignerProfileCommand>(designer);
+            var profile = _mapper.Map<DesignerUpdateProfileDto>(designer);
 
             jsonPatch.ApplyTo(profile);
             _mapper.Map(profile, designer);

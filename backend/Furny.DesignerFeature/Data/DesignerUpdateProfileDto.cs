@@ -1,9 +1,6 @@
-﻿using Furny.DesignerFeature.ViewModels;
-using MediatR;
-
-namespace Furny.DesignerFeature.Commands
+﻿namespace Furny.DesignerFeature.Data
 {
-    public class DesignerProfileCommand : IRequest<DesignerProfileViewModel>
+    public class DesignerUpdateProfileDto
     {
         public string UserName { get; set; }
 

@@ -1,5 +1,5 @@
 ﻿using Furny.Common.ServiceInterfaces;
-using Furny.DesignerFeature.Commands;
+using Furny.DesignerFeature.Data;
 using Furny.DesignerFeature.ViewModels;
 using Furny.Model;
 using Microsoft.AspNetCore.JsonPatch;
@@ -11,7 +11,7 @@ namespace Furny.DesignerFeature.ServiceInterfaces
     {
         Task<DesignerProfileViewModel> GetProfileAsync(string id);
 
-        Task UpdateProfileAsync(JsonPatchDocument<DesignerProfileCommand> jsonPatch, string id);
+        Task UpdateProfileAsync(JsonPatchDocument<DesignerUpdateProfileDto> jsonPatch, string id);
 
         Task<DesignerHomeViewModel> GetAdsAsync(string id);
 

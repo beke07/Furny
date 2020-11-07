@@ -27,7 +27,6 @@ namespace Furny.Controllers
             return Ok(new { imageId = await _fileHandlerService.UploadFileAsync(file) });
         }
 
-        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> Download(string id)
         {

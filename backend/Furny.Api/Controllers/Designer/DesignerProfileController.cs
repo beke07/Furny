@@ -1,5 +1,6 @@
-﻿using Furny.Data;
-using Furny.ServiceInterfaces;
+﻿using Furny.DesignerFeature.Commands;
+using Furny.DesignerFeature.Data;
+using Furny.DesignerFeature.ViewModels;
 using MediatR;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -11,26 +12,15 @@ namespace Furny.Controllers
     [ApiController]
     public class DesignerProfileController : MediatorControllerBase
     {
-        private readonly IDesignerService _designerService;
-
-        public DesignerProfileController(
-            IDesignerService designerService,
-            IMediator mediator) : base(mediator)
-        {
-            _designerService = designerService;
-        }
+        public DesignerProfileController(IMediator mediator) : base(mediator)
+        { }
 
         [HttpGet("{id}/profile")]
-        public async Task<IActionResult> GetProfile(string id)
-        {
-            return Ok(await _designerService.GetProfileAsync(id));
-        }
+        public async Task<DesignerProfileViewModel> GetProfile(string id)
+            => await SendAsync(DesignerGetProfileCommand.Create(id));
 
         [HttpPatch("{id}/profile")]
-        public async Task<IActionResult> PatchProfile([FromBody]JsonPatchDocument<DesignerProfileCommand> jsonPatch, string id)
-        {
-            await _designerService.UpdateProfileAsync(jsonPatch, id);
-            return Ok();
-        }
+        public async Task PatchProfile([FromBody] JsonPatchDocument<DesignerUpdateProfileDto> jsonPatch, string id)
+            => await SendAsync(DesignerUpdateProfileCommand.Create(jsonPatch, id));
     }
 }

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Furny.DesignerFeature.Commands;
+using Furny.DesignerFeature.Data;
 using Furny.DesignerFeature.MappingProfiles.Resolvers;
 using Furny.DesignerFeature.ViewModels;
 using Furny.Model;
@@ -10,7 +10,7 @@ namespace Furny.DesignerFeature.MappingProfiles
     {
         public DesignerMappingProfile()
         {
-            CreateMap<DesignerProfileCommand, Designer>()
+            CreateMap<DesignerUpdateProfileDto, Designer>()
                 .ForMember(e => e.UserAddress, opt => opt.MapFrom<DesignerProfileAddressResolver>())
                 .ReverseMap()
                 .ForMember(e => e.AddressId, opt => opt.MapFrom(e => e.UserAddress.Address.Id))
