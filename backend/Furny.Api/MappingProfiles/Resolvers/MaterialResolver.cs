@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Furny.MappingProfiles.Resolvers
 {
-    public class MaterialResolver : IValueResolver<OfferComponentDto, OfferComponent, Material>
+    public class MaterialResolver : IValueResolver<OfferComponentCommand, OfferComponent, Material>
     {
         private readonly IPanelCutterService _panelCutterService;
 
@@ -16,7 +16,7 @@ namespace Furny.MappingProfiles.Resolvers
             _panelCutterService = panelCutterService;
         }
 
-        public Material Resolve(OfferComponentDto source, OfferComponent destination, Material destMember, ResolutionContext context)
+        public Material Resolve(OfferComponentCommand source, OfferComponent destination, Material destMember, ResolutionContext context)
         {
             var panelCutter = _panelCutterService.FindByIdAsync(source.PanelCutterId).Result;
             return panelCutter.Materials.FirstOrDefault(e => e.Id == ObjectId.Parse(source.MaterialId));

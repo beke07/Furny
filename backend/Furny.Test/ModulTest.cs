@@ -30,7 +30,7 @@ namespace Furny.Test
             designer.Moduls = new SingleElement<Modul>();
             await _designerService.UpdateAsync(designer);
 
-            await _modulService.CreateAsync(new ModulDto()
+            await _modulService.CreateAsync(new ModulCommand()
             {
                 Name = "Modul"
             }, designerId);
@@ -38,7 +38,7 @@ namespace Furny.Test
             designer = (await _designerService.Get()).First();
             var modulId = designer.Moduls.ElementAt(0).Id.ToString();
 
-            await _modulService.AddComponentAsync(new ComponentDto()
+            await _modulService.AddComponentAsync(new ComponentCommand()
             {
                 Name = "Component",
                 Height = 3000,

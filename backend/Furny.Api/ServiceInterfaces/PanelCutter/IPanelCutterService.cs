@@ -9,10 +9,10 @@ namespace Furny.ServiceInterfaces
 {
     public interface IPanelCutterService : IBaseService<PanelCutter>
     {
-        Task<PanelCutterProfileDto> GetProfileAsync(string id);
+        Task<PanelCutterProfileCommand> GetProfileAsync(string id);
 
-        Task UpdateProfileAsync(JsonPatchDocument<PanelCutterProfileDto> jsonPatch, string id);
+        Task UpdateProfileAsync(JsonPatchDocument<PanelCutterProfileCommand> jsonPatch, string id);
 
-        Task<IList<DesignerAdDto>> GetAdsByCountry(string country);
+        Task<IList<DesignerAdCommand>> GetAdsByCountry(string country);
     }
 }

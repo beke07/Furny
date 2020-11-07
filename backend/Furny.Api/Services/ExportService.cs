@@ -1,4 +1,4 @@
-﻿using Furny.Common;
+﻿using Furny.Common.Enums;
 using Furny.Models;
 using Furny.ServiceInterfaces;
 using System;
@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using static Furny.Common.Enums;
 
 namespace Furny.Services
 {

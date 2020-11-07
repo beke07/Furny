@@ -30,7 +30,7 @@ namespace Furny.Test
             panelCutter.Ads = new SingleElement<Ad>();
             await _panelCutterService.UpdateAsync(panelCutter);
 
-            await _adService.CreateAsync(new AdDto()
+            await _adService.CreateAsync(new AdCommand()
             {
                 Text = "Text",
                 Title = "Title"
@@ -78,7 +78,7 @@ namespace Furny.Test
             var panelCutterId = (await _panelCutterService.Get()).First().Id.ToString();
             var ad = (await _adService.GetAsync(panelCutterId)).ElementAt(0);
 
-            var patch = new JsonPatchDocument<AdDto>();
+            var patch = new JsonPatchDocument<AdCommand>();
 
             patch.Replace(e => e.Title, "updatedTitle");
             patch.Replace(e => e.Text, "updatedText");

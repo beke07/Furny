@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Furny.Services
 {
-    public class MaterialService : SingleElementBaseService<PanelCutter, Material, MaterialDto, MaterialTableDto>, IMaterialService
+    public class MaterialService : SingleElementBaseService<PanelCutter, Material, MaterialCommand, MaterialTableCommand>, IMaterialService
     {
         public MaterialService(
             IMapper mapper,

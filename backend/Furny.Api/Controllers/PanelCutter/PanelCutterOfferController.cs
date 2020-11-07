@@ -1,5 +1,6 @@
 ﻿using Furny.Data;
 using Furny.ServiceInterfaces;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -7,18 +8,19 @@ namespace Furny.Controllers
 {
     [Route("api/panelCutter")]
     [ApiController]
-    public class PanelCutterOfferController : ControllerBase
+    public class PanelCutterOfferController : MediatorControllerBase
     {
         private readonly IOfferService _offerService;
 
         public PanelCutterOfferController(
-            IOfferService offerService)
+            IOfferService offerService,
+            IMediator mediator) : base(mediator)
         {
             _offerService = offerService;
         }
 
         [HttpPost("offers/{oid}")]
-        public async Task<IActionResult> Post(PanelCutterFillOfferDto offerDto, string oid)
+        public async Task<IActionResult> Post(PanelCutterFillOfferCommand offerDto, string oid)
         {
             await _offerService.FillPanelCutterOfferAsync(offerDto, oid);
             return Ok();

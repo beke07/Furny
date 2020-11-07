@@ -1,9 +1,9 @@
-﻿using Furny.Models;
+﻿using Furny.Common.Enums;
+using Furny.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using static Furny.Common.Enums;
 
 namespace Furny.ServiceInterfaces
 {

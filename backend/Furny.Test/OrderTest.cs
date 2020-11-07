@@ -1,10 +1,10 @@
-﻿using Furny.Data;
+﻿using Furny.Common.Enums;
+using Furny.Data;
 using Furny.ServiceInterfaces;
 using Furny.Services;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
-using static Furny.Common.Enums;
 
 namespace Furny.Test
 {
@@ -62,7 +62,7 @@ namespace Furny.Test
             var panelCutterOrders = await _orderService.GetPanelOrdersAsnyc(panelCutter.Id.ToString());
             var order = await _orderService.GetById(panelCutterOrders.ElementAt(0)._id);
 
-            await _orderService.AcceptAsnyc(order._id, new OrderFillDto()
+            await _orderService.AcceptAsnyc(order._id, new OrderFillCommand()
             {
                 Comment = "Komment",
                 Delivery = true

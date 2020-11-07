@@ -6,8 +6,8 @@ using Furny.ServiceInterfaces;
 namespace Furny.MappingProfiles.Resolvers
 {
     public class ProfileAddressResolver : 
-        IValueResolver<PanelCutterProfileDto, PanelCutter, UserAddress>,
-        IValueResolver<DesignerProfileDto, Designer, UserAddress>
+        IValueResolver<PanelCutterProfileCommand, PanelCutter, UserAddress>,
+        IValueResolver<DesignerProfileCommand, Designer, UserAddress>
     {
         private readonly IAddressService _addressService;
 
@@ -16,7 +16,7 @@ namespace Furny.MappingProfiles.Resolvers
             _addressService = addressService;
         }
 
-        public UserAddress Resolve(PanelCutterProfileDto source, PanelCutter destination, UserAddress destMember, ResolutionContext context)
+        public UserAddress Resolve(PanelCutterProfileCommand source, PanelCutter destination, UserAddress destMember, ResolutionContext context)
         {
             return new UserAddress()
             {
@@ -25,7 +25,7 @@ namespace Furny.MappingProfiles.Resolvers
             };
         }
 
-        public UserAddress Resolve(DesignerProfileDto source, Designer destination, UserAddress destMember, ResolutionContext context)
+        public UserAddress Resolve(DesignerProfileCommand source, Designer destination, UserAddress destMember, ResolutionContext context)
         {
             return new UserAddress()
             {

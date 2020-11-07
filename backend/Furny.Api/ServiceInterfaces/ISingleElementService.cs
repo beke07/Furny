@@ -7,7 +7,7 @@ namespace Furny.ServiceInterfaces
 {
     public interface ISingleElementService<D, TD>
         where D : class
-        where TD : TableDtoBase
+        where TD : TableCommandBase
     {
         Task CreateAsync(D element, string baseElementId);
 

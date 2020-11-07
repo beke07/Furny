@@ -1,4 +1,5 @@
 ﻿using Furny.ServiceInterfaces;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -6,11 +7,13 @@ namespace Furny.Controllers
 {
     [Route("api/users")]
     [ApiController]
-    public class NotificationController : ControllerBase
+    public class NotificationController : MediatorControllerBase
     {
         private readonly INotificationService _notificationService;
 
-        public NotificationController(INotificationService notificationService)
+        public NotificationController(
+            INotificationService notificationService,
+            IMediator mediator) : base(mediator)
         {
             _notificationService = notificationService;
         }

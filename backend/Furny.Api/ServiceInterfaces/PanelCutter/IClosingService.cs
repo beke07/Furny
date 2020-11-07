@@ -2,6 +2,6 @@
 
 namespace Furny.ServiceInterfaces
 {
-    public interface IClosingService : ISingleElementService<ClosingDto, ClosingTableDto>
+    public interface IClosingService : ISingleElementService<ClosingCommand, ClosingTableCommand>
     { }
 }

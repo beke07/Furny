@@ -1,4 +1,4 @@
-﻿using Furny.Common;
+﻿using Furny.Common.Enums;
 using Furny.Data;
 using Furny.Models;
 using Furny.ServiceInterfaces;
@@ -6,7 +6,6 @@ using Furny.Services;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
-using static Furny.Common.Enums;
 
 namespace Furny.Test
 {
@@ -29,7 +28,7 @@ namespace Furny.Test
             designer.Furnitures = new SingleElement<Furniture>();
             await _designerService.UpdateAsync(designer);
 
-            await _furnitureService.CreateAsync(new FurnitureDto()
+            await _furnitureService.CreateAsync(new FurnitureCommand()
             {
                 Name = "Butor"
             }, designer.Id.ToString());
@@ -90,7 +89,7 @@ namespace Furny.Test
             furniture.Components = new SingleElement<Component>();
             await _designerService.UpdateAsync(designer);
 
-            await _furnitureService.AddComponentAsync(new ComponentDto()
+            await _furnitureService.AddComponentAsync(new ComponentCommand()
             {
                 Name = "Component",
                 Height = 3000,

@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Furny.Common.Enums;
+using System;
 using System.Collections.Generic;
-using static Furny.Common.Enums;
 
 namespace Furny.Models
 {
@@ -28,7 +28,7 @@ namespace Furny.Models
         {
             get
             {
-                if(Price == null && Deadline == null)
+                if (Price == null && Deadline == null)
                 {
                     return OfferState.Created;
                 }

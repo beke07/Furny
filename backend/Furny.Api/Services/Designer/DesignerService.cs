@@ -43,26 +43,26 @@ namespace Furny.Services
             await UpdateAsync(designer);
         }
 
-        public async Task<DesignerHomeDto> GetAdsAsync(string id)
+        public async Task<DesignerHomeCommand> GetAdsAsync(string id)
         {
             var designer = await FindByIdAsync(id);
 
-            return new DesignerHomeDto()
+            return new DesignerHomeCommand()
             {
                 Ads = await _panelCutterService.GetAdsByCountry(designer.UserAddress.Address.Country)
             };
         }
 
-        public async Task<DesignerProfileDto> GetProfileAsync(string id)
+        public async Task<DesignerProfileCommand> GetProfileAsync(string id)
         {
             var designer = await FindByIdAsync(id);
-            return _mapper.Map<DesignerProfileDto>(designer);
+            return _mapper.Map<DesignerProfileCommand>(designer);
         }
 
-        public async Task UpdateProfileAsync(JsonPatchDocument<DesignerProfileDto> jsonPatch, string id)
+        public async Task UpdateProfileAsync(JsonPatchDocument<DesignerProfileCommand> jsonPatch, string id)
         {
             var designer = await FindByIdAsync(id);
-            var profile = _mapper.Map<DesignerProfileDto>(designer);
+            var profile = _mapper.Map<DesignerProfileCommand>(designer);
 
             jsonPatch.ApplyTo(profile);
             _mapper.Map(profile, designer);

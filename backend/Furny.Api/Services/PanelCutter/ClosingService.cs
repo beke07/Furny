@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Furny.Services
 {
-    public class ClosingService : SingleElementBaseService<PanelCutter, Closing, ClosingDto, ClosingTableDto>, IClosingService
+    public class ClosingService : SingleElementBaseService<PanelCutter, Closing, ClosingCommand, ClosingTableCommand>, IClosingService
     {
         public ClosingService(
             IMapper mapper,

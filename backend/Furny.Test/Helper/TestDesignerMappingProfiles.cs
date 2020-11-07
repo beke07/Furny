@@ -8,12 +8,12 @@ namespace Furny.Test.Helper
     {
         public TestDesignerMappingProfiles()
         {
-            CreateMap<ComponentDto, Component>().ReverseMap();
-            CreateMap<ComponentTableDto, Component>().ReverseMap();
+            CreateMap<ComponentCommand, Component>().ReverseMap();
+            CreateMap<ComponentTableCommand, Component>().ReverseMap();
             CreateMap<ComponentClosingDto, ComponentClosing>().ReverseMap();
             CreateMap<ClosingsDto, Closings>().ReverseMap();
-            CreateMap<ModulDto, Modul>().ReverseMap();
-            CreateMap<ModulTableDto, Modul>().ReverseMap();
+            CreateMap<ModulCommand, Modul>().ReverseMap();
+            CreateMap<ModulTableCommand, Modul>().ReverseMap();
         }
     }
 }

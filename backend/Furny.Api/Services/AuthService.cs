@@ -39,7 +39,7 @@ namespace Furny.Services
             return await _userManager.FindByEmailAsync(email) == null;
         }
 
-        public async Task<string> LoginAsync(LoginDto login)
+        public async Task<string> LoginAsync(LoginCommand login)
         {
             var result = await _signInManager.PasswordSignInAsync(login.UserName, login.Password, login.RememberMe, false);
 
@@ -59,7 +59,7 @@ namespace Furny.Services
 
         public async Task<ObjectId> RegisterAsync<T, U>(U register, string role)
             where T: ApplicationUser
-            where U: RegisterBaseDto
+            where U: RegisterBaseCommand
         {
             var user = _mapper.Map<T>(register);
 
@@ -89,14 +89,14 @@ namespace Furny.Services
             return user.Id;
         }
 
-        public async Task RegisterDesigner(DesignerRegisterDto registerDto)
+        public async Task RegisterDesigner(DesignerRegisterCommand registerDto)
         {
-            await RegisterAsync<Designer, DesignerRegisterDto>(registerDto, RoleNames.Designer);
+            await RegisterAsync<Designer, DesignerRegisterCommand>(registerDto, RoleNames.Designer);
         }
 
-        public async Task RegisterPanelCutter(PanelCutterRegisterDto registerDto)
+        public async Task RegisterPanelCutter(PanelCutterRegisterCommand registerDto)
         {
-            await RegisterAsync<PanelCutter, PanelCutterRegisterDto>(registerDto, RoleNames.PanelCutter);         
+            await RegisterAsync<PanelCutter, PanelCutterRegisterCommand>(registerDto, RoleNames.PanelCutter);         
         }
     }
 }

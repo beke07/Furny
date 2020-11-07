@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Furny.Services
 {
-    public class AdService : SingleElementBaseService<PanelCutter, Ad, AdDto, AdTableDto>, IAdService
+    public class AdService : SingleElementBaseService<PanelCutter, Ad, AdCommand, AdTableCommand>, IAdService
     {
         public AdService(
             IMapper mapper, 

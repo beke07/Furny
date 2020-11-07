@@ -9,19 +9,19 @@ namespace Furny.MappingProfiles
     {
         public AuthMappingProfiles()
         {
-            CreateMap<FirebaseUserDto, Designer>().ReverseMap();
+            CreateMap<FirebaseUserCommand, Designer>().ReverseMap();
 
-            CreateMap<FirebaseUserDto, PanelCutter>().ReverseMap();
+            CreateMap<FirebaseUserCommand, PanelCutter>().ReverseMap();
 
-            CreateMap<AddressDto, Address>().ReverseMap();
+            CreateMap<AddressCommand, Address>().ReverseMap();
 
-            CreateMap<UserAddress, UserAddressDto>();
+            CreateMap<UserAddress, UserAddressCommand>();
 
-            CreateMap<DesignerRegisterDto, Designer>()
+            CreateMap<DesignerRegisterCommand, Designer>()
                 .ForMember(e => e.UserAddress, opt => opt.MapFrom<AddressResolver>())
                 .ReverseMap();
 
-            CreateMap<PanelCutterRegisterDto, PanelCutter>()
+            CreateMap<PanelCutterRegisterCommand, PanelCutter>()
                 .ForMember(e => e.UserAddress, opt => opt.MapFrom<AddressResolver>())
                 .ReverseMap();
         }

@@ -24,7 +24,7 @@ namespace Furny.Services
             _mapper = mapper;
         }
 
-        public async Task<IList<DesignerAdDto>> GetAdsByCountry(string country)
+        public async Task<IList<DesignerAdCommand>> GetAdsByCountry(string country)
         {
             var panelCutters = await _collection
                 .OfType<PanelCutter>()
@@ -33,13 +33,13 @@ namespace Furny.Services
 
             var ads = panelCutters.Select(e => e.Ads);
 
-            IList<DesignerAdDto> result = new List<DesignerAdDto>();
+            IList<DesignerAdCommand> result = new List<DesignerAdCommand>();
 
             panelCutters.ForEach(panelCutter =>
             {
                 panelCutter.Ads.ToList().ForEach(ad =>
                 {
-                    var adDto = _mapper.Map<DesignerAdDto>(ad);
+                    var adDto = _mapper.Map<DesignerAdCommand>(ad);
                     adDto.PanelCutterId = panelCutter.Id.ToString();
                     adDto.PanelCutterImageId = panelCutter.ImageId;
                     adDto.PanelCutterUserName = panelCutter.UserName;
@@ -51,16 +51,16 @@ namespace Furny.Services
             return result;
         }
 
-        public async Task<PanelCutterProfileDto> GetProfileAsync(string id)
+        public async Task<PanelCutterProfileCommand> GetProfileAsync(string id)
         {
             var panelCutter = await FindByIdAsync(id);
-            return _mapper.Map<PanelCutterProfileDto>(panelCutter);
+            return _mapper.Map<PanelCutterProfileCommand>(panelCutter);
         }
 
-        public async Task UpdateProfileAsync(JsonPatchDocument<PanelCutterProfileDto> jsonPatch, string id)
+        public async Task UpdateProfileAsync(JsonPatchDocument<PanelCutterProfileCommand> jsonPatch, string id)
         {
             var panelCutter = await FindByIdAsync(id);
-            var profile = _mapper.Map<PanelCutterProfileDto>(panelCutter);
+            var profile = _mapper.Map<PanelCutterProfileCommand>(panelCutter);
 
             jsonPatch.ApplyTo(profile);
             _mapper.Map(profile, panelCutter);

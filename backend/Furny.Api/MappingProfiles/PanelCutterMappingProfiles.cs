@@ -10,21 +10,21 @@ namespace Furny.MappingProfiles
     {
         public PanelCutterMappingProfiles()
         {
-            CreateMap<PanelCutterProfileDto, PanelCutter>()
+            CreateMap<PanelCutterProfileCommand, PanelCutter>()
                 .ForMember(e => e.UserAddress, opt => opt.MapFrom<ProfileAddressResolver>())
                 .ReverseMap()
                 .ForMember(e => e.AddressId, opt => opt.MapFrom(e => e.UserAddress.Address.Id))
                 .ForMember(e => e.AddressId, opt => opt.MapFrom(e => e.UserAddress.StreetAndHouse));
 
-            CreateMap<Ad, DesignerAdDto>()
+            CreateMap<Ad, DesignerAdCommand>()
                 .ForMember(e => e.HourAgo, opt => opt.MapFrom<DesignerAdResolver>());
 
-            CreateMap<MaterialDto, Material>().ReverseMap();
-            CreateMap<MaterialTableDto, Material>().ReverseMap();
-            CreateMap<ClosingTableDto, Closing>().ReverseMap();
-            CreateMap<ClosingDto, Closing>().ReverseMap();
-            CreateMap<AdDto, Ad>().ReverseMap();
-            CreateMap<AdTableDto, Ad>().ReverseMap();
+            CreateMap<MaterialCommand, Material>().ReverseMap();
+            CreateMap<MaterialTableCommand, Material>().ReverseMap();
+            CreateMap<ClosingTableCommand, Closing>().ReverseMap();
+            CreateMap<ClosingCommand, Closing>().ReverseMap();
+            CreateMap<AdCommand, Ad>().ReverseMap();
+            CreateMap<AdTableCommand, Ad>().ReverseMap();
         }
     }
 }

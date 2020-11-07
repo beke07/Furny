@@ -37,10 +37,10 @@ namespace Furny.Services
             await UpdateAsync(user);
         }
 
-        public async Task<IList<NotificationDto>> GetNotificationsAsync(string userId)
+        public async Task<IList<NotificationCommand>> GetNotificationsAsync(string userId)
         {
             var user = await FindByIdAsync(userId);
-            return _mapper.Map<IList<NotificationDto>>(user.Notifications.Where(n => !n.IsDone));
+            return _mapper.Map<IList<NotificationCommand>>(user.Notifications.Where(n => !n.IsDone));
         }
     }
 }

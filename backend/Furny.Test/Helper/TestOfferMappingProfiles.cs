@@ -8,8 +8,8 @@ namespace Furny.Test.Helper
     {
         public TestOfferMappingProfiles()
         {
-            CreateMap<Offer, OfferDto>();
-            CreateMap<Order, OrderDto>().ReverseMap();
+            CreateMap<Offer, OfferCommand>();
+            CreateMap<Order, OrderCommand>().ReverseMap();
         }
     }
 }

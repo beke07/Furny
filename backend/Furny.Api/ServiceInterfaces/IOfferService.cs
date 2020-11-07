@@ -6,16 +6,16 @@ namespace Furny.ServiceInterfaces
 {
     public interface IOfferService
     {
-        Task CreateAsnyc(OfferDto offerDto, string desginerId, string furnitureId);
+        Task CreateAsnyc(OfferCommand offerDto, string desginerId, string furnitureId);
 
-        Task<IList<OfferDto>> GetDesignerOffersAsnyc(string designerId, string furnitureId);
+        Task<IList<OfferCommand>> GetDesignerOffersAsnyc(string designerId, string furnitureId);
 
-        Task<List<DesignerOfferTableDto>> GetDesignerOfferTableAsnyc(string designerId, string furnitureId);
+        Task<List<DesignerOfferTableCommand>> GetDesignerOfferTableAsnyc(string designerId, string furnitureId);
 
-        Task<PanelCutterOfferDto> GetPanelCutterOfferAsync(string offerId);
+        Task<PanelCutterOfferCommand> GetPanelCutterOfferAsync(string offerId);
 
-        Task<IList<PanelCutterOfferTabeDto>> GetPanelCutterOfferTableAsync(string panelCutterId);
+        Task<IList<PanelCutterOfferTabeCommand>> GetPanelCutterOfferTableAsync(string panelCutterId);
 
-        Task FillPanelCutterOfferAsync(PanelCutterFillOfferDto offerDto, string oid);
+        Task FillPanelCutterOfferAsync(PanelCutterFillOfferCommand offerDto, string oid);
     }
 }

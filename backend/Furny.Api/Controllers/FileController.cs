@@ -1,4 +1,5 @@
 ﻿using Furny.ServiceInterfaces;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,11 +10,13 @@ namespace Furny.Controllers
 {
     [Route("api/file")]
     [ApiController]
-    public class FileController : ControllerBase
+    public class FileController : MediatorControllerBase
     {
         private readonly IFileHandlerService _fileHandlerService;
 
-        public FileController(IFileHandlerService fileHandlerService)
+        public FileController(
+            IFileHandlerService fileHandlerService,
+            IMediator mediator) : base(mediator)
         {
             _fileHandlerService = fileHandlerService;
         }

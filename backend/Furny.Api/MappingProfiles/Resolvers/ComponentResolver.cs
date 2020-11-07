@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Furny.MappingProfiles.Resolvers
 {
-    public class ComponentResolver : IValueResolver<OfferComponentDto, OfferComponent, Component>
+    public class ComponentResolver : IValueResolver<OfferComponentCommand, OfferComponent, Component>
     {
         private readonly IDesignerService _designerService;
 
@@ -16,7 +16,7 @@ namespace Furny.MappingProfiles.Resolvers
             _designerService = designerService;
         }
 
-        public Component Resolve(OfferComponentDto source, OfferComponent destination, Component destMember, ResolutionContext context)
+        public Component Resolve(OfferComponentCommand source, OfferComponent destination, Component destMember, ResolutionContext context)
         {
             var desginer = _designerService.FindByIdAsync(source.DesignerId).Result;
             var furniture = desginer.Furnitures.FirstOrDefault(e => e.Id == ObjectId.Parse(source.FurnitureId));

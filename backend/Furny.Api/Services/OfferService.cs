@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Furny.Common.Enums;
 using Furny.Data;
 using Furny.Filters;
 using Furny.Models;
@@ -9,7 +10,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
-using static Furny.Common.Enums;
 
 namespace Furny.Services
 {
@@ -40,7 +40,7 @@ namespace Furny.Services
             _notificationService = notificationService;
         }
 
-        public async Task CreateAsnyc(OfferDto offerDto, string desginerId, string furnitureId)
+        public async Task CreateAsnyc(OfferCommand offerDto, string desginerId, string furnitureId)
         {
             var componentsByPanelCuttes = offerDto.Components.GroupBy(e => e.PanelCutterId);
             foreach (var components in componentsByPanelCuttes.Select(e => e.ToList()))
@@ -73,19 +73,19 @@ namespace Furny.Services
             }
         }
 
-        public async Task<IList<OfferDto>> GetDesignerOffersAsnyc(string designerId, string furnitureId)
+        public async Task<IList<OfferCommand>> GetDesignerOffersAsnyc(string designerId, string furnitureId)
         {
             var offers = (await Get()).Where(e => e.DesginerId == designerId && e.FurnitureId == furnitureId);
 
-            var result = new List<OfferDto>();
+            var result = new List<OfferCommand>();
             foreach (var offer in offers)
             {
-                var offerDto = new OfferDto()
+                var offerDto = new OfferCommand()
                 {
                     State = offer.State,
                     Deadline = offer.Deadline,
                     Price = offer.Price,
-                    Components = _mapper.Map<IList<OfferComponentDto>>(offer.Components)
+                    Components = _mapper.Map<IList<OfferComponentCommand>>(offer.Components)
                 };
 
                 foreach (var component in offerDto.Components)
@@ -99,16 +99,16 @@ namespace Furny.Services
             return result;
         }
 
-        public async Task<List<DesignerOfferTableDto>> GetDesignerOfferTableAsnyc(string designerId, string furnitureId)
+        public async Task<List<DesignerOfferTableCommand>> GetDesignerOfferTableAsnyc(string designerId, string furnitureId)
         {
             var offers = (await Get()).Where(e => e.DesginerId == designerId && e.FurnitureId == furnitureId);
 
             var furniture = await _furnitureService.GetByIdAsync(designerId, furnitureId);
 
-            var result = new List<DesignerOfferTableDto>();
+            var result = new List<DesignerOfferTableCommand>();
             foreach (var offer in offers)
             {
-                result.Add(new DesignerOfferTableDto()
+                result.Add(new DesignerOfferTableCommand()
                 {
                     _id = offer.Id.ToString(),
                     CreatedOn = offer.Id.CreationTime,
@@ -120,13 +120,13 @@ namespace Furny.Services
             return result;
         }
 
-        public async Task<PanelCutterOfferDto> GetPanelCutterOfferAsync(string offerId)
+        public async Task<PanelCutterOfferCommand> GetPanelCutterOfferAsync(string offerId)
         {
             var offer = await FindByIdAsync(offerId);
 
-            var offerDto = new PanelCutterOfferDto()
+            var offerDto = new PanelCutterOfferCommand()
             {
-                Offer = _mapper.Map<OfferDto>(offer)
+                Offer = _mapper.Map<OfferCommand>(offer)
             };
 
             long countedPrice = 0;
@@ -152,14 +152,14 @@ namespace Furny.Services
             return offerDto;
         }
 
-        public async Task<IList<PanelCutterOfferTabeDto>> GetPanelCutterOfferTableAsync(string panelCutterId)
+        public async Task<IList<PanelCutterOfferTabeCommand>> GetPanelCutterOfferTableAsync(string panelCutterId)
         {
             var offers = (await Get()).Where(e => e.PanelCutterId == panelCutterId).ToList();
 
-            var result = new List<PanelCutterOfferTabeDto>();
+            var result = new List<PanelCutterOfferTabeCommand>();
             foreach (var offer in offers)
             {
-                result.Add(new PanelCutterOfferTabeDto()
+                result.Add(new PanelCutterOfferTabeCommand()
                 {
                     _id = offer.Id.ToString(),
                     CreatedOn = offer.Id.CreationTime,
@@ -171,11 +171,11 @@ namespace Furny.Services
             return result;
         }
 
-        public async Task FillPanelCutterOfferAsync(PanelCutterFillOfferDto offerDto, string offerId)
+        public async Task FillPanelCutterOfferAsync(PanelCutterFillOfferCommand offerDto, string offerId)
         {
             var offer = await FindByIdAsync(offerId);
 
-            if(offer.State == OfferState.Done)
+            if (offer.State == OfferState.Done)
             {
                 throw new HttpResponseException("Az árajánlat már ki van töltve!", HttpStatusCode.BadRequest);
             }

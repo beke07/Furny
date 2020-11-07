@@ -1,5 +1,6 @@
 ﻿using Furny.Data;
 using Furny.ServiceInterfaces;
+using MediatR;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -8,18 +9,19 @@ namespace Furny.Controllers
 {
     [Route("api/panelCutter")]
     [ApiController]
-    public class PanelCutterClosingController : ControllerBase
+    public class PanelCutterClosingController : MediatorControllerBase
     {
         private readonly IClosingService _closingService;
 
         public PanelCutterClosingController(
-            IClosingService closingService)
+            IClosingService closingService,
+            IMediator mediator) : base(mediator)
         {
             _closingService = closingService;
         }
 
         [HttpPost("{id}/closings")]
-        public async Task<IActionResult> PostMaterial(ClosingDto closing, string id)
+        public async Task<IActionResult> PostMaterial(ClosingCommand closing, string id)
         {
             await _closingService.CreateAsync(closing, id);
             return Ok();
@@ -45,7 +47,7 @@ namespace Furny.Controllers
         }
 
         [HttpPatch("{id}/closings/{cid}")]
-        public async Task<IActionResult> UpdateClosing([FromBody]JsonPatchDocument<ClosingDto> jsonPatch, string id, string cid)
+        public async Task<IActionResult> UpdateClosing([FromBody] JsonPatchDocument<ClosingCommand> jsonPatch, string id, string cid)
         {
             await _closingService.UpdateAsync(jsonPatch, id, cid);
             return Ok();

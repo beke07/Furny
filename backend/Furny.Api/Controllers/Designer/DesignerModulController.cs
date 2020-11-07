@@ -1,6 +1,7 @@
 ﻿using Furny.Data;
 using Furny.Models;
 using Furny.ServiceInterfaces;
+using MediatR;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -9,11 +10,13 @@ namespace Furny.Controllers
 {
     [Route("api/designer")]
     [ApiController]
-    public class DesignerModulController : ControllerBase
+    public class DesignerModulController : MediatorControllerBase
     {
         private readonly IModulService _modulService;
 
-        public DesignerModulController(IModulService modulService)
+        public DesignerModulController(
+            IModulService modulService,
+            IMediator mediator) : base(mediator)
         {
             _modulService = modulService;
         }
@@ -25,7 +28,7 @@ namespace Furny.Controllers
         }
 
         [HttpPost("{id}/modules")]
-        public async Task<IActionResult> Post(ModulDto modul, string id)
+        public async Task<IActionResult> Post(ModulCommand modul, string id)
         {
             await _modulService.CreateAsync(modul, id);
             return Ok();
@@ -44,7 +47,7 @@ namespace Furny.Controllers
         }
 
         [HttpPatch("{id}/modules/{mid}")]
-        public async Task<IActionResult> Patch(JsonPatchDocument<ModulDto> jsonPatch, string id, string mid)
+        public async Task<IActionResult> Patch(JsonPatchDocument<ModulCommand> jsonPatch, string id, string mid)
         {
             await _modulService.UpdateAsync(jsonPatch, id, mid);
             return Ok();
@@ -58,7 +61,7 @@ namespace Furny.Controllers
         }
 
         [HttpPost("{id}/modules/{mid}/components")]
-        public async Task<IActionResult> AddComponent(ComponentDto component, string id, string mid)
+        public async Task<IActionResult> AddComponent(ComponentCommand component, string id, string mid)
         {
             await _modulService.AddComponentAsync(component, id, mid);
             return Ok();

@@ -38,7 +38,7 @@ namespace Furny.Test
         public async Task UpdateProfileTest()
         {
             var panelCutter = (await _panelCutterService.Get()).First();
-            var patch = new JsonPatchDocument<PanelCutterProfileDto>();
+            var patch = new JsonPatchDocument<PanelCutterProfileCommand>();
 
             var addressId = (await _addressService.Get()).First().Id.ToString();
 

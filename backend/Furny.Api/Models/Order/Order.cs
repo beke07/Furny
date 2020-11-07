@@ -1,4 +1,4 @@
-﻿using static Furny.Common.Enums;
+﻿using Furny.Common.Enums;
 
 namespace Furny.Models
 {

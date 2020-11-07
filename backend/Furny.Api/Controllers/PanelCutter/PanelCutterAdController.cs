@@ -1,5 +1,6 @@
 ﻿using Furny.Data;
 using Furny.ServiceInterfaces;
+using MediatR;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
@@ -8,18 +9,19 @@ namespace Furny.Controllers
 {
     [Route("api/panelCutter")]
     [ApiController]
-    public class PanelCutterAdController : ControllerBase
+    public class PanelCutterAdController : MediatorControllerBase
     {
         private readonly IAdService _adService;
 
         public PanelCutterAdController(
-            IAdService adService)
+            IAdService adService,
+            IMediator mediator) : base(mediator)
         {
             _adService = adService;
         }
 
         [HttpPost("{id}/ads")]
-        public async Task<IActionResult> PostAd(AdDto ad, string id)
+        public async Task<IActionResult> PostAd(AdCommand ad, string id)
         {
             await _adService.CreateAsync(ad, id);
             return Ok();
@@ -39,7 +41,7 @@ namespace Furny.Controllers
         }
 
         [HttpPatch("{id}/ads/{adId}")]
-        public async Task<IActionResult> DeleteAd([FromBody]JsonPatchDocument<AdDto> jsonPatch, string id, string adId)
+        public async Task<IActionResult> DeleteAd([FromBody] JsonPatchDocument<AdCommand> jsonPatch, string id, string adId)
         {
             await _adService.UpdateAsync(jsonPatch, id, adId);
             return Ok();

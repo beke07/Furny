@@ -8,11 +8,11 @@ namespace Furny.ServiceInterfaces
 {
     public interface IDesignerService : IBaseService<Designer>
     {
-        Task<DesignerProfileDto> GetProfileAsync(string id);
+        Task<DesignerProfileCommand> GetProfileAsync(string id);
 
-        Task UpdateProfileAsync(JsonPatchDocument<DesignerProfileDto> jsonPatch, string id);
+        Task UpdateProfileAsync(JsonPatchDocument<DesignerProfileCommand> jsonPatch, string id);
 
-        Task<DesignerHomeDto> GetAdsAsync(string id);
+        Task<DesignerHomeCommand> GetAdsAsync(string id);
 
         Task AddFavoritePanelCutterAsync(string id, string pid);
 

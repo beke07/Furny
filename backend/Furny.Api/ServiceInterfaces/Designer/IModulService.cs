@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace Furny.ServiceInterfaces
 {
-    public interface IModulService : ISingleElementService<ModulDto, ModulTableDto>
+    public interface IModulService : ISingleElementService<ModulCommand, ModulTableCommand>
     {
-        Task AddComponentAsync(ComponentDto component, string id, string mid);
+        Task AddComponentAsync(ComponentCommand component, string id, string mid);
 
         Task CopyComponentAsync(string id, string mid, string cid);
 

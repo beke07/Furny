@@ -39,7 +39,7 @@ namespace Furny.Test
         public async Task UpdateProfileTest()
         {
             var designer = (await _designerService.Get()).First();
-            var patch = new JsonPatchDocument<DesignerProfileDto>();
+            var patch = new JsonPatchDocument<DesignerProfileCommand>();
 
             var addressId = (await _addressService.Get()).First().Id.ToString();
 

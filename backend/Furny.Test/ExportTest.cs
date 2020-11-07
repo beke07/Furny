@@ -1,11 +1,10 @@
-﻿using Furny.Common;
+﻿using Furny.Common.Enums;
 using Furny.Models;
 using Furny.ServiceInterfaces;
 using Furny.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
-using static Furny.Common.Enums;
 
 namespace Furny.Test
 {

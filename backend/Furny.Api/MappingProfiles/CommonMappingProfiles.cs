@@ -12,7 +12,7 @@ namespace Furny.MappingProfiles
         {
             CreateMap<ObjectId, string>().ConvertUsing<ObjectIdConverter>();
             CreateMap<string, ObjectId>().ConvertUsing<StringConverter>();
-            CreateMap<NotificationDto, Notification>().ReverseMap();
+            CreateMap<NotificationCommand, Notification>().ReverseMap();
         }
 
         public class ObjectIdConverter : ITypeConverter<ObjectId, string>

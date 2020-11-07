@@ -7,15 +7,15 @@ namespace Furny.ServiceInterfaces
 {
     public interface IAuthService
     {
-        Task<string> LoginAsync(LoginDto login);
+        Task<string> LoginAsync(LoginCommand login);
 
-        Task RegisterDesigner(DesignerRegisterDto registerDto);
+        Task RegisterDesigner(DesignerRegisterCommand registerDto);
 
-        Task RegisterPanelCutter(PanelCutterRegisterDto registerDto);
+        Task RegisterPanelCutter(PanelCutterRegisterCommand registerDto);
 
         Task<ObjectId> RegisterAsync<T, U>(U register, string role)
              where T : ApplicationUser
-             where U : RegisterBaseDto;
+             where U : RegisterBaseCommand;
 
         Task LogoutAsync();
 

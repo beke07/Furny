@@ -1,5 +1,6 @@
 ﻿using Furny.Data;
 using Furny.ServiceInterfaces;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -7,17 +8,19 @@ namespace Furny.Controllers
 {
     [Route("api/designer")]
     [ApiController]
-    public class DesignerOfferController : ControllerBase
+    public class DesignerOfferController : MediatorControllerBase
     {
         private readonly IOfferService _offerService;
 
-        public DesignerOfferController(IOfferService offerService)
+        public DesignerOfferController(
+            IOfferService offerService,
+            IMediator mediator) : base(mediator)
         {
             _offerService = offerService;
         }
 
         [HttpPost("{id}/furnitures/{fid}/offers")]
-        public async Task<IActionResult> Post(OfferDto offer, string id, string fid)
+        public async Task<IActionResult> Post(OfferCommand offer, string id, string fid)
         {
             await _offerService.CreateAsnyc(offer, id, fid);
             return Ok();

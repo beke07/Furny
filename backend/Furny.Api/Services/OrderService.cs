@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Furny.Common.Enums;
 using Furny.Data;
 using Furny.Models;
 using Furny.ServiceInterfaces;
@@ -6,7 +7,6 @@ using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using static Furny.Common.Enums;
 
 namespace Furny.Services
 {
@@ -31,17 +31,17 @@ namespace Furny.Services
             _notificationService = notificationService;
         }
 
-        public async Task<OrderDto> GetById(string id)
+        public async Task<OrderCommand> GetById(string id)
         {
             var order = await FindByIdAsync(id);
-            return _mapper.Map<OrderDto>(order);
+            return _mapper.Map<OrderCommand>(order);
         }
 
-        public async Task<IList<PanelCutterOrderTableDto>> GetPanelOrdersAsnyc(string panelCutterId)
+        public async Task<IList<PanelCutterOrderTableCommand>> GetPanelOrdersAsnyc(string panelCutterId)
         {
             var orders = (await Get()).Where(e => e.Offer.PanelCutterId == panelCutterId);
 
-            return orders.Select(e => new PanelCutterOrderTableDto()
+            return orders.Select(e => new PanelCutterOrderTableCommand()
             {
                 DesignerName = _designerService.FindByIdAsync(e.Offer.DesginerId).Result.Name,
                 State = e.State,
@@ -50,11 +50,11 @@ namespace Furny.Services
             }).ToList();
         }
 
-        public async Task<IList<DesignerOrderTableDto>> GetDesignerOrdersAsnyc(string designerId)
+        public async Task<IList<DesignerOrderTableCommand>> GetDesignerOrdersAsnyc(string designerId)
         {
             var orders = (await Get()).Where(e => e.Offer.DesginerId == designerId);
 
-            return orders.Select(e => new DesignerOrderTableDto()
+            return orders.Select(e => new DesignerOrderTableCommand()
             {
                 Name = _furnitureService.GetByIdAsync(designerId, e.Offer.FurnitureId).Result.Name,
                 State = e.State,
@@ -68,7 +68,7 @@ namespace Furny.Services
             await _collection.InsertOneAsync(new Order() { Offer = offer });
         }
 
-        public async Task AcceptAsnyc(string id, OrderFillDto orderDto)
+        public async Task AcceptAsnyc(string id, OrderFillCommand orderDto)
         {
             var order = await FindByIdAsync(id);
             order.Delivery = orderDto.Delivery;

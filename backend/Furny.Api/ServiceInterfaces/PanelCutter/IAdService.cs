@@ -2,6 +2,6 @@
 
 namespace Furny.ServiceInterfaces
 {
-    public interface IAdService : ISingleElementService<AdDto, AdTableDto>
+    public interface IAdService : ISingleElementService<AdCommand, AdTableCommand>
     { }
 }

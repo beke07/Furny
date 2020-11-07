@@ -10,23 +10,23 @@ namespace Furny.MappingProfiles
     {
         public DesignerMappingProfiles()
         {
-            CreateMap<DesignerProfileDto, Designer>()
+            CreateMap<DesignerProfileCommand, Designer>()
                 .ForMember(e => e.UserAddress, opt => opt.MapFrom<ProfileAddressResolver>())
                 .ReverseMap()
                 .ForMember(e => e.AddressId, opt => opt.MapFrom(e => e.UserAddress.Address.Id))
                 .ForMember(e => e.AddressId, opt => opt.MapFrom(e => e.UserAddress.StreetAndHouse));
 
-            CreateMap<FurnitureDto, Furniture>()
+            CreateMap<FurnitureCommand, Furniture>()
                 .ForMember(e => e.Moduls, opt => opt.MapFrom<ModulResolver>())
                 .ReverseMap()
                 .ForPath(e => e.Moduls, opt => opt.MapFrom(e => e.Moduls.Select(m => m.Id.ToString())));
 
-            CreateMap<ComponentDto, Component>().ReverseMap();
-            CreateMap<ComponentTableDto, Component>().ReverseMap();
+            CreateMap<ComponentCommand, Component>().ReverseMap();
+            CreateMap<ComponentTableCommand, Component>().ReverseMap();
             CreateMap<ComponentClosingDto, ComponentClosing>().ReverseMap();
             CreateMap<ClosingsDto, Closings>().ReverseMap();
-            CreateMap<ModulDto, Modul>().ReverseMap();
-            CreateMap<ModulTableDto, Modul>().ReverseMap();
+            CreateMap<ModulCommand, Modul>().ReverseMap();
+            CreateMap<ModulTableCommand, Modul>().ReverseMap();
         }
     }
 }

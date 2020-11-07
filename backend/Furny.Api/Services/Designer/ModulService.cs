@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Furny.Services
 {
-    public class ModulService : SingleElementBaseService<Designer, Modul, ModulDto, ModulTableDto>, IModulService
+    public class ModulService : SingleElementBaseService<Designer, Modul, ModulCommand, ModulTableCommand>, IModulService
     {
         private readonly IMapper _mapper;
 
@@ -19,7 +19,7 @@ namespace Furny.Services
             _mapper = mapper;
         }
 
-        public async Task AddComponentAsync(ComponentDto component, string id, string mid)
+        public async Task AddComponentAsync(ComponentCommand component, string id, string mid)
         {
             var modul = await FindByIdAsync(id, mid);
             modul.Components.Add(_mapper.Map<Component>(component));

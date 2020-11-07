@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Furny.Common;
+using Furny.Common.Enums;
 using Furny.Data;
 using Furny.Data.Designer.TableDto;
 using Furny.Models;
@@ -11,11 +11,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using static Furny.Common.Enums;
 
 namespace Furny.Services
 {
-    public class FurnitureService : SingleElementBaseService<Designer, Furniture, FurnitureDto, FurnitureTableDto>, IFurnitureService
+    public class FurnitureService : SingleElementBaseService<Designer, Furniture, FurnitureCommand, FurnitureTableCommand>, IFurnitureService
     {
         private readonly IMapper _mapper;
         private readonly IExportService _exportService;
@@ -30,7 +29,7 @@ namespace Furny.Services
             _exportService = exportService;
         }
 
-        public override async Task CreateAsync(FurnitureDto element, string id)
+        public override async Task CreateAsync(FurnitureCommand element, string id)
         {
             element.DesignerId = id;
             await base.CreateAsync(element, id);
@@ -47,7 +46,7 @@ namespace Furny.Services
 
             var result = components.GroupBy(e => e.Name).Select(e => e.ToList());
 
-            return await _exportService.ExportAsync(excelType, result); 
+            return await _exportService.ExportAsync(excelType, result);
         }
 
         public async Task AddModulAsync(string id, string fid, string mid)
@@ -69,7 +68,7 @@ namespace Furny.Services
             await ReplaceByIdAsync(id, furniture);
         }
 
-        public async Task AddComponentAsync(ComponentDto component, string id, string fid)
+        public async Task AddComponentAsync(ComponentCommand component, string id, string fid)
         {
             var furniture = await FindByIdAsync(id, fid);
             furniture.Components.Add(_mapper.Map<Component>(component));

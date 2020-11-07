@@ -1,18 +1,13 @@
-﻿using Furny.ServiceInterfaces;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Furny.Controllers
 {
     [Route("api/panelCutter")]
     [ApiController]
-    public class PanelCutterController : ControllerBase
+    public class PanelCutterController : MediatorControllerBase
     {
-        private readonly IPanelCutterService _panelCutterService;
-
-        public PanelCutterController(
-            IPanelCutterService panelCutterService)
-        {
-            _panelCutterService = panelCutterService;
-        }
+        public PanelCutterController(IMediator mediator) : base(mediator)
+        { }
     }
 }

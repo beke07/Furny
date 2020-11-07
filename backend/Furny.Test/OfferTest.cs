@@ -1,4 +1,5 @@
-﻿using Furny.Data;
+﻿using Furny.Common.Enums;
+using Furny.Data;
 using Furny.Models;
 using Furny.ServiceInterfaces;
 using Furny.Services;
@@ -7,7 +8,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
-using static Furny.Common.Enums;
 
 namespace Furny.Test
 {
@@ -42,11 +42,11 @@ namespace Furny.Test
             await _panelCutterService.UpdateAsync(panelCutter);
 
             var materialService = new MaterialService(_mapper, _configuration);
-            await materialService.CreateAsync(new MaterialDto() { Name = "Material", Type = MaterialType.Table, Price = 500 }, panelCutter.Id.ToString());
-            await materialService.CreateAsync(new MaterialDto() { Name = "Material 2", Type = MaterialType.M2, Price = 500 }, panelCutter.Id.ToString());
+            await materialService.CreateAsync(new MaterialCommand() { Name = "Material", Type = MaterialType.Table, Price = 500 }, panelCutter.Id.ToString());
+            await materialService.CreateAsync(new MaterialCommand() { Name = "Material 2", Type = MaterialType.M2, Price = 500 }, panelCutter.Id.ToString());
 
             var closingService = new ClosingService(_mapper, _configuration);
-            await closingService.CreateAsync(new ClosingDto() { Name = "Closing" }, panelCutter.Id.ToString());
+            await closingService.CreateAsync(new ClosingCommand() { Name = "Closing" }, panelCutter.Id.ToString());
 
             panelCutter = (await _panelCutterService.Get()).First();
             var designer = (await _designerService.Get()).First();
@@ -54,18 +54,18 @@ namespace Furny.Test
 
             await _database.DropCollectionAsync("offers");
 
-            await _offerService.CreateAsnyc(new OfferDto()
+            await _offerService.CreateAsnyc(new OfferCommand()
             {
-                Components = new List<OfferComponentDto>()
+                Components = new List<OfferComponentCommand>()
                 {
-                    new OfferComponentDto()
+                    new OfferComponentCommand()
                     {
                         ComponentId = furniture.Components.ElementAt(0).Id.ToString(),
                         MaterialId = panelCutter.Materials.ElementAt(0).Id.ToString(),
                         ClosingId = panelCutter.Closings.ElementAt(0).Id.ToString(),
                         PanelCutterId = panelCutter.Id.ToString()
                     },
-                    new OfferComponentDto()
+                    new OfferComponentCommand()
                     {
                         ComponentId = furniture.Components.ElementAt(0).Id.ToString(),
                         MaterialId = panelCutter.Materials.ElementAt(1).Id.ToString(),
@@ -142,7 +142,7 @@ namespace Furny.Test
 
             var offers = await _offerService.GetPanelCutterOfferTableAsync(panelCutter.Id.ToString());
 
-            await _offerService.FillPanelCutterOfferAsync(new PanelCutterFillOfferDto()
+            await _offerService.FillPanelCutterOfferAsync(new PanelCutterFillOfferCommand()
             {
                 Price = 10000,
                 Deadline = DateTime.Now

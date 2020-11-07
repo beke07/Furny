@@ -9,16 +9,16 @@ namespace Furny.ServiceInterfaces
     {
         Task CreateAsnyc(Offer offer);
 
-        Task AcceptAsnyc(string id, OrderFillDto orderDto);
+        Task AcceptAsnyc(string id, OrderFillCommand orderDto);
 
         Task DeclineAsnyc(string id);
 
         Task DoneAsnyc(string id);
 
-        Task<OrderDto> GetById(string id);
+        Task<OrderCommand> GetById(string id);
 
-        Task<IList<PanelCutterOrderTableDto>> GetPanelOrdersAsnyc(string panelCutterId);
+        Task<IList<PanelCutterOrderTableCommand>> GetPanelOrdersAsnyc(string panelCutterId);
 
-        Task<IList<DesignerOrderTableDto>> GetDesignerOrdersAsnyc(string designerId);
+        Task<IList<DesignerOrderTableCommand>> GetDesignerOrdersAsnyc(string designerId);
     }
 }

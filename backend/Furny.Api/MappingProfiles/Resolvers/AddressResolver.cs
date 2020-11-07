@@ -6,7 +6,7 @@ using System;
 
 namespace Furny.MappingProfiles.Resolvers
 {
-    public class AddressResolver : IValueResolver<RegisterBaseDto, ApplicationUser, UserAddress>
+    public class AddressResolver : IValueResolver<RegisterBaseCommand, ApplicationUser, UserAddress>
     {
         private readonly IAddressService _addressService;
 
@@ -15,7 +15,7 @@ namespace Furny.MappingProfiles.Resolvers
             _addressService = addressService;
         }
 
-        public UserAddress Resolve(RegisterBaseDto source, ApplicationUser destination, UserAddress destMember, ResolutionContext context)
+        public UserAddress Resolve(RegisterBaseCommand source, ApplicationUser destination, UserAddress destMember, ResolutionContext context)
         {
             if (source?.UserAddress == null)
             {

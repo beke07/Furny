@@ -66,11 +66,11 @@ namespace Furny.Middlewares
                     {
                         if (roleType == RoleTypes.Designer)
                         {
-                            await authService.RegisterDesigner(new DesignerRegisterDto() { Email = email, UserName = email, UserId = userId });
+                            await authService.RegisterDesigner(new DesignerRegisterCommand() { Email = email, UserName = email, UserId = userId });
                         }
                         else if (roleType == RoleTypes.PanelCutter)
                         {
-                            await authService.RegisterPanelCutter(new PanelCutterRegisterDto() { Email = email, UserName = email, UserId = userId });
+                            await authService.RegisterPanelCutter(new PanelCutterRegisterCommand() { Email = email, UserName = email, UserId = userId });
                         }
                     }
                 }

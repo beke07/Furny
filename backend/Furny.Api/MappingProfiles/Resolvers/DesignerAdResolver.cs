@@ -5,9 +5,9 @@ using System;
 
 namespace Furny.MappingProfiles.Resolvers
 {
-    public class DesignerAdResolver : IValueResolver<Ad, DesignerAdDto, string>
+    public class DesignerAdResolver : IValueResolver<Ad, DesignerAdCommand, string>
     {
-        public string Resolve(Ad source, DesignerAdDto destination, string destMember, ResolutionContext context)
+        public string Resolve(Ad source, DesignerAdCommand destination, string destMember, ResolutionContext context)
         {
             var ago = DateTime.Now.Subtract(source.Id.CreationTime);
 

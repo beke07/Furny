@@ -45,25 +45,25 @@ namespace Furny.Test
                     new TestOfferMappingProfiles()
                 });
 
-                cfg.CreateMap<OfferComponentDto, OfferComponent>()
+                cfg.CreateMap<OfferComponentCommand, OfferComponent>()
                     .ForMember(e => e.Component, opt => opt.MapFrom(new ComponentResolver(designerService)))
                     .ForMember(e => e.Closing, opt => opt.MapFrom(new ClosingResolver(panelCutterService)))
                     .ForMember(e => e.Material, opt => opt.MapFrom(new MaterialResolver(panelCutterService)))
                     .ReverseMap();
 
-                cfg.CreateMap<PanelCutterProfileDto, PanelCutter>()
+                cfg.CreateMap<PanelCutterProfileCommand, PanelCutter>()
                     .ForMember(e => e.UserAddress, opt => opt.MapFrom(new ProfileAddressResolver(_addressService)))
                     .ReverseMap()
                     .ForMember(e => e.AddressId, opt => opt.MapFrom(e => e.UserAddress.Address.Id))
                     .ForMember(e => e.StreetAndHouse, opt => opt.MapFrom(e => e.UserAddress.StreetAndHouse));
 
-                cfg.CreateMap<DesignerProfileDto, Designer>()
+                cfg.CreateMap<DesignerProfileCommand, Designer>()
                     .ForMember(e => e.UserAddress, opt => opt.MapFrom(new ProfileAddressResolver(_addressService)))
                     .ReverseMap()
                     .ForMember(e => e.AddressId, opt => opt.MapFrom(e => e.UserAddress.Address.Id))
                     .ForMember(e => e.StreetAndHouse, opt => opt.MapFrom(e => e.UserAddress.StreetAndHouse));
 
-                cfg.CreateMap<FurnitureDto, Furniture>()
+                cfg.CreateMap<FurnitureCommand, Furniture>()
                     .ForMember(e => e.Moduls, opt => opt.MapFrom(new ModulResolver(designerService)))
                     .ReverseMap()
                     .ForPath(e => e.Moduls, opt => opt.MapFrom(e => e.Moduls.Select(m => m.Id.ToString())));

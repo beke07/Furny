@@ -1,5 +1,6 @@
 ﻿using Furny.Data;
 using Furny.ServiceInterfaces;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -7,11 +8,13 @@ namespace Furny.Controllers
 {
     [Route("api/users")]
     [ApiController]
-    public class OrderController : ControllerBase
+    public class OrderController : MediatorControllerBase
     {
         private readonly IOrderService _orderService;
 
-        public OrderController(IOrderService orderService)
+        public OrderController(
+            IOrderService orderService,
+            IMediator mediator) : base(mediator)
         {
             _orderService = orderService;
         }
@@ -35,7 +38,7 @@ namespace Furny.Controllers
         }
 
         [HttpPost("orders/{oid}/accept")]
-        public async Task<IActionResult> AcceptOrder(OrderFillDto orderDto, string oid)
+        public async Task<IActionResult> AcceptOrder(OrderFillCommand orderDto, string oid)
         {
             await _orderService.AcceptAsnyc(oid, orderDto);
             return Ok();
