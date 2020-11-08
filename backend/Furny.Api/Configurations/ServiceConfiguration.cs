@@ -8,11 +8,13 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddDesignerFeatureServices();
+            services.AddDesignerFurnitureFeatureServices();
+            services.AddDesignerModulFeatureServices();
             services.AddPanelCutterFeatureServices();
             services.AddCommonFeatureServices();
-            services.AddDesignerFurnitureFeatureServices();
             services.AddExportFeatureServices();
-            
+
+
             services.AddTransient<IAuthService, AuthService>();
             services.AddTransient<IFileHandlerService, FileHandlerService>();
             services.AddTransient<IExcelService, ExcelService>();
