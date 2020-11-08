@@ -5,12 +5,14 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class ServicesConfiguration
     {
-        public static void AddServices(this IServiceCollection services)
+        public static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddDesignerFeatureServices();
             services.AddPanelCutterFeatureServices();
             services.AddCommonFeatureServices();
-
+            services.AddDesignerFurnitureFeatureServices();
+            services.AddExportFeatureServices();
+            
             services.AddTransient<IAuthService, AuthService>();
             services.AddTransient<IFileHandlerService, FileHandlerService>();
             services.AddTransient<IExcelService, ExcelService>();
@@ -26,6 +28,8 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddTransient<IOfferService, OfferService>();
             services.AddTransient<INotificationService, NotificationService>();
             services.AddTransient<IOrderService, OrderService>();
+
+            return services;
         }
     }
 }

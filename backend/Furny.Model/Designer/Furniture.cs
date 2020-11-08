@@ -17,7 +17,7 @@ namespace Furny.Model
 
         public SingleElement<Component> Components { get; set; } = new SingleElement<Component>();
 
-        internal void CopyComponent(string id)
+        public void CopyComponent(string id)
         {
             var component = Components.GetById(id);
             var newComponent = new Component()

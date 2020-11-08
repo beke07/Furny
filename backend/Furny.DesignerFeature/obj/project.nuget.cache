@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "uauU6xWmR5VhL5ZUXOOEgr7GJPl5adWJtOrsBRaeAEKAhobuHJwwSXjz9FzMLRfmL49p8paLEYzLXVFNCYKrCg==",
+  "dgSpecHash": "QDg4nuqB+B8sk2HbPT9ZisEF6q6kLx+Ug4cS9ZSsKA/qjIyVVaqJUfgfcKTfNGmgPLx9171fm80hTIjRxD4n/Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.DesignerFeature\\Furny.DesignerFeature.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Beke\\.nuget\\packages\\aspnetcore.identity.mongodbcore\\2.1.0\\aspnetcore.identity.mongodbcore.2.1.0.nupkg.sha512",
     "C:\\Users\\Beke\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
     "C:\\Users\\Beke\\.nuget\\packages\\dnsclient\\1.3.1\\dnsclient.1.3.1.nupkg.sha512",
+    "C:\\Users\\Beke\\.nuget\\packages\\documentformat.openxml\\2.10.1\\documentformat.openxml.2.10.1.nupkg.sha512",
     "C:\\Users\\Beke\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\Beke\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\Beke\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
@@ -90,6 +91,7 @@
     "C:\\Users\\Beke\\.nuget\\packages\\system.io.compression.zipfile\\4.3.0\\system.io.compression.zipfile.4.3.0.nupkg.sha512",
     "C:\\Users\\Beke\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Users\\Beke\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
+    "C:\\Users\\Beke\\.nuget\\packages\\system.io.packaging\\4.7.0\\system.io.packaging.4.7.0.nupkg.sha512",
     "C:\\Users\\Beke\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
     "C:\\Users\\Beke\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\Beke\\.nuget\\packages\\system.net.http\\4.3.0\\system.net.http.4.3.0.nupkg.sha512",

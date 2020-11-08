@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -10,6 +10,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Furny.Common\Furny.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Export\szabaszati-megrendelo-arajanlat.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

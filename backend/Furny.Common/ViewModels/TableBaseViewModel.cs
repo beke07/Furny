@@ -1,9 +1,8 @@
-﻿using MediatR;
-using System;
+﻿using System;
 
 namespace Furny.Common.Commands
 {
-    public class TableBaseCommand : IRequest
+    public class TableBaseViewModel
     {
         public string _id { get; set; }
 

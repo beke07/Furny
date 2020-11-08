@@ -19,6 +19,7 @@ namespace Furny.Services
         private const int _mm2Tom2 = 1000000;
         private const int _tableWidth = 2080;
         private const int _tableHeight = 2070;
+
         private readonly IMapper _mapper;
         private readonly IFurnitureService _furnitureService;
         private readonly IDesignerService _designerService;

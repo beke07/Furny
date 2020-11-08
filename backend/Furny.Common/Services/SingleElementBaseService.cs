@@ -14,7 +14,7 @@ namespace Furny.Common.Services
         where B : IMongoEntityBase
         where T : MongoEntityBase
         where D : class
-        where TD : TableBaseCommand
+        where TD : TableBaseViewModel
     {
         private readonly string propertyName = $"{typeof(T).Name}s";
         private readonly IMapper _mapper;

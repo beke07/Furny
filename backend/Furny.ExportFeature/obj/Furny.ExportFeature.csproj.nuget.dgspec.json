@@ -1,0 +1,216 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.ExportFeature\\Furny.ExportFeature.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj",
+        "projectName": "Furny.Common",
+        "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj",
+        "packagesPath": "C:\\Users\\Beke\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Beke\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "DocumentFormat.OpenXml": {
+              "target": "Package",
+              "version": "[2.10.1, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[2.11.4, )"
+            },
+            "MongoDbGenericRepository": {
+              "target": "Package",
+              "version": "[1.4.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.ExportFeature\\Furny.ExportFeature.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.ExportFeature\\Furny.ExportFeature.csproj",
+        "projectName": "Furny.ExportFeature",
+        "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.ExportFeature\\Furny.ExportFeature.csproj",
+        "packagesPath": "C:\\Users\\Beke\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.ExportFeature\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Beke\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj": {
+                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj"
+              },
+              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj": {
+                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj",
+        "projectName": "Furny.Model",
+        "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj",
+        "packagesPath": "C:\\Users\\Beke\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Beke\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj": {
+                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "AspNetCore.Identity.MongoDbCore": {
+              "target": "Package",
+              "version": "[2.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -12,3 +12,4 @@ C:\Users\Beke\Desktop\diploma\backend\Furny.DesignerFeature\obj\Debug\netcoreapp
 C:\Users\Beke\Desktop\diploma\backend\Furny.DesignerFeature\obj\Debug\netcoreapp3.1\Furny.DesignerFeature.csproj.CopyComplete
 C:\Users\Beke\Desktop\diploma\backend\Furny.DesignerFeature\obj\Debug\netcoreapp3.1\Furny.DesignerFeature.dll
 C:\Users\Beke\Desktop\diploma\backend\Furny.DesignerFeature\obj\Debug\netcoreapp3.1\Furny.DesignerFeature.pdb
+C:\Users\Beke\Desktop\diploma\backend\Furny.DesignerFeature\bin\Debug\netcoreapp3.1\Export\szabaszati-megrendelo-arajanlat.xlsx

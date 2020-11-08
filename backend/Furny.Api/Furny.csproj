@@ -34,12 +34,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Furny.Common\Furny.Common.csproj" />
     <ProjectReference Include="..\Furny.DesignerFeature\Furny.DesignerFeature.csproj" />
+    <ProjectReference Include="..\Furny.DesignerFurnitureFeature\Furny.DesignerFurnitureFeature.csproj" />
+    <ProjectReference Include="..\Furny.ExportFeature\Furny.ExportFeature.csproj" />
     <ProjectReference Include="..\Furny.PanelCutterFeature\Furny.PanelCutterFeature.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Export\szabaszati-megrendelo-arajanlat.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 </Project>
