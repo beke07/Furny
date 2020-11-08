@@ -1,8 +1,11 @@
-﻿using Furny.DesignerFeature.Commands;
-using Furny.DesignerFurnitureFeature.Commands;
-using Furny.DesignerModulFeature.Commands;
+﻿using Furny.AdFeature.Commands;
+using Furny.ClosingFeature.Commands;
+using Furny.DesignerFeature.Commands;
 using Furny.ExportFeature.Commands;
 using Furny.FileHandlerFeature.CommandHandlers;
+using Furny.FurnitureFeature.Commands;
+using Furny.MaterialFeature.Commands;
+using Furny.ModulFeature.Commands;
 using Furny.NotificationFeature.Commands;
 using Furny.OfferFeature.CommandHandlers;
 using Furny.OrderFeature.CommandHandlers;
@@ -19,12 +22,15 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddMediatR(
                 Assembly.GetExecutingAssembly(),
                 typeof(DesignerGetCommandHandler).Assembly,
-                typeof(DesignerFurnitureGetFurnituresCommandHandler).Assembly,
-                typeof(DesignerModulGetModulsCommandHandler).Assembly,
+                typeof(FurnitureGetFurnituresCommandHandler).Assembly,
+                typeof(ModulGetModulsCommandHandler).Assembly,
+                typeof(ClosingFeatureGetClosingCommandHandler).Assembly,
                 typeof(ExportCommandHandler).Assembly,
                 typeof(OfferFeatureDesignerOfferCommandHandler).Assembly,
+                typeof(AdFeatureCreateAdCommandHandler).Assembly,
                 typeof(OrderFeatureOrderCommandHandler).Assembly,
                 typeof(FileHandlerFeatureCommandHandler).Assembly,
+                typeof(MaterialFeatureGetMaterialCommandHandler).Assembly,
                 typeof(NotificationFeatureNotificationsCommandHandlers).Assembly,
                 typeof(PanelCutterCommandHandler).Assembly);
 

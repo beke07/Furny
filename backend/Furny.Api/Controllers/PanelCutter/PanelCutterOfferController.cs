@@ -1,7 +1,9 @@
-﻿using Furny.Data;
-using Furny.ServiceInterfaces;
+﻿using Furny.OfferFeature.Commands;
+using Furny.OfferFeature.Data;
+using Furny.OfferFeature.ViewModels;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Furny.Controllers
@@ -10,32 +12,19 @@ namespace Furny.Controllers
     [ApiController]
     public class PanelCutterOfferController : MediatorControllerBase
     {
-        private readonly IOfferService _offerService;
-
-        public PanelCutterOfferController(
-            IOfferService offerService,
-            IMediator mediator) : base(mediator)
-        {
-            _offerService = offerService;
-        }
+        public PanelCutterOfferController(IMediator mediator) : base(mediator)
+        { }
 
         [HttpPost("offers/{oid}")]
-        public async Task<IActionResult> Post(PanelCutterFillOfferCommand offerDto, string oid)
-        {
-            await _offerService.FillPanelCutterOfferAsync(offerDto, oid);
-            return Ok();
-        }
+        public async Task Post(OfferFeaturePanelCutterFillOfferDto fillDto, string oid)
+            => await SendAsync(OfferFeatureGetPanelCutterFillOfferCommand.Create(oid, fillDto));
 
         [HttpGet("offers/{oid}")]
-        public async Task<IActionResult> Get(string oid)
-        {
-            return Ok(await _offerService.GetPanelCutterOfferAsync(oid));
-        }
+        public async Task<OfferFeaturePanelCutterOfferDto> Get(string oid)
+            => await SendAsync(OfferFeatureGetPanelCutterOfferCommand.Create(oid));
 
         [HttpGet("{id}/offers")]
-        public async Task<IActionResult> GetTable(string id)
-        {
-            return Ok(await _offerService.GetPanelCutterOfferTableAsync(id));
-        }
+        public async Task<IList<OfferFeaturePanelCutterOfferTableViewModel>> GetTable(string id)
+            => await SendAsync(OfferFeatureGetPanelCutterOfferTableCommand.Create(id));
     }
 }

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Furny.Common.Enums;
 using Furny.Common.Services;
-using Furny.DesignerFurnitureFeature.Commands;
+using Furny.FurnitureFeature.Commands;
 using Furny.Model;
 using Furny.Model.Common.Commands;
 using Furny.NotificationFeature.Commands;
@@ -56,7 +56,7 @@ namespace Furny.OrderFeature.Services
 
             return orders.Select(e => new OrderFeatureDesignerTableViewModel()
             {
-                Name = _mediator.Send(DesignerFurnitureGetFurnitureCommand.Create(designerId, e.Offer.FurnitureId)).Result.Name,
+                Name = _mediator.Send(FurnitureGetFurnitureCommand.Create(designerId, e.Offer.FurnitureId)).Result.Name,
                 State = e.State,
                 _id = e.Id.ToString(),
                 CreatedOn = e.Id.CreationTime

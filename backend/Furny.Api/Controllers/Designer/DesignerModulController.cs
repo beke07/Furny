@@ -1,6 +1,6 @@
-﻿using Furny.DesignerModulFeature.Commands;
-using Furny.DesignerModulFeature.Data;
-using Furny.DesignerModulFeature.ViewModels;
+﻿using Furny.ModulFeature.Commands;
+using Furny.ModulFeature.Data;
+using Furny.ModulFeature.ViewModels;
 using Furny.Models;
 using MediatR;
 using Microsoft.AspNetCore.JsonPatch;
@@ -12,46 +12,46 @@ namespace Furny.Controllers
 {
     [Route("api/designer")]
     [ApiController]
-    public class DesignerModulController : MediatorControllerBase
+    public class ModulController : MediatorControllerBase
     {
-        public DesignerModulController(IMediator mediator) : base(mediator)
+        public ModulController(IMediator mediator) : base(mediator)
         { }
 
         [HttpGet("{id}/modules/quick-search/{term}")]
-        public async Task<IList<DesignerModulModulTableViewModel>> QuickSearch(string id, string term)
-            => await SendAsync(DesignerModulSearchModulCommand.Create(id, term, nameof(Modul.Name)));
+        public async Task<IList<ModulTableViewModel>> QuickSearch(string id, string term)
+            => await SendAsync(ModulSearchModulCommand.Create(id, term, nameof(Modul.Name)));
 
         [HttpPost("{id}/modules")]
-        public async Task Post(DesignerModulModulDto modul, string id)
-            => await SendAsync(DesignerModulCreateModulCommand.Create(id, modul));
+        public async Task Post(ModulModulDto modul, string id)
+            => await SendAsync(ModulCreateModulCommand.Create(id, modul));
 
         [HttpGet("{id}/modules")]
-        public async Task<IList<DesignerModulModulTableViewModel>> Get(string id)
-            => await SendAsync(DesignerModulGetModulsCommand.Create(id));
+        public async Task<IList<ModulTableViewModel>> Get(string id)
+            => await SendAsync(ModulGetModulsCommand.Create(id));
 
         [HttpGet("{id}/modules/{mid}")]
-        public async Task<DesignerModulModulDto> Get(string id, string mid)
-            => await SendAsync(DesignerModulGetModulCommand.Create(id, mid));
+        public async Task<ModulModulDto> Get(string id, string mid)
+            => await SendAsync(ModulGetModulCommand.Create(id, mid));
 
         [HttpPatch("{id}/modules/{mid}")]
-        public async Task Patch(JsonPatchDocument<DesignerModulModulDto> jsonPatch, string id, string mid)
-            => await SendAsync(DesignerModulUpdateModulCommand.Create(jsonPatch, id, mid));
+        public async Task Patch(JsonPatchDocument<ModulModulDto> jsonPatch, string id, string mid)
+            => await SendAsync(ModulUpdateModulCommand.Create(jsonPatch, id, mid));
 
         [HttpDelete("{id}/modules/{mid}")]
         public async Task Delete(string id, string mid)
-            => await SendAsync(DesignerModulRemoveModulCommand.Create(id, mid));
+            => await SendAsync(ModulRemoveModulCommand.Create(id, mid));
 
         [HttpPost("{id}/modules/{mid}/components")]
-        public async Task AddComponent(DesignerModulComponentDto component, string id, string mid)
-            => await SendAsync(DesignerModulAddComponentCommand.Create(component, id, mid));
+        public async Task AddComponent(ModulComponentDto component, string id, string mid)
+            => await SendAsync(ModulAddComponentCommand.Create(component, id, mid));
 
         [HttpDelete("{id}/modules/{mid}/components/{cid}")]
         public async Task RemoveComponent(string id, string mid, string cid)
-            => await SendAsync(DesignerModulRemoveComponentCommand.Create(id, mid, cid));
+            => await SendAsync(ModulRemoveComponentCommand.Create(id, mid, cid));
 
         [HttpPost("{id}/modules/{mid}/components/{cid}")]
         public async Task CopyComponent(string id, string mid, string cid)
-            => await SendAsync(DesignerModulCopyComponentCommand.Create(id, mid, cid));
+            => await SendAsync(ModulCopyComponentCommand.Create(id, mid, cid));
     }
 }
 

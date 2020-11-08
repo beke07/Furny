@@ -2,7 +2,7 @@
 using Furny.Common.Enums;
 using Furny.Common.Filters;
 using Furny.Common.Services;
-using Furny.DesignerFurnitureFeature.Commands;
+using Furny.FurnitureFeature.Commands;
 using Furny.Model;
 using Furny.Model.Common.Commands;
 using Furny.NotificationFeature.Commands;
@@ -102,7 +102,7 @@ namespace Furny.OfferFeature.Services
         {
             var offers = (await Get()).Where(e => e.DesginerId == designerId && e.FurnitureId == furnitureId);
 
-            var furniture = await _mediator.Send(DesignerFurnitureGetFurnitureCommand.Create(designerId, furnitureId));
+            var furniture = await _mediator.Send(FurnitureGetFurnitureCommand.Create(designerId, furnitureId));
 
             var result = new List<OfferFeatureDesignerOfferTableViewModel>();
             foreach (var offer in offers)

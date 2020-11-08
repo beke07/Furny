@@ -1,8 +1,10 @@
-﻿using Furny.Data;
-using Furny.ServiceInterfaces;
+﻿using Furny.AdFeature.Commands;
+using Furny.AdFeature.Data;
+using Furny.AdFeature.ViewModels;
 using MediatR;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Furny.Controllers
@@ -11,40 +13,23 @@ namespace Furny.Controllers
     [ApiController]
     public class PanelCutterAdController : MediatorControllerBase
     {
-        private readonly IAdService _adService;
-
-        public PanelCutterAdController(
-            IAdService adService,
-            IMediator mediator) : base(mediator)
-        {
-            _adService = adService;
-        }
+        public PanelCutterAdController(IMediator mediator) : base(mediator)
+        { }
 
         [HttpPost("{id}/ads")]
-        public async Task<IActionResult> PostAd(AdCommand ad, string id)
-        {
-            await _adService.CreateAsync(ad, id);
-            return Ok();
-        }
+        public async Task PostAd(AdFeatureAdDto ad, string id)
+            => await SendAsync(AdFeatureCreateAdCommand.Create(id, ad));
 
         [HttpGet("{id}/ads")]
-        public async Task<IActionResult> GetAds(string id)
-        {
-            return Ok(await _adService.GetAsync(id));
-        }
+        public async Task<IList<AdFeatureAdTableViewModel>> GetAds(string id)
+            => await SendAsync(AdFeatureGetAdsCommand.Create(id));
 
         [HttpDelete("{id}/ads/{adId}")]
-        public async Task<IActionResult> DeleteAd(string id, string adId)
-        {
-            await _adService.RemoveAsync(id, adId);
-            return Ok();
-        }
+        public async Task DeleteAd(string id, string adId)
+            => await SendAsync(AdFeatureRemoveAdCommand.Create(id, adId));
 
         [HttpPatch("{id}/ads/{adId}")]
-        public async Task<IActionResult> UpdateAd([FromBody] JsonPatchDocument<AdCommand> jsonPatch, string id, string adId)
-        {
-            await _adService.UpdateAsync(jsonPatch, id, adId);
-            return Ok();
-        }
+        public async Task UpdateAd([FromBody] JsonPatchDocument<AdFeatureAdDto> jsonPatch, string id, string adId)
+            => await SendAsync(AdFeatureUpdateAdCommand.Create(jsonPatch, id, adId));
     }
 }

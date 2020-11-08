@@ -1,3 +1,4 @@
+C:\Users\Beke\Desktop\diploma\backend\Furny.PanelCutterFeature\bin\Debug\netcoreapp3.1\Export\szabaszati-megrendelo-arajanlat.xlsx
 C:\Users\Beke\Desktop\diploma\backend\Furny.PanelCutterFeature\bin\Debug\netcoreapp3.1\Furny.PanelCutterFeature.deps.json
 C:\Users\Beke\Desktop\diploma\backend\Furny.PanelCutterFeature\bin\Debug\netcoreapp3.1\Furny.PanelCutterFeature.dll
 C:\Users\Beke\Desktop\diploma\backend\Furny.PanelCutterFeature\bin\Debug\netcoreapp3.1\Furny.PanelCutterFeature.pdb
@@ -12,4 +13,3 @@ C:\Users\Beke\Desktop\diploma\backend\Furny.PanelCutterFeature\obj\Debug\netcore
 C:\Users\Beke\Desktop\diploma\backend\Furny.PanelCutterFeature\obj\Debug\netcoreapp3.1\Furny.PanelCutterFeature.csproj.CopyComplete
 C:\Users\Beke\Desktop\diploma\backend\Furny.PanelCutterFeature\obj\Debug\netcoreapp3.1\Furny.PanelCutterFeature.dll
 C:\Users\Beke\Desktop\diploma\backend\Furny.PanelCutterFeature\obj\Debug\netcoreapp3.1\Furny.PanelCutterFeature.pdb
-C:\Users\Beke\Desktop\diploma\backend\Furny.PanelCutterFeature\bin\Debug\netcoreapp3.1\Export\szabaszati-megrendelo-arajanlat.xlsx

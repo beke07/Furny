@@ -1,8 +1,11 @@
 ﻿using AutoMapper;
+using Furny.AdFeature.MappingProfiles;
+using Furny.ClosingFeature.MappingProfiles;
 using Furny.DesignerFeature.MappingProfiles;
-using Furny.DesignerFurnitureFeature.MappingProfiles;
-using Furny.DesignerModulFeature.MappingProfiles;
+using Furny.FurnitureFeature.MappingProfiles;
+using Furny.MaterialFeature.MappingProfiles;
 using Furny.Model.Common.MappingProfiles;
+using Furny.ModulFeature.MappingProfiles;
 using Furny.NotificationFeature.MappingProfiles;
 using Furny.OfferFeature.MappingProfiles;
 using Furny.OrderFeature.MappingProfiles;
@@ -19,7 +22,10 @@ namespace Microsoft.Extensions.DependencyInjection
                 typeof(DesignerMappingProfile),
                 typeof(PanelCutterMappingProfile),
                 typeof(FurnitureMappingProfile),
+                typeof(MaterialMappingProfile),
                 typeof(ModulMappingProfile),
+                typeof(AdMappingProfile),
+                typeof(ClosingMappingProfile),
                 typeof(OfferMappingProfiles),
                 typeof(OrderMappingProfile),
                 typeof(NotificationMappingProfile));

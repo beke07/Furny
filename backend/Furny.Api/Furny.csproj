@@ -32,12 +32,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Furny.AdFeature\Furny.AdFeature.csproj" />
+    <ProjectReference Include="..\Furny.AuthFeature\Furny.AuthFeature.csproj" />
+    <ProjectReference Include="..\Furny.ClosingFeature\Furny.ClosingFeature.csproj" />
     <ProjectReference Include="..\Furny.Common\Furny.Common.csproj" />
     <ProjectReference Include="..\Furny.DesignerFeature\Furny.DesignerFeature.csproj" />
-    <ProjectReference Include="..\Furny.DesignerFurnitureFeature\Furny.DesignerFurnitureFeature.csproj" />
-    <ProjectReference Include="..\Furny.DesignerModulFeature\Furny.DesignerModulFeature.csproj" />
     <ProjectReference Include="..\Furny.ExportFeature\Furny.ExportFeature.csproj" />
     <ProjectReference Include="..\Furny.FileHandlerFeature\Furny.FileHandlerFeature.csproj" />
+    <ProjectReference Include="..\Furny.FurnitureFeature\Furny.FurnitureFeature.csproj" />
+    <ProjectReference Include="..\Furny.MaterialFeature\Furny.MaterialFeature.csproj" />
+    <ProjectReference Include="..\Furny.ModulFeature\Furny.ModulFeature.csproj" />
     <ProjectReference Include="..\Furny.NotificationFeature\Furny.NotificationFeature.csproj" />
     <ProjectReference Include="..\Furny.OfferFeature\Furny.OfferFeature.csproj" />
     <ProjectReference Include="..\Furny.PanelCutterFeature\Furny.PanelCutterFeature.csproj" />

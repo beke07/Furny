@@ -5,9 +5,11 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class ServicesConfiguration
     {
-        public static void AddPanelCutterFeatureServices(this IServiceCollection services)
+        public static IServiceCollection AddPanelCutterFeatureServices(this IServiceCollection services)
         {
             services.AddTransient<IPanelCutterService, PanelCutterService>();
+
+            return services;
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using Furny.NotificationFeature.Commands;
 using Furny.NotificationFeature.ViewModels;
-using Furny.ServiceInterfaces;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -12,14 +11,8 @@ namespace Furny.Controllers
     [ApiController]
     public class NotificationController : MediatorControllerBase
     {
-        private readonly INotificationService _notificationService;
-
-        public NotificationController(
-            INotificationService notificationService,
-            IMediator mediator) : base(mediator)
-        {
-            _notificationService = notificationService;
-        }
+        public NotificationController(IMediator mediator) : base(mediator)
+        { }
 
         [HttpPost("{id}/notifications/{nid}")]
         public async Task Done(string id, string nid)

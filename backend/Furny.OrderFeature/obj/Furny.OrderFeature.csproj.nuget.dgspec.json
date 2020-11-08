@@ -85,14 +85,14 @@
         }
       }
     },
-    "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.DesignerFurnitureFeature\\Furny.DesignerFurnitureFeature.csproj": {
+    "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.ExportFeature\\Furny.ExportFeature.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.DesignerFurnitureFeature\\Furny.DesignerFurnitureFeature.csproj",
-        "projectName": "Furny.DesignerFurnitureFeature",
-        "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.DesignerFurnitureFeature\\Furny.DesignerFurnitureFeature.csproj",
+        "projectUniqueName": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.ExportFeature\\Furny.ExportFeature.csproj",
+        "projectName": "Furny.ExportFeature",
+        "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.ExportFeature\\Furny.ExportFeature.csproj",
         "packagesPath": "C:\\Users\\Beke\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.DesignerFurnitureFeature\\obj\\",
+        "outputPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.ExportFeature\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Beke\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -110,9 +110,6 @@
             "projectReferences": {
               "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj": {
                 "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj"
-              },
-              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.ExportFeature\\Furny.ExportFeature.csproj": {
-                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.ExportFeature\\Furny.ExportFeature.csproj"
               },
               "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj": {
                 "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj"
@@ -150,14 +147,14 @@
         }
       }
     },
-    "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.ExportFeature\\Furny.ExportFeature.csproj": {
+    "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.FurnitureFeature\\Furny.FurnitureFeature.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.ExportFeature\\Furny.ExportFeature.csproj",
-        "projectName": "Furny.ExportFeature",
-        "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.ExportFeature\\Furny.ExportFeature.csproj",
+        "projectUniqueName": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.FurnitureFeature\\Furny.FurnitureFeature.csproj",
+        "projectName": "Furny.FurnitureFeature",
+        "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.FurnitureFeature\\Furny.FurnitureFeature.csproj",
         "packagesPath": "C:\\Users\\Beke\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.ExportFeature\\obj\\",
+        "outputPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.FurnitureFeature\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Beke\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -175,6 +172,9 @@
             "projectReferences": {
               "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj": {
                 "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj"
+              },
+              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.ExportFeature\\Furny.ExportFeature.csproj": {
+                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.ExportFeature\\Furny.ExportFeature.csproj"
               },
               "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj": {
                 "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj"
@@ -362,8 +362,8 @@
               "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj": {
                 "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj"
               },
-              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.DesignerFurnitureFeature\\Furny.DesignerFurnitureFeature.csproj": {
-                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.DesignerFurnitureFeature\\Furny.DesignerFurnitureFeature.csproj"
+              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.FurnitureFeature\\Furny.FurnitureFeature.csproj": {
+                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.FurnitureFeature\\Furny.FurnitureFeature.csproj"
               },
               "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj": {
                 "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj"

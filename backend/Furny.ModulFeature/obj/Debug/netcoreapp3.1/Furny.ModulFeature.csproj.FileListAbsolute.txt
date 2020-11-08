@@ -1,0 +1,14 @@
+C:\Users\Beke\Desktop\diploma\backend\Furny.ModulFeature\bin\Debug\netcoreapp3.1\Export\szabaszati-megrendelo-arajanlat.xlsx
+C:\Users\Beke\Desktop\diploma\backend\Furny.ModulFeature\bin\Debug\netcoreapp3.1\Furny.ModulFeature.deps.json
+C:\Users\Beke\Desktop\diploma\backend\Furny.ModulFeature\bin\Debug\netcoreapp3.1\Furny.ModulFeature.dll
+C:\Users\Beke\Desktop\diploma\backend\Furny.ModulFeature\bin\Debug\netcoreapp3.1\Furny.ModulFeature.pdb
+C:\Users\Beke\Desktop\diploma\backend\Furny.ModulFeature\bin\Debug\netcoreapp3.1\Furny.Common.dll
+C:\Users\Beke\Desktop\diploma\backend\Furny.ModulFeature\bin\Debug\netcoreapp3.1\Furny.Model.dll
+C:\Users\Beke\Desktop\diploma\backend\Furny.ModulFeature\bin\Debug\netcoreapp3.1\Furny.Common.pdb
+C:\Users\Beke\Desktop\diploma\backend\Furny.ModulFeature\bin\Debug\netcoreapp3.1\Furny.Model.pdb
+C:\Users\Beke\Desktop\diploma\backend\Furny.ModulFeature\obj\Debug\netcoreapp3.1\Furny.ModulFeature.AssemblyInfoInputs.cache
+C:\Users\Beke\Desktop\diploma\backend\Furny.ModulFeature\obj\Debug\netcoreapp3.1\Furny.ModulFeature.AssemblyInfo.cs
+C:\Users\Beke\Desktop\diploma\backend\Furny.ModulFeature\obj\Debug\netcoreapp3.1\Furny.ModulFeature.csproj.CoreCompileInputs.cache
+C:\Users\Beke\Desktop\diploma\backend\Furny.ModulFeature\obj\Debug\netcoreapp3.1\Furny.ModulFeature.csproj.CopyComplete
+C:\Users\Beke\Desktop\diploma\backend\Furny.ModulFeature\obj\Debug\netcoreapp3.1\Furny.ModulFeature.dll
+C:\Users\Beke\Desktop\diploma\backend\Furny.ModulFeature\obj\Debug\netcoreapp3.1\Furny.ModulFeature.pdb

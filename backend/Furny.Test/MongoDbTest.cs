@@ -30,7 +30,7 @@ namespace Furny.Test
             _database = new MongoClient(_configuration.GetConnectionString("FurnyDb"))
                 .GetDatabase("FurnyDb");
 
-            _addressService = new Services.AddressService(_configuration);
+            _addressService = new AddressService(_configuration);
 
             var panelCutterService = new PanelCutterService(_mapper, _configuration);
             var designerService = new DesignerService(_mapper, panelCutterService, _configuration);

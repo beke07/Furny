@@ -9,7 +9,7 @@
       "Furny.OrderFeature/1.0.0": {
         "dependencies": {
           "Furny.Common": "1.0.0",
-          "Furny.DesignerFurnitureFeature": "1.0.0",
+          "Furny.FurnitureFeature": "1.0.0",
           "Furny.Model": "1.0.0",
           "Furny.NotificationFeature": "1.0.0"
         },
@@ -1183,16 +1183,6 @@
           "Furny.Common.dll": {}
         }
       },
-      "Furny.DesignerFurnitureFeature/1.0.0": {
-        "dependencies": {
-          "Furny.Common": "1.0.0",
-          "Furny.ExportFeature": "1.0.0",
-          "Furny.Model": "1.0.0"
-        },
-        "runtime": {
-          "Furny.DesignerFurnitureFeature.dll": {}
-        }
-      },
       "Furny.ExportFeature/1.0.0": {
         "dependencies": {
           "Furny.Common": "1.0.0",
@@ -1200,6 +1190,16 @@
         },
         "runtime": {
           "Furny.ExportFeature.dll": {}
+        }
+      },
+      "Furny.FurnitureFeature/1.0.0": {
+        "dependencies": {
+          "Furny.Common": "1.0.0",
+          "Furny.ExportFeature": "1.0.0",
+          "Furny.Model": "1.0.0"
+        },
+        "runtime": {
+          "Furny.FurnitureFeature.dll": {}
         }
       },
       "Furny.Model/1.0.0": {
@@ -2156,12 +2156,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Furny.DesignerFurnitureFeature/1.0.0": {
+    "Furny.ExportFeature/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
-    "Furny.ExportFeature/1.0.0": {
+    "Furny.FurnitureFeature/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

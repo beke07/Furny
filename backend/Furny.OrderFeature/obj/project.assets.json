@@ -1988,24 +1988,6 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Furny.DesignerFurnitureFeature/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "dependencies": {
-          "Furny.Common": "1.0.0",
-          "Furny.ExportFeature": "1.0.0",
-          "Furny.Model": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Furny.DesignerFurnitureFeature.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Furny.DesignerFurnitureFeature.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
       "Furny.ExportFeature/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -2022,6 +2004,21 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "Furny.FurnitureFeature/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Furny.Common": "1.0.0",
+          "Furny.ExportFeature": "1.0.0",
+          "Furny.Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Furny.FurnitureFeature.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Furny.FurnitureFeature.dll": {}
+        }
       },
       "Furny.Model/1.0.0": {
         "type": "project",
@@ -6529,15 +6526,15 @@
       "path": "../Furny.Common/Furny.Common.csproj",
       "msbuildProject": "../Furny.Common/Furny.Common.csproj"
     },
-    "Furny.DesignerFurnitureFeature/1.0.0": {
-      "type": "project",
-      "path": "../Furny.DesignerFurnitureFeature/Furny.DesignerFurnitureFeature.csproj",
-      "msbuildProject": "../Furny.DesignerFurnitureFeature/Furny.DesignerFurnitureFeature.csproj"
-    },
     "Furny.ExportFeature/1.0.0": {
       "type": "project",
       "path": "../Furny.ExportFeature/Furny.ExportFeature.csproj",
       "msbuildProject": "../Furny.ExportFeature/Furny.ExportFeature.csproj"
+    },
+    "Furny.FurnitureFeature/1.0.0": {
+      "type": "project",
+      "path": "../Furny.FurnitureFeature/Furny.FurnitureFeature.csproj",
+      "msbuildProject": "../Furny.FurnitureFeature/Furny.FurnitureFeature.csproj"
     },
     "Furny.Model/1.0.0": {
       "type": "project",
@@ -6553,7 +6550,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Furny.Common >= 1.0.0",
-      "Furny.DesignerFurnitureFeature >= 1.0.0",
+      "Furny.FurnitureFeature >= 1.0.0",
       "Furny.Model >= 1.0.0",
       "Furny.NotificationFeature >= 1.0.0"
     ]
@@ -6587,8 +6584,8 @@
             "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj": {
               "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj"
             },
-            "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.DesignerFurnitureFeature\\Furny.DesignerFurnitureFeature.csproj": {
-              "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.DesignerFurnitureFeature\\Furny.DesignerFurnitureFeature.csproj"
+            "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.FurnitureFeature\\Furny.FurnitureFeature.csproj": {
+              "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.FurnitureFeature\\Furny.FurnitureFeature.csproj"
             },
             "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj": {
               "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj"

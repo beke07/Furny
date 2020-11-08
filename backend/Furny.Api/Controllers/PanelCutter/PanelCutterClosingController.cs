@@ -1,8 +1,11 @@
-﻿using Furny.Data;
+﻿using Furny.ClosingFeature.Commands;
+using Furny.ClosingFeature.Data;
+using Furny.ClosingFeature.ViewModels;
 using Furny.ServiceInterfaces;
 using MediatR;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Furny.Controllers
@@ -11,46 +14,27 @@ namespace Furny.Controllers
     [ApiController]
     public class PanelCutterClosingController : MediatorControllerBase
     {
-        private readonly IClosingService _closingService;
-
-        public PanelCutterClosingController(
-            IClosingService closingService,
-            IMediator mediator) : base(mediator)
-        {
-            _closingService = closingService;
-        }
+        public PanelCutterClosingController(IMediator mediator) : base(mediator)
+        { }
 
         [HttpPost("{id}/closings")]
-        public async Task<IActionResult> PostClosing(ClosingCommand closing, string id)
-        {
-            await _closingService.CreateAsync(closing, id);
-            return Ok();
-        }
+        public async Task PostClosing(ClosingFeatureClosingDto closing, string id)
+            => await SendAsync(ClosingFeatureCreateClosingCommand.Create(id, closing));
 
         [HttpGet("{id}/closings")]
-        public async Task<IActionResult> GetClosings(string id)
-        {
-            return Ok(await _closingService.GetAsync(id));
-        }
+        public async Task<IList<ClosingFeatureClosingTableViewModel>> GetClosings(string id)
+            => await SendAsync(ClosingFeatureGetClosingsCommand.Create(id));
 
         [HttpGet("{id}/closings/{cid}")]
-        public async Task<IActionResult> GetClosing(string id, string cid)
-        {
-            return Ok(await _closingService.GetByIdAsync(id, cid));
-        }
+        public async Task<ClosingFeatureClosingDto> GetClosing(string id, string cid)
+            => await SendAsync(ClosingFeatureGetClosingCommand.Create(id, cid));
 
         [HttpDelete("{id}/closings/{cid}")]
-        public async Task<IActionResult> DeleteClosing(string id, string cid)
-        {
-            await _closingService.RemoveAsync(id, cid);
-            return Ok();
-        }
+        public async Task DeleteClosing(string id, string cid)
+            => await SendAsync(ClosingFeatureRemoveClosingCommand.Create(id, cid));
 
         [HttpPatch("{id}/closings/{cid}")]
-        public async Task<IActionResult> UpdateClosing([FromBody] JsonPatchDocument<ClosingCommand> jsonPatch, string id, string cid)
-        {
-            await _closingService.UpdateAsync(jsonPatch, id, cid);
-            return Ok();
-        }
+        public async Task UpdateClosing([FromBody] JsonPatchDocument<ClosingFeatureClosingDto> jsonPatch, string id, string cid)
+            => await SendAsync(ClosingFeatureUpdateClosingCommand.Create(jsonPatch, id, cid));
     }
 }

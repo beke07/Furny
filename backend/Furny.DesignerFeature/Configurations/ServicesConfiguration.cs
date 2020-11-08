@@ -5,9 +5,11 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class ServicesConfiguration
     {
-        public static void AddDesignerFeatureServices(this IServiceCollection services)
+        public static IServiceCollection AddDesignerFeatureServices(this IServiceCollection services)
         {
             services.AddTransient<IDesignerService, DesignerService>();
+
+            return services;
         }
     }
 }

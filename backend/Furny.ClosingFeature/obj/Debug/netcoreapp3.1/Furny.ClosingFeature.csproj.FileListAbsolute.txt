@@ -1,0 +1,14 @@
+C:\Users\Beke\Desktop\diploma\backend\Furny.ClosingFeature\bin\Debug\netcoreapp3.1\Export\szabaszati-megrendelo-arajanlat.xlsx
+C:\Users\Beke\Desktop\diploma\backend\Furny.ClosingFeature\bin\Debug\netcoreapp3.1\Furny.ClosingFeature.deps.json
+C:\Users\Beke\Desktop\diploma\backend\Furny.ClosingFeature\bin\Debug\netcoreapp3.1\Furny.ClosingFeature.dll
+C:\Users\Beke\Desktop\diploma\backend\Furny.ClosingFeature\bin\Debug\netcoreapp3.1\Furny.ClosingFeature.pdb
+C:\Users\Beke\Desktop\diploma\backend\Furny.ClosingFeature\bin\Debug\netcoreapp3.1\Furny.Common.dll
+C:\Users\Beke\Desktop\diploma\backend\Furny.ClosingFeature\bin\Debug\netcoreapp3.1\Furny.Model.dll
+C:\Users\Beke\Desktop\diploma\backend\Furny.ClosingFeature\bin\Debug\netcoreapp3.1\Furny.Common.pdb
+C:\Users\Beke\Desktop\diploma\backend\Furny.ClosingFeature\bin\Debug\netcoreapp3.1\Furny.Model.pdb
+C:\Users\Beke\Desktop\diploma\backend\Furny.ClosingFeature\obj\Debug\netcoreapp3.1\Furny.ClosingFeature.AssemblyInfoInputs.cache
+C:\Users\Beke\Desktop\diploma\backend\Furny.ClosingFeature\obj\Debug\netcoreapp3.1\Furny.ClosingFeature.AssemblyInfo.cs
+C:\Users\Beke\Desktop\diploma\backend\Furny.ClosingFeature\obj\Debug\netcoreapp3.1\Furny.ClosingFeature.csproj.CoreCompileInputs.cache
+C:\Users\Beke\Desktop\diploma\backend\Furny.ClosingFeature\obj\Debug\netcoreapp3.1\Furny.ClosingFeature.csproj.CopyComplete
+C:\Users\Beke\Desktop\diploma\backend\Furny.ClosingFeature\obj\Debug\netcoreapp3.1\Furny.ClosingFeature.dll
+C:\Users\Beke\Desktop\diploma\backend\Furny.ClosingFeature\obj\Debug\netcoreapp3.1\Furny.ClosingFeature.pdb

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Furny.Common\Furny.Common.csproj" />
-    <ProjectReference Include="..\Furny.DesignerFurnitureFeature\Furny.DesignerFurnitureFeature.csproj" />
+    <ProjectReference Include="..\Furny.FurnitureFeature\Furny.FurnitureFeature.csproj" />
     <ProjectReference Include="..\Furny.Model\Furny.Model.csproj" />
     <ProjectReference Include="..\Furny.NotificationFeature\Furny.NotificationFeature.csproj" />
     <ProjectReference Include="..\Furny.OrderFeature\Furny.OrderFeature.csproj" />

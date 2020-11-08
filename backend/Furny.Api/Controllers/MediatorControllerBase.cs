@@ -13,8 +13,6 @@ namespace Microsoft.AspNetCore.Mvc
         }
 
         public async Task<T> SendAsync<T>(IRequest<T> command)
-        {
-            return await _mediator.Send(command);
-        }
+            => await _mediator.Send(command);
     }
 }

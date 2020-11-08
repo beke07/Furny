@@ -1,3 +1,4 @@
+C:\Users\Beke\Desktop\diploma\backend\Furny.Model\bin\Debug\netcoreapp3.1\Export\szabaszati-megrendelo-arajanlat.xlsx
 C:\Users\Beke\Desktop\diploma\backend\Furny.Model\bin\Debug\netcoreapp3.1\Furny.Model.deps.json
 C:\Users\Beke\Desktop\diploma\backend\Furny.Model\bin\Debug\netcoreapp3.1\Furny.Model.dll
 C:\Users\Beke\Desktop\diploma\backend\Furny.Model\bin\Debug\netcoreapp3.1\Furny.Model.pdb
@@ -10,4 +11,3 @@ C:\Users\Beke\Desktop\diploma\backend\Furny.Model\obj\Debug\netcoreapp3.1\Furny.
 C:\Users\Beke\Desktop\diploma\backend\Furny.Model\obj\Debug\netcoreapp3.1\Furny.Model.csproj.CopyComplete
 C:\Users\Beke\Desktop\diploma\backend\Furny.Model\obj\Debug\netcoreapp3.1\Furny.Model.dll
 C:\Users\Beke\Desktop\diploma\backend\Furny.Model\obj\Debug\netcoreapp3.1\Furny.Model.pdb
-C:\Users\Beke\Desktop\diploma\backend\Furny.Model\bin\Debug\netcoreapp3.1\Export\szabaszati-megrendelo-arajanlat.xlsx

@@ -1,5 +1,6 @@
-﻿using Furny.Data;
-using Furny.ServiceInterfaces;
+﻿using Furny.AuthFeature.Commands;
+using Furny.AuthFeature.Data;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.IdentityModel.Tokens.Jwt;
@@ -36,7 +37,7 @@ namespace Furny.Middlewares
             _next = next;
         }
 
-        public async Task InvokeAsync(HttpContext context, IAuthService authService)
+        public async Task InvokeAsync(HttpContext context, IMediator mediator)
         {
             var token = context.Request.Headers["Authorization"]
                     .ToString()
@@ -49,7 +50,7 @@ namespace Furny.Middlewares
                 var claims = securityToken.Claims.ToList();
                 var email = claims.FirstOrDefault(e => e.Type == FurnyClaimTypes.Email).Value;
 
-                if (await authService.IsNotRegistratedAsync(email))
+                if (await mediator.Send(AuthFeatureIsNotRegistratedCommand.Create(email)))
                 {
                     if (!context.Request.Query.ContainsKey(RoleQueryString))
                     {
@@ -66,11 +67,11 @@ namespace Furny.Middlewares
                     {
                         if (roleType == RoleTypes.Designer)
                         {
-                            await authService.RegisterDesigner(new DesignerRegisterCommand() { Email = email, UserName = email, UserId = userId });
+                            await mediator.Send(AuthFeatureRegisterDesignerCommand.Create(new AuthFeatureDesignerRegisterDto() { Email = email, UserName = email, UserId = userId }));
                         }
                         else if (roleType == RoleTypes.PanelCutter)
                         {
-                            await authService.RegisterPanelCutter(new PanelCutterRegisterCommand() { Email = email, UserName = email, UserId = userId });
+                            await mediator.Send(AuthFeatureRegisterPanelCutterCommand.Create(new AuthFeaturePanelCutterRegisterDto() { Email = email, UserName = email, UserId = userId }));
                         }
                     }
                 }

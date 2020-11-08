@@ -11,8 +11,7 @@ namespace Furny.Controllers
     [ApiController]
     public class PanelCutterOrderController : MediatorControllerBase
     {
-        public PanelCutterOrderController(
-            IMediator mediator) : base(mediator)
+        public PanelCutterOrderController(IMediator mediator) : base(mediator)
         { }
 
         [HttpGet("panelcutter/{id}/orders")]

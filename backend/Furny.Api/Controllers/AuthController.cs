@@ -1,5 +1,5 @@
-﻿using Furny.Data;
-using Furny.ServiceInterfaces;
+﻿using Furny.AuthFeature.Commands;
+using Furny.AuthFeature.Data;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -11,45 +11,27 @@ namespace Furny.Controllers
     [ApiController]
     public class AuthController : MediatorControllerBase
     {
-        private readonly IAuthService _authService;
-
-        public AuthController(
-            IAuthService authService,
-            IMediator mediator) : base(mediator)
-        {
-            _authService = authService;
-        }
+        public AuthController(IMediator mediator) : base(mediator)
+        { }
 
         [AllowAnonymous]
         [HttpPost("register/designer")]
-        public async Task<IActionResult> RegisterDesginer(DesignerRegisterCommand registerDto)
-        {
-            await _authService.RegisterDesigner(registerDto);
-            return Ok();
-        }
+        public async Task RegisterDesigner(AuthFeatureDesignerRegisterDto registerDto)
+            => await SendAsync(AuthFeatureRegisterDesignerCommand.Create(registerDto));
 
         [AllowAnonymous]
         [HttpPost("register/panel-cutter")]
-        public async Task<IActionResult> RegisterPanelCutter(PanelCutterRegisterCommand registerDto)
-        {
-            await _authService.RegisterPanelCutter(registerDto);
-            return Ok();
-        }
+        public async Task RegisterPanelCutter(AuthFeaturePanelCutterRegisterDto registerDto)
+            => await SendAsync(AuthFeatureRegisterPanelCutterCommand.Create(registerDto));
 
         [AllowAnonymous]
         [HttpPost("login")]
-        public async Task<IActionResult> Login(LoginCommand loginDto)
-        {
-            var token = await _authService.LoginAsync(loginDto);
-            return Ok(new { token });
-        }
+        public async Task<string> Login(AuthFeatureLoginDto loginDto)
+            => await SendAsync(AuthFeatureLoginCommand.Create(loginDto));
 
         [Authorize]
         [HttpPost("logout")]
-        public async Task<IActionResult> Logout()
-        {
-            await _authService.LogoutAsync();
-            return Ok();
-        }
+        public async Task Logout()
+            => await SendAsync(AuthFeatureLogoutCommand.Create());
     }
 }

@@ -7,17 +7,19 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
-            services.AddDesignerFeatureServices();
-            services.AddDesignerFurnitureFeatureServices();
-            services.AddDesignerModulFeatureServices();
-            services.AddPanelCutterFeatureServices();
-            services.AddCommonFeatureServices();
-            services.AddExportFeatureServices();
-            services.AddOfferFeatureServices();
-            services.AddOrderFeatureServices();
-            services.AddNotificationFeatureServices();
-            services.AddFileHandlerFeatureServices();
-            
+            services.AddDesignerFeatureServices()
+                .AddFurnitureFeatureServices()
+                .AddModulFeatureServices()
+                .AddPanelCutterFeatureServices()
+                .AddCommonFeatureServices()
+                .AddExportFeatureServices()
+                .AddOfferFeatureServices()
+                .AddOrderFeatureServices()
+                .AddNotificationFeatureServices()
+                .AddAdFeatureServices()
+                .AddClosingFeatureServices()
+                .AddMaterialFeatureServices();
+
             services.AddTransient<IAuthService, AuthService>();
             services.AddTransient<IFileHandlerService, FileHandlerService>();
             services.AddTransient<IExcelService, ExcelService>();

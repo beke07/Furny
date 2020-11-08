@@ -1,0 +1,17 @@
+C:\Users\Beke\Desktop\diploma\backend\Furny.FurnitureFeature\bin\Debug\netcoreapp3.1\Export\szabaszati-megrendelo-arajanlat.xlsx
+C:\Users\Beke\Desktop\diploma\backend\Furny.FurnitureFeature\bin\Debug\netcoreapp3.1\Furny.FurnitureFeature.deps.json
+C:\Users\Beke\Desktop\diploma\backend\Furny.FurnitureFeature\bin\Debug\netcoreapp3.1\Furny.FurnitureFeature.dll
+C:\Users\Beke\Desktop\diploma\backend\Furny.FurnitureFeature\bin\Debug\netcoreapp3.1\Furny.FurnitureFeature.pdb
+C:\Users\Beke\Desktop\diploma\backend\Furny.FurnitureFeature\bin\Debug\netcoreapp3.1\Furny.Common.dll
+C:\Users\Beke\Desktop\diploma\backend\Furny.FurnitureFeature\bin\Debug\netcoreapp3.1\Furny.ExportFeature.dll
+C:\Users\Beke\Desktop\diploma\backend\Furny.FurnitureFeature\bin\Debug\netcoreapp3.1\Furny.Model.dll
+C:\Users\Beke\Desktop\diploma\backend\Furny.FurnitureFeature\bin\Debug\netcoreapp3.1\Furny.Common.pdb
+C:\Users\Beke\Desktop\diploma\backend\Furny.FurnitureFeature\bin\Debug\netcoreapp3.1\Furny.ExportFeature.pdb
+C:\Users\Beke\Desktop\diploma\backend\Furny.FurnitureFeature\bin\Debug\netcoreapp3.1\Furny.Model.pdb
+C:\Users\Beke\Desktop\diploma\backend\Furny.FurnitureFeature\obj\Debug\netcoreapp3.1\Furny.FurnitureFeature.csprojAssemblyReference.cache
+C:\Users\Beke\Desktop\diploma\backend\Furny.FurnitureFeature\obj\Debug\netcoreapp3.1\Furny.FurnitureFeature.AssemblyInfoInputs.cache
+C:\Users\Beke\Desktop\diploma\backend\Furny.FurnitureFeature\obj\Debug\netcoreapp3.1\Furny.FurnitureFeature.AssemblyInfo.cs
+C:\Users\Beke\Desktop\diploma\backend\Furny.FurnitureFeature\obj\Debug\netcoreapp3.1\Furny.FurnitureFeature.csproj.CoreCompileInputs.cache
+C:\Users\Beke\Desktop\diploma\backend\Furny.FurnitureFeature\obj\Debug\netcoreapp3.1\Furny.FurnitureFeature.csproj.CopyComplete
+C:\Users\Beke\Desktop\diploma\backend\Furny.FurnitureFeature\obj\Debug\netcoreapp3.1\Furny.FurnitureFeature.dll
+C:\Users\Beke\Desktop\diploma\backend\Furny.FurnitureFeature\obj\Debug\netcoreapp3.1\Furny.FurnitureFeature.pdb
