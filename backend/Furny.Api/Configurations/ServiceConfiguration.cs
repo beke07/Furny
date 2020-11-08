@@ -13,8 +13,11 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddPanelCutterFeatureServices();
             services.AddCommonFeatureServices();
             services.AddExportFeatureServices();
-
-
+            services.AddOfferFeatureServices();
+            services.AddOrderFeatureServices();
+            services.AddNotificationFeatureServices();
+            services.AddFileHandlerFeatureServices();
+            
             services.AddTransient<IAuthService, AuthService>();
             services.AddTransient<IFileHandlerService, FileHandlerService>();
             services.AddTransient<IExcelService, ExcelService>();

@@ -1,9 +1,8 @@
-﻿using Furny.ServiceInterfaces;
+﻿using Furny.FileHandlerFeature.Commands;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Net.Mime;
+using MongoDB.Bson;
 using System.Threading.Tasks;
 
 namespace Furny.Controllers
@@ -12,26 +11,15 @@ namespace Furny.Controllers
     [ApiController]
     public class FileController : MediatorControllerBase
     {
-        private readonly IFileHandlerService _fileHandlerService;
-
-        public FileController(
-            IFileHandlerService fileHandlerService,
-            IMediator mediator) : base(mediator)
-        {
-            _fileHandlerService = fileHandlerService;
-        }
+        public FileController(IMediator mediator) : base(mediator)
+        { }
 
         [HttpPost]
-        public async Task<IActionResult> Upload(IFormFile file)
-        {
-            return Ok(new { imageId = await _fileHandlerService.UploadFileAsync(file) });
-        }
+        public async Task<string> Upload(IFormFile file)
+            => await SendAsync(FileHandlerFeatureUploadCommand.Create(file));
 
         [HttpGet("{id}")]
         public async Task<IActionResult> Download(string id)
-        {
-            var image = await _fileHandlerService.DownloadFileAsync(id);
-            return new FileStreamResult(image, MediaTypeNames.Image.Jpeg);
-        }
+            => await SendAsync(FileHandlerFeatureDownloadCommand.Create(id));
     }
 }

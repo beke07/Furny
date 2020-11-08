@@ -1,6 +1,9 @@
-﻿using Furny.ServiceInterfaces;
+﻿using Furny.NotificationFeature.Commands;
+using Furny.NotificationFeature.ViewModels;
+using Furny.ServiceInterfaces;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Furny.Controllers
@@ -19,16 +22,11 @@ namespace Furny.Controllers
         }
 
         [HttpPost("{id}/notifications/{nid}")]
-        public async Task<IActionResult> Done(string id, string nid)
-        {
-            await _notificationService.DoneNotificationAsync(id, nid);
-            return Ok();
-        }
+        public async Task Done(string id, string nid)
+            => await SendAsync(NotificationFeatureDoneNotificationCommand.Create(id, nid));
 
         [HttpGet("{id}/notifications")]
-        public async Task<IActionResult> Get(string id)
-        {
-            return Ok(await _notificationService.GetNotificationsAsync(id));
-        }
+        public async Task<IList<NotificationFeatureNotificationViewModel>> Get(string id)
+            => await SendAsync(NotificationFeatureGetNotificationsCommand.Create(id));
     }
 }

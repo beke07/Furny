@@ -1,61 +1,33 @@
-﻿using Furny.Data;
-using Furny.ServiceInterfaces;
+﻿using Furny.OrderFeature.Commands;
+using Furny.OrderFeature.Data;
+using Furny.OrderFeature.ViewModels;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace Furny.Controllers
 {
-    [Route("api/users")]
+    [Route("api/orders")]
     [ApiController]
     public class OrderController : MediatorControllerBase
     {
-        private readonly IOrderService _orderService;
+        public OrderController(IMediator mediator) : base(mediator)
+        { }
 
-        public OrderController(
-            IOrderService orderService,
-            IMediator mediator) : base(mediator)
-        {
-            _orderService = orderService;
-        }
+        [HttpGet("{id}")]
+        public async Task<OrderFeatureOrderViewModel> GetById(string id)
+            => await SendAsync(OrderFeatureGetOrderCommand.Create(id));
 
-        [HttpGet("orders/{id}")]
-        public async Task<IActionResult> GetById(string id)
-        {
-            return Ok(await _orderService.GetById(id));
-        }
+        [HttpPost("{id}/accept")]
+        public async Task AcceptOrder(OrderFeatureOrderFillDto fillDto, string id)
+            => await SendAsync(OrderFeatureAcceptOrderCommand.Create(id, fillDto));
 
-        [HttpGet("designers/{id}/orders")]
-        public async Task<IActionResult> GetDesignerOffers(string id)
-        {
-            return Ok(await _orderService.GetDesignerOrdersAsnyc(id));
-        }
+        [HttpPost("{id}/decline")]
+        public async Task DeclineOrder(string id)
+            => await SendAsync(OrderFeatureDeclineOrderCommand.Create(id));
 
-        [HttpGet("panelcutter/{id}/orders")]
-        public async Task<IActionResult> GetPanelCutterOffers(string id)
-        {
-            return Ok(await _orderService.GetPanelOrdersAsnyc(id));
-        }
-
-        [HttpPost("orders/{oid}/accept")]
-        public async Task<IActionResult> AcceptOrder(OrderFillCommand orderDto, string oid)
-        {
-            await _orderService.AcceptAsnyc(oid, orderDto);
-            return Ok();
-        }
-
-        [HttpPost("orders/{oid}/decline")]
-        public async Task<IActionResult> DeclineOrder(string oid)
-        {
-            await _orderService.DeclineAsnyc(oid);
-            return Ok();
-        }
-
-        [HttpPost("orders/{oid}/done")]
-        public async Task<IActionResult> DoneOrder(string oid)
-        {
-            await _orderService.DoneAsnyc(oid);
-            return Ok();
-        }
+        [HttpPost("{id}/done")]
+        public async Task DoneOrder(string id)
+            => await SendAsync(OrderFeatureDoneOrderCommand.Create(id));
     }
 }

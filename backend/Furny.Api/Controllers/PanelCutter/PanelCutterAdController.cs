@@ -41,7 +41,7 @@ namespace Furny.Controllers
         }
 
         [HttpPatch("{id}/ads/{adId}")]
-        public async Task<IActionResult> DeleteAd([FromBody] JsonPatchDocument<AdCommand> jsonPatch, string id, string adId)
+        public async Task<IActionResult> UpdateAd([FromBody] JsonPatchDocument<AdCommand> jsonPatch, string id, string adId)
         {
             await _adService.UpdateAsync(jsonPatch, id, adId);
             return Ok();

@@ -2,7 +2,7 @@
 using Furny.Common.Services;
 using Furny.Common.ViewModels;
 using Furny.Model;
-using Furny.PanelCutterFeature.Commands;
+using Furny.PanelCutterFeature.Data;
 using Furny.PanelCutterFeature.ServiceInterfaces;
 using Furny.PanelCutterFeature.ViewModels;
 using Microsoft.AspNetCore.JsonPatch;
@@ -59,10 +59,10 @@ namespace Furny.PanelCutterFeature.Services
             return _mapper.Map<PanelCutterProfileViewModel>(panelCutter);
         }
 
-        public async Task UpdateProfileAsync(JsonPatchDocument<PanelCutterProfileCommand> jsonPatch, string id)
+        public async Task UpdateProfileAsync(JsonPatchDocument<PanelCutterProfileDto> jsonPatch, string id)
         {
             var panelCutter = await FindByIdAsync(id);
-            var profile = _mapper.Map<PanelCutterProfileCommand>(panelCutter);
+            var profile = _mapper.Map<PanelCutterProfileDto>(panelCutter);
 
             jsonPatch.ApplyTo(profile);
             _mapper.Map(profile, panelCutter);

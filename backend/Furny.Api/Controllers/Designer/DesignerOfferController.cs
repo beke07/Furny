@@ -1,7 +1,9 @@
-﻿using Furny.Data;
-using Furny.ServiceInterfaces;
+﻿using Furny.OfferFeature.Commands;
+using Furny.OfferFeature.Data;
+using Furny.OfferFeature.ViewModels;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Furny.Controllers
@@ -10,32 +12,19 @@ namespace Furny.Controllers
     [ApiController]
     public class DesignerOfferController : MediatorControllerBase
     {
-        private readonly IOfferService _offerService;
-
-        public DesignerOfferController(
-            IOfferService offerService,
-            IMediator mediator) : base(mediator)
-        {
-            _offerService = offerService;
-        }
+        public DesignerOfferController(IMediator mediator) : base(mediator)
+        { }
 
         [HttpPost("{id}/furnitures/{fid}/offers")]
-        public async Task<IActionResult> Post(OfferCommand offer, string id, string fid)
-        {
-            await _offerService.CreateAsnyc(offer, id, fid);
-            return Ok();
-        }
+        public async Task Post(OfferFeatureOfferDto offer, string id, string fid)
+            => await SendAsync(OfferFeatureCreateOfferCommand.Create(offer, id, fid));
 
         [HttpGet("{id}/furnitures/{fid}/offers")]
-        public async Task<IActionResult> Get(string id, string fid)
-        {
-            return Ok(await _offerService.GetDesignerOffersAsnyc(id, fid));
-        }
+        public async Task<IList<OfferFeatureOfferDto>> Get(string id, string fid)
+            => await SendAsync(OfferFeatureGetDesignerOffersCommand.Create(id, fid));
 
         [HttpGet("{id}/furnitures/{fid}/table-offers")]
-        public async Task<IActionResult> GetOffers(string id, string fid)
-        {
-            return Ok(await _offerService.GetDesignerOfferTableAsnyc(id, fid));
-        }
+        public async Task<IList<OfferFeatureDesignerOfferTableViewModel>> GetOffers(string id, string fid)
+            => await SendAsync(OfferFeatureGetDesignerOfferTableCommand.Create(id, fid));
     }
 }

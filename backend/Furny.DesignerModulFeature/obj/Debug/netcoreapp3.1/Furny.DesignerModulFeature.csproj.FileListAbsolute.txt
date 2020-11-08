@@ -1,4 +1,3 @@
-C:\Users\Beke\Desktop\diploma\backend\Furny.DesignerModulFeature\obj\Debug\netcoreapp3.1\Furny.DesignerModulFeature.csprojAssemblyReference.cache
 C:\Users\Beke\Desktop\diploma\backend\Furny.DesignerModulFeature\obj\Debug\netcoreapp3.1\Furny.DesignerModulFeature.AssemblyInfoInputs.cache
 C:\Users\Beke\Desktop\diploma\backend\Furny.DesignerModulFeature\obj\Debug\netcoreapp3.1\Furny.DesignerModulFeature.AssemblyInfo.cs
 C:\Users\Beke\Desktop\diploma\backend\Furny.DesignerModulFeature\obj\Debug\netcoreapp3.1\Furny.DesignerModulFeature.csproj.CoreCompileInputs.cache

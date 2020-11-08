@@ -2,6 +2,7 @@
 using Furny.DesignerFeature.MappingProfiles.Resolvers;
 using Furny.Model;
 using Furny.PanelCutterFeature.Commands;
+using Furny.PanelCutterFeature.Data;
 using Furny.PanelCutterFeature.ViewModels;
 
 namespace Furny.PanelCutterFeature.MappingProfiles
@@ -10,7 +11,7 @@ namespace Furny.PanelCutterFeature.MappingProfiles
     {
         public PanelCutterMappingProfile()
         {
-            CreateMap<PanelCutterProfileCommand, PanelCutter>()
+            CreateMap<PanelCutterProfileDto, PanelCutter>()
                 .ForMember(e => e.UserAddress, opt => opt.MapFrom<PanelCutterProfileAddressResolver>())
                 .ReverseMap()
                 .ForMember(e => e.AddressId, opt => opt.MapFrom(e => e.UserAddress.Address.Id))

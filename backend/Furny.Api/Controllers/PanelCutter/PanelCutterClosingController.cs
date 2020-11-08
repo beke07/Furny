@@ -21,7 +21,7 @@ namespace Furny.Controllers
         }
 
         [HttpPost("{id}/closings")]
-        public async Task<IActionResult> PostMaterial(ClosingCommand closing, string id)
+        public async Task<IActionResult> PostClosing(ClosingCommand closing, string id)
         {
             await _closingService.CreateAsync(closing, id);
             return Ok();

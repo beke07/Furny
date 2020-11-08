@@ -37,6 +37,9 @@
     <ProjectReference Include="..\Furny.DesignerFurnitureFeature\Furny.DesignerFurnitureFeature.csproj" />
     <ProjectReference Include="..\Furny.DesignerModulFeature\Furny.DesignerModulFeature.csproj" />
     <ProjectReference Include="..\Furny.ExportFeature\Furny.ExportFeature.csproj" />
+    <ProjectReference Include="..\Furny.FileHandlerFeature\Furny.FileHandlerFeature.csproj" />
+    <ProjectReference Include="..\Furny.NotificationFeature\Furny.NotificationFeature.csproj" />
+    <ProjectReference Include="..\Furny.OfferFeature\Furny.OfferFeature.csproj" />
     <ProjectReference Include="..\Furny.PanelCutterFeature\Furny.PanelCutterFeature.csproj" />
   </ItemGroup>
 </Project>

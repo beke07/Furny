@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace Furny.PanelCutterFeature.Commands
+namespace Furny.PanelCutterFeature.Data
 {
-    public class PanelCutterProfileCommand
+    public class PanelCutterProfileDto
     {
         public string UserName { get; set; }
 

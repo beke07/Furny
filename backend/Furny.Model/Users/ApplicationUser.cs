@@ -31,12 +31,12 @@ namespace Furny.Model
 
         public IList<Notification> Notifications { get; set; } = new List<Notification>();
 
-        internal void AddNotification(Notification notification)
+        public void AddNotification(Notification notification)
         {
             Notifications.Add(notification);
         }
 
-        internal void DoneNotification(string id)
+        public void DoneNotification(string id)
         {
             Notifications.SingleOrDefault(e => e.Id == ObjectId.Parse(id)).IsDone = true;
         }

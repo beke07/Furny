@@ -1,5 +1,6 @@
-﻿using Furny.Data;
-using Furny.ServiceInterfaces;
+﻿using Furny.PanelCutterFeature.Commands;
+using Furny.PanelCutterFeature.Data;
+using Furny.PanelCutterFeature.ViewModels;
 using MediatR;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -11,26 +12,15 @@ namespace Furny.Controllers
     [ApiController]
     public class PanelCutterProfileController : MediatorControllerBase
     {
-        private readonly IPanelCutterService _panelCutterService;
-
-        public PanelCutterProfileController(
-            IPanelCutterService panelCutterService,
-            IMediator mediator) : base(mediator)
-        {
-            _panelCutterService = panelCutterService;
-        }
+        public PanelCutterProfileController(IMediator mediator) : base(mediator)
+        { }
 
         [HttpGet("{id}/profile")]
-        public async Task<IActionResult> GetProfile(string id)
-        {
-            return Ok(await _panelCutterService.GetProfileAsync(id));
-        }
+        public async Task<PanelCutterProfileViewModel> GetProfile(string id)
+            => await SendAsync(PanelCutterGetProfileCommand.Create(id));
 
         [HttpPatch("{id}/profile")]
-        public async Task<IActionResult> PatchProfile([FromBody] JsonPatchDocument<PanelCutterProfileCommand> jsonPatch, string id)
-        {
-            await _panelCutterService.UpdateProfileAsync(jsonPatch, id);
-            return Ok();
-        }
+        public async Task PatchProfile([FromBody] JsonPatchDocument<PanelCutterProfileDto> jsonPatch, string id)
+            => await SendAsync(PanelCutterUpdateProfileCommand.Create(jsonPatch, id));
     }
 }

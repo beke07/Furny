@@ -3,7 +3,7 @@ using Furny.DesignerModulFeature.Data;
 using Furny.DesignerModulFeature.ViewModels;
 using Furny.Model;
 
-namespace Furny.DesignerFurnitureFeature.MappingProfiles
+namespace Furny.DesignerModulFeature.MappingProfiles
 {
     public class ModulMappingProfile : Profile
     {
