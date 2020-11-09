@@ -1983,10 +1983,7 @@
         },
         "runtime": {
           "bin/placeholder/Furny.Common.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        }
       },
       "Furny.Model/1.0.0": {
         "type": "project",
@@ -2000,10 +1997,7 @@
         },
         "runtime": {
           "bin/placeholder/Furny.Model.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
+        }
       }
     }
   },
@@ -6544,9 +6538,6 @@
         "assetTargetFallback": true,
         "warn": true,
         "frameworkReferences": {
-          "Microsoft.AspNetCore.App": {
-            "privateAssets": "none"
-          },
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }

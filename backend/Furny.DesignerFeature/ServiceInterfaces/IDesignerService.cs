@@ -11,7 +11,7 @@ namespace Furny.DesignerFeature.ServiceInterfaces
     {
         Task<DesignerProfileViewModel> GetProfileAsync(string id);
 
-        Task UpdateProfileAsync(JsonPatchDocument<DesignerUpdateProfileDto> jsonPatch, string id);
+        Task UpdateProfileAsync(JsonPatchDocument<DesignerProfileDto> jsonPatch, string id);
 
         Task<DesignerHomeViewModel> GetAdsAsync(string id);
 

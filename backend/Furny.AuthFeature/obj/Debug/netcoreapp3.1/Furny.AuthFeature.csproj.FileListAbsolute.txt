@@ -1,14 +1,15 @@
 C:\Users\Beke\Desktop\diploma\backend\Furny.AuthFeature\bin\Debug\netcoreapp3.1\Export\szabaszati-megrendelo-arajanlat.xlsx
 C:\Users\Beke\Desktop\diploma\backend\Furny.AuthFeature\bin\Debug\netcoreapp3.1\Furny.AuthFeature.deps.json
 C:\Users\Beke\Desktop\diploma\backend\Furny.AuthFeature\bin\Debug\netcoreapp3.1\Furny.AuthFeature.dll
+C:\Users\Beke\Desktop\diploma\backend\Furny.AuthFeature\bin\Debug\netcoreapp3.1\Furny.AuthFeature.pdb
 C:\Users\Beke\Desktop\diploma\backend\Furny.AuthFeature\bin\Debug\netcoreapp3.1\Furny.Common.dll
 C:\Users\Beke\Desktop\diploma\backend\Furny.AuthFeature\bin\Debug\netcoreapp3.1\Furny.Model.dll
 C:\Users\Beke\Desktop\diploma\backend\Furny.AuthFeature\bin\Debug\netcoreapp3.1\Furny.Model.pdb
 C:\Users\Beke\Desktop\diploma\backend\Furny.AuthFeature\bin\Debug\netcoreapp3.1\Furny.Common.pdb
+C:\Users\Beke\Desktop\diploma\backend\Furny.AuthFeature\obj\Debug\netcoreapp3.1\Furny.AuthFeature.csprojAssemblyReference.cache
 C:\Users\Beke\Desktop\diploma\backend\Furny.AuthFeature\obj\Debug\netcoreapp3.1\Furny.AuthFeature.AssemblyInfoInputs.cache
 C:\Users\Beke\Desktop\diploma\backend\Furny.AuthFeature\obj\Debug\netcoreapp3.1\Furny.AuthFeature.AssemblyInfo.cs
+C:\Users\Beke\Desktop\diploma\backend\Furny.AuthFeature\obj\Debug\netcoreapp3.1\Furny.AuthFeature.csproj.CoreCompileInputs.cache
 C:\Users\Beke\Desktop\diploma\backend\Furny.AuthFeature\obj\Debug\netcoreapp3.1\Furny.AuthFeature.csproj.CopyComplete
-C:\Users\Beke\Desktop\diploma\backend\Furny.AuthFeature\bin\Debug\netcoreapp3.1\Furny.AuthFeature.pdb
 C:\Users\Beke\Desktop\diploma\backend\Furny.AuthFeature\obj\Debug\netcoreapp3.1\Furny.AuthFeature.dll
 C:\Users\Beke\Desktop\diploma\backend\Furny.AuthFeature\obj\Debug\netcoreapp3.1\Furny.AuthFeature.pdb
-C:\Users\Beke\Desktop\diploma\backend\Furny.AuthFeature\obj\Debug\netcoreapp3.1\Furny.AuthFeature.csproj.CoreCompileInputs.cache

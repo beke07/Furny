@@ -1,7 +1,6 @@
 ﻿using Furny.ClosingFeature.Commands;
 using Furny.ClosingFeature.Data;
 using Furny.ClosingFeature.ViewModels;
-using Furny.ServiceInterfaces;
 using MediatR;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;

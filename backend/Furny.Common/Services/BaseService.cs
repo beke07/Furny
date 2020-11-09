@@ -19,8 +19,9 @@ namespace Furny.Common.Services
 
         public BaseService(IConfiguration configuration, string collectionName)
         {
-            var client = new MongoClient(configuration.GetConnectionString("FurnyDb"));
-            _database = client.GetDatabase("FurnyDb");
+            var dbName = configuration.GetValue<string>("DbName");
+            var client = new MongoClient(configuration.GetConnectionString(dbName));
+            _database = client.GetDatabase(dbName);
             _collection = _database.GetCollection<T>(collectionName);
         }
 

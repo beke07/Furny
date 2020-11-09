@@ -20,7 +20,7 @@ namespace Furny.Controllers
             => await SendAsync(DesignerGetProfileCommand.Create(id));
 
         [HttpPatch("{id}/profile")]
-        public async Task PatchProfile([FromBody] JsonPatchDocument<DesignerUpdateProfileDto> jsonPatch, string id)
+        public async Task PatchProfile([FromBody] JsonPatchDocument<DesignerProfileDto> jsonPatch, string id)
             => await SendAsync(DesignerUpdateProfileCommand.Create(jsonPatch, id));
     }
 }

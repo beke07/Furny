@@ -1,7 +1,7 @@
-﻿using Furny.ModulFeature.Commands;
+﻿using Furny.Model;
+using Furny.ModulFeature.Commands;
 using Furny.ModulFeature.Data;
 using Furny.ModulFeature.ViewModels;
-using Furny.Models;
 using MediatR;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;

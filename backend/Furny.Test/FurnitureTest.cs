@@ -1,23 +1,25 @@
 ﻿using Furny.Common.Enums;
-using Furny.Data;
-using Furny.Models;
-using Furny.ServiceInterfaces;
-using Furny.Services;
+using Furny.Common.Models;
+using Furny.DesignerFeature.ServiceInterfaces;
+using Furny.FurnitureFeature.Data;
+using Furny.FurnitureFeature.ServiceInterfaces;
+using Furny.Model;
+using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
 namespace Furny.Test
 {
-    public class FurnitureTest : MongoDbTest
+    public class FurnitureTest : TestBase
     {
         private readonly IFurnitureService _furnitureService;
         private readonly IDesignerService _designerService;
 
         public FurnitureTest()
         {
-            _furnitureService = new FurnitureService(_mapper, _configuration, new ExportService(new ExcelService()));
-            _designerService = new DesignerService(_mapper, new PanelCutterService(_mapper, _configuration), _configuration);
+            _furnitureService = serviceProvider.GetService<IFurnitureService>();
+            _designerService = serviceProvider.GetService<IDesignerService>();
         }
 
         [Fact]
@@ -28,7 +30,7 @@ namespace Furny.Test
             designer.Furnitures = new SingleElement<Furniture>();
             await _designerService.UpdateAsync(designer);
 
-            await _furnitureService.CreateAsync(new FurnitureCommand()
+            await _furnitureService.CreateAsync(new FurnitureFurnitureDto()
             {
                 Name = "Butor"
             }, designer.Id.ToString());
@@ -89,26 +91,26 @@ namespace Furny.Test
             furniture.Components = new SingleElement<Component>();
             await _designerService.UpdateAsync(designer);
 
-            await _furnitureService.AddComponentAsync(new ComponentCommand()
+            await _furnitureService.AddComponentAsync(new FurnitureComponentDto()
             {
                 Name = "Component",
                 Height = 3000,
                 Width = 1200,
-                Closings = new ClosingsDto()
+                Closings = new FurnitureClosingsDto()
                 {
-                    Bottom = new ComponentClosingDto()
+                    Bottom = new FurnitureComponentClosingDto()
                     {
                         IsClosed = true
                     },
-                    Top = new ComponentClosingDto()
+                    Top = new FurnitureComponentClosingDto()
                     {
                         IsClosed = true
                     },
-                    Left = new ComponentClosingDto()
+                    Left = new FurnitureComponentClosingDto()
                     {
                         IsClosed = true
                     },
-                    Right = new ComponentClosingDto()
+                    Right = new FurnitureComponentClosingDto()
                     {
                         IsClosed = true
                     }

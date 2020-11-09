@@ -10,7 +10,7 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class AuthenticationConfiguration
     {
-        public static void AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddJwtAuthentication(this IServiceCollection services, IConfiguration configuration)
         {
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
@@ -51,6 +51,8 @@ namespace Microsoft.Extensions.DependencyInjection
                     .AddAuthenticationSchemes("Firebase", "Default")
                     .Build();
             });
+
+            return services;
         }
     }
 }

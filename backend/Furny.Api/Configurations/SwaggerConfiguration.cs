@@ -6,7 +6,7 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class SwaggerConfiguration
     {
-        public static void AddSwagger(this IServiceCollection services)
+        public static IServiceCollection AddSwagger(this IServiceCollection services)
         {
             services.AddSwaggerGen(c =>
             {
@@ -45,6 +45,8 @@ namespace Microsoft.Extensions.DependencyInjection
                     }
                 });
             });
+
+            return services;
         }
 
         public static void UseSwaggerWithUI(this IApplicationBuilder app)

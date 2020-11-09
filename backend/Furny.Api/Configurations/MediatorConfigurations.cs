@@ -1,4 +1,5 @@
 ﻿using Furny.AdFeature.Commands;
+using Furny.AuthFeature.Commands;
 using Furny.ClosingFeature.Commands;
 using Furny.DesignerFeature.Commands;
 using Furny.ExportFeature.Commands;
@@ -32,6 +33,7 @@ namespace Microsoft.Extensions.DependencyInjection
                 typeof(FileHandlerFeatureCommandHandler).Assembly,
                 typeof(MaterialFeatureGetMaterialCommandHandler).Assembly,
                 typeof(NotificationFeatureNotificationsCommandHandlers).Assembly,
+                typeof(AuthFeatureCommandHandler).Assembly,
                 typeof(PanelCutterCommandHandler).Assembly);
 
             return services;

@@ -1,4 +1,4 @@
-﻿using Furny.Models;
+﻿using Furny.Model;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using Newtonsoft.Json;
@@ -11,15 +11,16 @@ namespace Furny.Seed
     public class DataSeeder
     {
         private const string ConnectionString = "mongodb://mongo:27017";
+        private const string DbName = "FurnyDb";
 
-        public static async Task SeedAddressesAsync(string connectionString = ConnectionString)
+        public static async Task SeedAddressesAsync(string connectionString = ConnectionString, string dbName = DbName)
         {
             var path = $"{System.AppDomain.CurrentDomain.BaseDirectory}Seed/adresses.json";
             var json = File.ReadAllText(path);
             var adresses = JsonConvert.DeserializeObject<IList<Address>>(json);
 
             var client = new MongoClient(connectionString);
-            var database = client.GetDatabase("FurnyDb");
+            var database = client.GetDatabase(dbName);
             var collection = database.GetCollection<Address>("addresses");
 
             if (await collection.Find(s => true).CountDocumentsAsync() == 0)
@@ -28,10 +29,10 @@ namespace Furny.Seed
             }
         }
 
-        public static async Task SeedUsersAsync(string connectionString = ConnectionString)
+        public static async Task SeedUsersAsync(string connectionString = ConnectionString, string dbName = DbName)
         {
             var client = new MongoClient(connectionString);
-            var database = client.GetDatabase("FurnyDb");
+            var database = client.GetDatabase(dbName);
 
             var desginerCutterCollection = database.GetCollection<Designer>("applicationUsers");
             var panelCutterCollection = database.GetCollection<PanelCutter>("applicationUsers");

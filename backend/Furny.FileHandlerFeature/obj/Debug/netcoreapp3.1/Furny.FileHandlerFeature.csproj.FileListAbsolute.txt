@@ -1,8 +1,9 @@
 C:\Users\Beke\Desktop\diploma\backend\Furny.FileHandlerFeature\bin\Debug\netcoreapp3.1\Furny.FileHandlerFeature.deps.json
 C:\Users\Beke\Desktop\diploma\backend\Furny.FileHandlerFeature\bin\Debug\netcoreapp3.1\Furny.FileHandlerFeature.dll
 C:\Users\Beke\Desktop\diploma\backend\Furny.FileHandlerFeature\bin\Debug\netcoreapp3.1\Furny.FileHandlerFeature.pdb
+C:\Users\Beke\Desktop\diploma\backend\Furny.FileHandlerFeature\obj\Debug\netcoreapp3.1\Furny.FileHandlerFeature.csprojAssemblyReference.cache
 C:\Users\Beke\Desktop\diploma\backend\Furny.FileHandlerFeature\obj\Debug\netcoreapp3.1\Furny.FileHandlerFeature.AssemblyInfoInputs.cache
 C:\Users\Beke\Desktop\diploma\backend\Furny.FileHandlerFeature\obj\Debug\netcoreapp3.1\Furny.FileHandlerFeature.AssemblyInfo.cs
-C:\Users\Beke\Desktop\diploma\backend\Furny.FileHandlerFeature\obj\Debug\netcoreapp3.1\Furny.FileHandlerFeature.csproj.CoreCompileInputs.cache
 C:\Users\Beke\Desktop\diploma\backend\Furny.FileHandlerFeature\obj\Debug\netcoreapp3.1\Furny.FileHandlerFeature.dll
 C:\Users\Beke\Desktop\diploma\backend\Furny.FileHandlerFeature\obj\Debug\netcoreapp3.1\Furny.FileHandlerFeature.pdb
+C:\Users\Beke\Desktop\diploma\backend\Furny.FileHandlerFeature\obj\Debug\netcoreapp3.1\Furny.FileHandlerFeature.csproj.CoreCompileInputs.cache

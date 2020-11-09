@@ -10,7 +10,7 @@ namespace Furny.DesignerFeature.MappingProfiles
     {
         public DesignerMappingProfile()
         {
-            CreateMap<DesignerUpdateProfileDto, Designer>()
+            CreateMap<DesignerProfileDto, Designer>()
                 .ForMember(e => e.UserAddress, opt => opt.MapFrom<DesignerProfileAddressResolver>())
                 .ReverseMap()
                 .ForMember(e => e.AddressId, opt => opt.MapFrom(e => e.UserAddress.Address.Id))

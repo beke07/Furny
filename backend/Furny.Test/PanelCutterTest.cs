@@ -1,21 +1,25 @@
-﻿using Furny.Data;
-using Furny.Models;
-using Furny.ServiceInterfaces;
-using Furny.Services;
+﻿using Furny.Common.Models;
+using Furny.Model;
+using Furny.Model.ServiceInterfaces;
+using Furny.PanelCutterFeature.Data;
+using Furny.PanelCutterFeature.ServiceInterfaces;
 using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
 namespace Furny.Test
 {
-    public class PanelCutterTest : MongoDbTest
+    public class PanelCutterTest : TestBase
     {
         private readonly IPanelCutterService _panelCutterService;
+        private readonly IAddressService _addressService;
 
         public PanelCutterTest()
         {
-            _panelCutterService = new PanelCutterService(_mapper, _configuration);
+            _panelCutterService = serviceProvider.GetService<IPanelCutterService>();
+            _addressService = serviceProvider.GetService<IAddressService>();
         }
 
         [Fact]
@@ -38,7 +42,7 @@ namespace Furny.Test
         public async Task UpdateProfileTest()
         {
             var panelCutter = (await _panelCutterService.Get()).First();
-            var patch = new JsonPatchDocument<PanelCutterProfileCommand>();
+            var patch = new JsonPatchDocument<PanelCutterProfileDto>();
 
             var addressId = (await _addressService.Get()).First().Id.ToString();
 

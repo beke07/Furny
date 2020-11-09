@@ -1,20 +1,20 @@
 ﻿using Furny.Common.Enums;
-using Furny.Models;
-using Furny.ServiceInterfaces;
-using Furny.Services;
+using Furny.ExportFeature.ServiceInterfaces;
+using Furny.Model;
+using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
 
 namespace Furny.Test
 {
-    public class ExportTest : MongoDbTest
+    public class ExportTest : TestBase
     {
         private readonly IExportService _exportService;
 
         public ExportTest()
         {
-            _exportService = new ExportService(new ExcelService());
+            _exportService = serviceProvider.GetService<IExportService>();
         }
 
         [Fact]

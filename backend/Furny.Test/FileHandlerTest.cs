@@ -1,6 +1,6 @@
-﻿using Furny.ServiceInterfaces;
-using Furny.Services;
+﻿using Furny.FileHandlerFeature.ServiceInterfaces;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 using Moq;
 using System.IO;
 using System.Threading.Tasks;
@@ -8,13 +8,13 @@ using Xunit;
 
 namespace Furny.Test
 {
-    public class FileHandlerTest : MongoDbTest
+    public class FileHandlerTest : TestBase
     {
         private readonly IFileHandlerService _fileHandlerService;
 
         public FileHandlerTest()
         {
-            _fileHandlerService = new FileHandlerService(_configuration);
+            _fileHandlerService = serviceProvider.GetService<IFileHandlerService>();
         }
 
         [Fact]

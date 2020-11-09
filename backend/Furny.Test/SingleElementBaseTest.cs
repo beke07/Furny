@@ -1,24 +1,26 @@
-﻿using Furny.Data;
-using Furny.Filters;
-using Furny.Models;
-using Furny.ServiceInterfaces;
-using Furny.Services;
+﻿using Furny.AdFeature.Data;
+using Furny.AdFeature.ServiceInterfaces;
+using Furny.Common.Filters;
+using Furny.Common.Models;
+using Furny.Model;
+using Furny.PanelCutterFeature.ServiceInterfaces;
 using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
 namespace Furny.Test
 {
-    public class SingleElementBaseTest : MongoDbTest
+    public class SingleElementBaseTest : TestBase
     {
         private readonly IAdService _adService;
         private readonly IPanelCutterService _panelCutterService;
 
         public SingleElementBaseTest()
         {
-            _adService = new AdService(_mapper, _configuration);
-            _panelCutterService = new PanelCutterService(_mapper, _configuration);
+            _adService = serviceProvider.GetService<IAdService>();
+            _panelCutterService = serviceProvider.GetService<IPanelCutterService>();
         }
 
         [Fact]
@@ -30,7 +32,7 @@ namespace Furny.Test
             panelCutter.Ads = new SingleElement<Ad>();
             await _panelCutterService.UpdateAsync(panelCutter);
 
-            await _adService.CreateAsync(new AdCommand()
+            await _adService.CreateAsync(new AdFeatureAdDto()
             {
                 Text = "Text",
                 Title = "Title"
@@ -78,7 +80,7 @@ namespace Furny.Test
             var panelCutterId = (await _panelCutterService.Get()).First().Id.ToString();
             var ad = (await _adService.GetAsync(panelCutterId)).ElementAt(0);
 
-            var patch = new JsonPatchDocument<AdCommand>();
+            var patch = new JsonPatchDocument<AdFeatureAdDto>();
 
             patch.Replace(e => e.Title, "updatedTitle");
             patch.Replace(e => e.Text, "updatedText");

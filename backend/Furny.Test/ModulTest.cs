@@ -1,24 +1,24 @@
-﻿using Furny.Data;
-using Furny.Models;
-using Furny.ServiceInterfaces;
-using Furny.Services;
+﻿using Furny.Common.Models;
+using Furny.DesignerFeature.ServiceInterfaces;
+using Furny.Model;
+using Furny.ModulFeature.Data;
+using Furny.ModulFeature.ServiceInterfaces;
+using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
 namespace Furny.Test
 {
-    public class ModulTest : MongoDbTest
+    public class ModulTest : TestBase
     {
         private readonly IModulService _modulService;
         private readonly IDesignerService _designerService;
-        private readonly IFurnitureService _furnitureService;
 
         public ModulTest()
         {
-            _modulService = new ModulService(_mapper, _configuration);
-            _designerService = new DesignerService(_mapper, new PanelCutterService(_mapper, _configuration), _configuration);
-            _furnitureService = new FurnitureService(_mapper, _configuration, new ExportService(new ExcelService()));
+            _modulService = serviceProvider.GetService<IModulService>();
+            _designerService = serviceProvider.GetService<IDesignerService>();
         }
 
         [Fact]
@@ -30,7 +30,7 @@ namespace Furny.Test
             designer.Moduls = new SingleElement<Modul>();
             await _designerService.UpdateAsync(designer);
 
-            await _modulService.CreateAsync(new ModulCommand()
+            await _modulService.CreateAsync(new ModulModulDto()
             {
                 Name = "Modul"
             }, designerId);
@@ -38,26 +38,26 @@ namespace Furny.Test
             designer = (await _designerService.Get()).First();
             var modulId = designer.Moduls.ElementAt(0).Id.ToString();
 
-            await _modulService.AddComponentAsync(new ComponentCommand()
+            await _modulService.AddComponentAsync(new ModulComponentDto()
             {
                 Name = "Component",
                 Height = 3000,
                 Width = 1200,
-                Closings = new ClosingsDto()
+                Closings = new ModulClosingsDto()
                 {
-                    Bottom = new ComponentClosingDto()
+                    Bottom = new ModulComponentClosingDto()
                     {
                         IsClosed = true
                     },
-                    Top = new ComponentClosingDto()
+                    Top = new ModulComponentClosingDto()
                     {
                         IsClosed = true
                     },
-                    Left = new ComponentClosingDto()
+                    Left = new ModulComponentClosingDto()
                     {
                         IsClosed = true
                     },
-                    Right = new ComponentClosingDto()
+                    Right = new ModulComponentClosingDto()
                     {
                         IsClosed = true
                     }

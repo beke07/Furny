@@ -1,6 +1,7 @@
-﻿using Furny.Models;
-using Furny.ServiceInterfaces;
-using Furny.Services;
+﻿using Furny.Model;
+using Furny.NotificationFeature.ServiceInterfaces;
+using Furny.PanelCutterFeature.ServiceInterfaces;
+using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,15 +9,14 @@ using Xunit;
 
 namespace Furny.Test
 {
-    public class NotificationTest : MongoDbTest
+    public class NotificationTest : TestBase
     {
         private readonly INotificationService _notificationService;
         private readonly IPanelCutterService _panelCutterService;
-
         public NotificationTest()
         {
-            _notificationService = new NotificationService(_mapper, _configuration);
-            _panelCutterService = new PanelCutterService(_mapper, _configuration);
+            _notificationService = serviceProvider.GetService<INotificationService>();
+            _panelCutterService = serviceProvider.GetService<IPanelCutterService>();
         }
 
         [Fact]
@@ -34,7 +34,7 @@ namespace Furny.Test
 
             panelCutter = (await _panelCutterService.Get()).First();
             var notification = panelCutter.Notifications.ElementAt(0);
-            
+
             Assert.NotNull(notification);
             Assert.True(notification.Text == "Hej hej hej!");
         }

@@ -1,6 +1,6 @@
-﻿using Furny.Filters;
-using Furny.ServiceInterfaces;
-using Furny.Services;
+﻿using Furny.Common.Filters;
+using Furny.PanelCutterFeature.ServiceInterfaces;
+using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Bson;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,13 +8,13 @@ using Xunit;
 
 namespace Furny.Test
 {
-    public class BaseTest : MongoDbTest
+    public class BaseTest : TestBase
     {
         private readonly IPanelCutterService _panelCutterService;
 
         public BaseTest()
         {
-            _panelCutterService = new PanelCutterService(_mapper, _configuration);
+            _panelCutterService = serviceProvider.GetService<IPanelCutterService>();
         }
 
         [Fact]

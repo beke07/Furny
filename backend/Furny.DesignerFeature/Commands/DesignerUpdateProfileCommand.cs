@@ -4,12 +4,12 @@ using Microsoft.AspNetCore.JsonPatch;
 
 namespace Furny.DesignerFeature.Commands
 {
-    public class DesignerUpdateProfileCommand : UpdateCommand<DesignerUpdateProfileDto>
+    public class DesignerUpdateProfileCommand : UpdateCommand<DesignerProfileDto>
     {
-        public DesignerUpdateProfileCommand(JsonPatchDocument<DesignerUpdateProfileDto> patch, string id) : base(patch, id)
+        public DesignerUpdateProfileCommand(JsonPatchDocument<DesignerProfileDto> patch, string id) : base(patch, id)
         { }
 
-        public static DesignerUpdateProfileCommand Create(JsonPatchDocument<DesignerUpdateProfileDto> patch, string id)
+        public static DesignerUpdateProfileCommand Create(JsonPatchDocument<DesignerProfileDto> patch, string id)
             => new DesignerUpdateProfileCommand(patch, id);
     }
 }

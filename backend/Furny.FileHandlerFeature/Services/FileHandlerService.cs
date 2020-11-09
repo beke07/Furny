@@ -15,8 +15,9 @@ namespace Furny.FileHandlerFeature.Services
 
         public FileHandlerService(IConfiguration configuration)
         {
-            var client = new MongoClient(configuration.GetConnectionString("FurnyDb"));
-            _database = client.GetDatabase("FurnyDb");
+            var dbName = configuration.GetSection("DbName").Value;
+            var client = new MongoClient(configuration.GetConnectionString(dbName));
+            _database = client.GetDatabase(dbName);
         }
 
         private IGridFSBucket CreateBucket(string name)

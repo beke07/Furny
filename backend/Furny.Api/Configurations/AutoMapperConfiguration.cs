@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Furny.AdFeature.MappingProfiles;
+using Furny.AuthFeature.MappingProfiles;
 using Furny.ClosingFeature.MappingProfiles;
 using Furny.DesignerFeature.MappingProfiles;
 using Furny.FurnitureFeature.MappingProfiles;
@@ -15,7 +16,7 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class AutoMapperConfiguration
     {
-        public static void AddStartupAutoMapper(this IServiceCollection services)
+        public static IServiceCollection AddStartupAutoMapper(this IServiceCollection services)
         {
             services.AddAutoMapper(
                 typeof(CommonMappingProfile),
@@ -26,9 +27,12 @@ namespace Microsoft.Extensions.DependencyInjection
                 typeof(ModulMappingProfile),
                 typeof(AdMappingProfile),
                 typeof(ClosingMappingProfile),
-                typeof(OfferMappingProfiles),
+                typeof(OfferMappingProfile),
+                typeof(AuthMappingProfile),
                 typeof(OrderMappingProfile),
                 typeof(NotificationMappingProfile));
+
+            return services;
         }
     }
 }

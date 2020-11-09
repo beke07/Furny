@@ -1,7 +1,6 @@
 ﻿using Furny.MaterialFeature.Commands;
 using Furny.MaterialFeature.Data;
 using Furny.MaterialFeature.ViewModels;
-using Furny.ServiceInterfaces;
 using MediatR;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;

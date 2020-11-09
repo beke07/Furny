@@ -7,7 +7,7 @@ namespace Microsoft.Extensions.DependencyInjection
         private const string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         private const string FrontendUrl = "http://localhost:8080";
 
-        public static void AddCorsWithOrigins(this IServiceCollection services)
+        public static IServiceCollection AddCorsWithOrigins(this IServiceCollection services)
         {
             services.AddCors(options =>
             {
@@ -19,6 +19,8 @@ namespace Microsoft.Extensions.DependencyInjection
                            .AllowAnyMethod();
                 });
             });
+
+            return services;
         }
 
         public static void UseCorsWithOrigins(this IApplicationBuilder app)

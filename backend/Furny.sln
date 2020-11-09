@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Furny.Test", "Furny.Test\Furny.Test.csproj", "{2EDDDDDF-91C7-4EA5-8F09-390D65FDCF0A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Furny", "Furny.Api\Furny.csproj", "{4E64D8A5-134D-42E8-BB59-7C816B92EF0B}"
-EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "Furny.Api\docker-compose.dcproj", "{87777A97-F198-4D95-A7D2-EEB863AF4705}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Furny.Common", "Furny.Common\Furny.Common.csproj", "{1D749EC4-FB0F-41B0-9E6C-83EAD49B2F29}"
@@ -43,6 +41,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Furny.MaterialFeature", "Fu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Furny.AuthFeature", "Furny.AuthFeature\Furny.AuthFeature.csproj", "{A7BEEBDC-6091-4C6D-ADA2-0B8A02ECCAE4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Furny", "Furny.Api\Furny.csproj", "{1D57664B-E362-40C9-8AB3-8A4E66D092BA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,10 +53,6 @@ Global
 		{2EDDDDDF-91C7-4EA5-8F09-390D65FDCF0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EDDDDDF-91C7-4EA5-8F09-390D65FDCF0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EDDDDDF-91C7-4EA5-8F09-390D65FDCF0A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4E64D8A5-134D-42E8-BB59-7C816B92EF0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4E64D8A5-134D-42E8-BB59-7C816B92EF0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4E64D8A5-134D-42E8-BB59-7C816B92EF0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4E64D8A5-134D-42E8-BB59-7C816B92EF0B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{87777A97-F198-4D95-A7D2-EEB863AF4705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{87777A97-F198-4D95-A7D2-EEB863AF4705}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87777A97-F198-4D95-A7D2-EEB863AF4705}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -121,6 +117,10 @@ Global
 		{A7BEEBDC-6091-4C6D-ADA2-0B8A02ECCAE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7BEEBDC-6091-4C6D-ADA2-0B8A02ECCAE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7BEEBDC-6091-4C6D-ADA2-0B8A02ECCAE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D57664B-E362-40C9-8AB3-8A4E66D092BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D57664B-E362-40C9-8AB3-8A4E66D092BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D57664B-E362-40C9-8AB3-8A4E66D092BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D57664B-E362-40C9-8AB3-8A4E66D092BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

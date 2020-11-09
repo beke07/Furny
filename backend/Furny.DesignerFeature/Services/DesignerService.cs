@@ -62,10 +62,10 @@ namespace Furny.DesignerFeature.Services
             return _mapper.Map<DesignerProfileViewModel>(designer);
         }
 
-        public async Task UpdateProfileAsync(JsonPatchDocument<DesignerUpdateProfileDto> jsonPatch, string id)
+        public async Task UpdateProfileAsync(JsonPatchDocument<DesignerProfileDto> jsonPatch, string id)
         {
             var designer = await FindByIdAsync(id);
-            var profile = _mapper.Map<DesignerUpdateProfileDto>(designer);
+            var profile = _mapper.Map<DesignerProfileDto>(designer);
 
             jsonPatch.ApplyTo(profile);
             _mapper.Map(profile, designer);

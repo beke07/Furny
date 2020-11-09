@@ -2,7 +2,7 @@
 
 namespace Furny.FurnitureFeature.ViewModels
 {
-    class FurnitureComponentTableViewModel : TableBaseViewModel
+    public class FurnitureComponentTableViewModel : TableBaseViewModel
     {
         public string Name { get; set; }
 

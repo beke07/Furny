@@ -1,8 +1,11 @@
-﻿using Furny.Data;
-using Furny.Models;
-using Furny.ServiceInterfaces;
-using Furny.Services;
+﻿using Furny.Common.Models;
+using Furny.DesignerFeature.Data;
+using Furny.DesignerFeature.ServiceInterfaces;
+using Furny.Model;
+using Furny.Model.ServiceInterfaces;
+using Furny.PanelCutterFeature.ServiceInterfaces;
 using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,15 +13,17 @@ using Xunit;
 
 namespace Furny.Test
 {
-    public class DesignerTest : MongoDbTest
+    public class DesignerTest : TestBase
     {
         private readonly IDesignerService _designerService;
+        private readonly IAddressService _addressService;
         private readonly IPanelCutterService _panelCutterService;
 
         public DesignerTest()
         {
-            _panelCutterService = new PanelCutterService(_mapper, _configuration);
-            _designerService = new DesignerService(_mapper, _panelCutterService, _configuration);
+            _designerService = serviceProvider.GetService<IDesignerService>();
+            _addressService = serviceProvider.GetService<IAddressService>();
+            _panelCutterService = serviceProvider.GetService<IPanelCutterService>();
         }
 
         [Fact]
@@ -39,7 +44,7 @@ namespace Furny.Test
         public async Task UpdateProfileTest()
         {
             var designer = (await _designerService.Get()).First();
-            var patch = new JsonPatchDocument<DesignerProfileCommand>();
+            var patch = new JsonPatchDocument<DesignerProfileDto>();
 
             var addressId = (await _addressService.Get()).First().Id.ToString();
 

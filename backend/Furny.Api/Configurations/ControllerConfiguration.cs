@@ -1,4 +1,4 @@
-﻿using Furny.Filters;
+﻿using Furny.Common.Filters;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Options;
@@ -8,7 +8,7 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class ControllerConfiguration
     {
-        public static void AddControllersWithExceptionFilter(this IServiceCollection services)
+        public static IServiceCollection AddControllersWithExceptionFilter(this IServiceCollection services)
         {
             services
                 .AddControllers(options =>
@@ -17,6 +17,8 @@ namespace Microsoft.Extensions.DependencyInjection
                     options.InputFormatters.Insert(0, GetJsonPatchInputFormatter());
                 })
                 .AddNewtonsoftJson();
+
+            return services;
         }
 
         private static NewtonsoftJsonPatchInputFormatter GetJsonPatchInputFormatter()
