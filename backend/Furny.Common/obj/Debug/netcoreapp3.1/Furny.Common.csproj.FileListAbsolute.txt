@@ -1,9 +1,0 @@
-C:\Users\Beke\Desktop\diploma\backend\Furny.Common\bin\Debug\netcoreapp3.1\Furny.Common.deps.json
-C:\Users\Beke\Desktop\diploma\backend\Furny.Common\bin\Debug\netcoreapp3.1\Furny.Common.dll
-C:\Users\Beke\Desktop\diploma\backend\Furny.Common\bin\Debug\netcoreapp3.1\Furny.Common.pdb
-C:\Users\Beke\Desktop\diploma\backend\Furny.Common\obj\Debug\netcoreapp3.1\Furny.Common.csprojAssemblyReference.cache
-C:\Users\Beke\Desktop\diploma\backend\Furny.Common\obj\Debug\netcoreapp3.1\Furny.Common.AssemblyInfoInputs.cache
-C:\Users\Beke\Desktop\diploma\backend\Furny.Common\obj\Debug\netcoreapp3.1\Furny.Common.AssemblyInfo.cs
-C:\Users\Beke\Desktop\diploma\backend\Furny.Common\obj\Debug\netcoreapp3.1\Furny.Common.csproj.CoreCompileInputs.cache
-C:\Users\Beke\Desktop\diploma\backend\Furny.Common\obj\Debug\netcoreapp3.1\Furny.Common.dll
-C:\Users\Beke\Desktop\diploma\backend\Furny.Common\obj\Debug\netcoreapp3.1\Furny.Common.pdb
