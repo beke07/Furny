@@ -1,8 +1,8 @@
-﻿using Furny.Common.Models;
+﻿using Furny.AddressFeature.ServiceInterfaces;
+using Furny.Common.Models;
 using Furny.DesignerFeature.Data;
 using Furny.DesignerFeature.ServiceInterfaces;
 using Furny.Model;
-using Furny.Model.ServiceInterfaces;
 using Furny.PanelCutterFeature.ServiceInterfaces;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.Extensions.DependencyInjection;
@@ -48,7 +48,7 @@ namespace Furny.Test
 
             var addressId = (await _addressService.Get()).First().Id.ToString();
 
-            patch.Replace(e => e.UserName, "updatedUserName");
+            patch.Replace(e => e.Name, "updatedUserName");
             patch.Replace(e => e.AddressId, addressId);
             patch.Replace(e => e.StreetAndHouse, "Új út 10.");
 

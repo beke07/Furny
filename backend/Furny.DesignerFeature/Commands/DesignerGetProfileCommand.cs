@@ -8,14 +8,17 @@ namespace Furny.DesignerFeature.Commands
         public DesignerGetProfileCommand()
         { }
 
-        public DesignerGetProfileCommand(string id)
+        public DesignerGetProfileCommand(string id, string email)
         {
             Id = id;
+            Email = email;
         }
 
         public string Id { get; set; }
 
-        public static DesignerGetProfileCommand Create(string id)
-            => new DesignerGetProfileCommand(id);
+        public string Email { get; set; }
+
+        public static DesignerGetProfileCommand Create(string id, string email = null)
+            => new DesignerGetProfileCommand(id, email);
     }
 }

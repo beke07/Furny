@@ -4,20 +4,23 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class CorsConfiguration
     {
-        private const string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         private const string FrontendUrl = "http://localhost:8080";
+        private const string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
         public static IServiceCollection AddCorsWithOrigins(this IServiceCollection services)
         {
             services.AddCors(options =>
             {
-                options.AddPolicy(MyAllowSpecificOrigins,
-                builder =>
-                {
-                    builder.WithOrigins(FrontendUrl)
-                           .AllowAnyHeader()
-                           .AllowAnyMethod();
-                });
+                options.AddPolicy(
+                    MyAllowSpecificOrigins,
+                    builder =>
+                    {
+                        builder.WithOrigins(FrontendUrl)
+                            .SetIsOriginAllowedToAllowWildcardSubdomains()
+                            .AllowAnyHeader()
+                            .AllowAnyMethod()
+                            .AllowCredentials();
+                    });
             });
 
             return services;
@@ -33,7 +36,7 @@ namespace Microsoft.Extensions.DependencyInjection
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers()
-                    .RequireCors(MyAllowSpecificOrigins);
+                         .RequireCors(MyAllowSpecificOrigins);
             });
         }
     }

@@ -18,10 +18,12 @@ namespace Furny.AuthFeature.MappingProfiles
             CreateMap<UserAddress, AuthFeatureUserAddressDto>();
 
             CreateMap<AuthFeatureDesignerRegisterDto, Designer>()
+                .ForMember(e => e.UserName, opt => opt.MapFrom(e => e.Email))
                 .ForMember(e => e.UserAddress, opt => opt.MapFrom<AddressResolver>())
                 .ReverseMap();
-
+            
             CreateMap<AuthFeaturePanelCutterRegisterDto, PanelCutter>()
+                .ForMember(e => e.UserName, opt => opt.MapFrom(e => e.Email))
                 .ForMember(e => e.UserAddress, opt => opt.MapFrom<AddressResolver>())
                 .ReverseMap();
         }

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using Furny.AddressFeature.ServiceInterfaces;
 using Furny.DesignerFeature.Data;
 using Furny.Model;
-using Furny.Model.ServiceInterfaces;
 
 namespace Furny.DesignerFeature.MappingProfiles.Resolvers
 {

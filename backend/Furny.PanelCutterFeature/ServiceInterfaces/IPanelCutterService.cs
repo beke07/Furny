@@ -16,5 +16,7 @@ namespace Furny.PanelCutterFeature.ServiceInterfaces
         Task UpdateProfileAsync(JsonPatchDocument<PanelCutterProfileDto> jsonPatch, string id);
 
         Task<IList<AdViewModel>> GetAdsByCountry(string country);
+
+        Task<string> GetIdByEmailAsync(string email);
     }
 }

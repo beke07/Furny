@@ -8,10 +8,12 @@ namespace Furny.AuthFeature.Commands
     public class AuthFeatureCommandHandler :
         IRequestHandler<AuthFeatureIsNotRegistratedCommand, bool>,
         IRequestHandler<AuthFeatureLoginCommand, string>,
+        IRequestHandler<AuthFeatureGerUserRoleCommand, string>,
         IRequestHandler<AuthFeatureLogoutCommand>,
         IRequestHandler<AuthFeatureRegisterDesignerCommand>,
         IRequestHandler<AuthFeatureRegisterPanelCutterCommand>
     {
+        
         private readonly IAuthService _authService;
 
         public AuthFeatureCommandHandler(IAuthService authService)
@@ -20,7 +22,7 @@ namespace Furny.AuthFeature.Commands
         }
 
         public async Task<bool> Handle(AuthFeatureIsNotRegistratedCommand request, CancellationToken cancellationToken)
-            => await _authService.IsNotRegistratedAsync(request.Email);
+            => await _authService.IfRegisteredCheckInRole(request.Email, request.Role);
 
         public async Task<string> Handle(AuthFeatureLoginCommand request, CancellationToken cancellationToken)
             => await _authService.LoginAsync(request.Login);
@@ -45,5 +47,8 @@ namespace Furny.AuthFeature.Commands
 
             return Unit.Value;
         }
+
+        public async Task<string> Handle(AuthFeatureGerUserRoleCommand request, CancellationToken cancellationToken)
+            => await _authService.GetRoleByEmailAsync(request.Email);
     }
 }

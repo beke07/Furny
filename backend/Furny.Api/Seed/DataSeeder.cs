@@ -44,11 +44,13 @@ namespace Furny.Seed
                 await roleCollection.InsertManyAsync(new List<ApplicationRole>() {
                 new ApplicationRole()
                     {
-                        Name = RoleNames.PanelCutter
+                        Name = RoleNames.PanelCutter,
+                        NormalizedName = RoleNames.PanelCutter.ToUpper()
                     },
                     new ApplicationRole()
                     {
-                        Name = RoleNames.Designer
+                        Name = RoleNames.Designer,
+                        NormalizedName = RoleNames.Designer.ToUpper()
                     }
                 });
             }

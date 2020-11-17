@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Furny.AddressFeature.MappingProfiles;
 using Furny.AdFeature.MappingProfiles;
 using Furny.AuthFeature.MappingProfiles;
 using Furny.ClosingFeature.MappingProfiles;
@@ -22,7 +23,8 @@ namespace Microsoft.Extensions.DependencyInjection
                 typeof(CommonMappingProfile),
                 typeof(DesignerMappingProfile),
                 typeof(PanelCutterMappingProfile),
-                typeof(FurnitureMappingProfile),
+                typeof(FurnitureMappingProfile), 
+                typeof(AddressMappingProfile),
                 typeof(MaterialMappingProfile),
                 typeof(ModulMappingProfile),
                 typeof(AdMappingProfile),

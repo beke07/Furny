@@ -29,6 +29,11 @@ namespace Furny.Controllers
         public async Task<string> Login(AuthFeatureLoginDto loginDto)
             => await SendAsync(AuthFeatureLoginCommand.Create(loginDto));
 
+        [AllowAnonymous]
+        [HttpGet("user-roles/{email}")]
+        public async Task<string> GetRole(string email)
+            => await SendAsync(AuthFeatureGerUserRoleCommand.Create(email));
+
         [Authorize]
         [HttpPost("logout")]
         public async Task Logout()

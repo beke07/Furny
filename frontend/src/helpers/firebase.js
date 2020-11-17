@@ -8,17 +8,14 @@ export default {
   auth: firebase.auth(),
   login() {
     const provider = new firebase.auth.GoogleAuthProvider();
-    firebase
+    return firebase
       .auth()
       .signInWithPopup(provider)
       .then((result) => {
         return result.user.getIdToken();
       })
-      .then((idToken) => {
-        document.cookie = `token=${idToken}`;
-      })
       .catch((error) => {
-        console.log(error);
+        throw new Error(error);
       });
   },
   logout() {
@@ -29,7 +26,7 @@ export default {
         document.cookie = "token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
       })
       .catch(function(error) {
-        console.log(error);
+        throw new Error(error);
       });
   },
 };

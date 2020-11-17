@@ -15,6 +15,8 @@ namespace Furny
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCorsWithOrigins();
+
             services.AddMediatR();
 
             services.AddServices();
@@ -26,8 +28,6 @@ namespace Furny
             services.AddControllersWithExceptionFilter();
 
             services.AddMongoIdentity(configuration: Configuration);
-
-            services.AddCorsWithOrigins();
 
             services.AddJwtAuthentication(configuration: Configuration);
 
@@ -42,11 +42,11 @@ namespace Furny
 
             app.UseCorsWithOrigins();
 
+            app.UseEndpointsWithCors();
+
             app.UseAuthentication();
 
             app.UseAuthorization();
-
-            app.UseEndpointsWithCors();
 
             app.UseSwaggerWithUI();
 

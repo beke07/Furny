@@ -31,7 +31,12 @@ namespace Furny.PanelCutterFeature.CommandHandlers
             => await _panelCutterService.GetAdsByCountry(request.Country);
 
         public async Task<PanelCutterProfileViewModel> Handle(PanelCutterGetProfileCommand request, CancellationToken cancellationToken)
-            => await _panelCutterService.GetProfileAsync(request.Id);
+        {
+            if (string.IsNullOrEmpty(request.Id))
+                request.Id = await _panelCutterService.GetIdByEmailAsync(request.Email);
+
+            return await _panelCutterService.GetProfileAsync(request.Id);
+        }
 
         public async Task<Unit> Handle(PanelCutterUpdateProfileCommand request, CancellationToken cancellationToken)
         {

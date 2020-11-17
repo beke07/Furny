@@ -32,6 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Furny.AddressFeature\Furny.AddressFeature.csproj" />
     <ProjectReference Include="..\Furny.AdFeature\Furny.AdFeature.csproj" />
     <ProjectReference Include="..\Furny.AuthFeature\Furny.AuthFeature.csproj" />
     <ProjectReference Include="..\Furny.ClosingFeature\Furny.ClosingFeature.csproj" />

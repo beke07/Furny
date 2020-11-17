@@ -15,9 +15,9 @@ namespace Furny.Controllers
         public PanelCutterProfileController(IMediator mediator) : base(mediator)
         { }
 
-        [HttpGet("{id}/profile")]
-        public async Task<PanelCutterProfileViewModel> GetProfile(string id)
-            => await SendAsync(PanelCutterGetProfileCommand.Create(id));
+        [HttpGet("profile")]
+        public async Task<PanelCutterProfileViewModel> GetProfile([FromQuery]string id, [FromQuery] string email)
+            => await SendAsync(PanelCutterGetProfileCommand.Create(id, email)); 
 
         [HttpPatch("{id}/profile")]
         public async Task PatchProfile([FromBody] JsonPatchDocument<PanelCutterProfileDto> jsonPatch, string id)

@@ -18,5 +18,7 @@ namespace Furny.DesignerFeature.ServiceInterfaces
         Task AddFavoritePanelCutterAsync(string id, string pid);
 
         Task RemoveFavoritePanelCutterAsync(string id, string pid);
+
+        Task<string> GetIdByEmailAsync(string email);
     }
 }

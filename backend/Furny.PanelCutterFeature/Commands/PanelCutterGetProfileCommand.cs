@@ -7,14 +7,17 @@ namespace Furny.PanelCutterFeature.Commands
 {
     public class PanelCutterGetProfileCommand : IRequest<PanelCutterProfileViewModel>
     {
-        public PanelCutterGetProfileCommand(string id)
+        public PanelCutterGetProfileCommand(string id, string email)
         {
             Id = id;
+            Email = email;
         }
 
         public string Id { get; set; }
 
-        public static PanelCutterGetProfileCommand Create(string id)
-            => new PanelCutterGetProfileCommand(id);
+        public string Email { get; set; }
+
+        public static PanelCutterGetProfileCommand Create(string id,string email = null)
+            => new PanelCutterGetProfileCommand(id, email);
     }
 }

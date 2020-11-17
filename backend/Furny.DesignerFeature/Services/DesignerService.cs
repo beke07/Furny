@@ -6,6 +6,7 @@ using Furny.DesignerFeature.ViewModels;
 using Furny.Model;
 using Furny.Model.Common.Commands;
 using MediatR;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Driver;
@@ -19,14 +20,17 @@ namespace Furny.DesignerFeature.Services
         private const string collectionName = "applicationUsers";
         private readonly IMapper _mapper;
         private readonly IMediator _mediator;
+        private readonly UserManager<ApplicationUser> _userManager;
 
         public DesignerService(
             IMapper mapper,
             IMediator mediator,
+            UserManager<ApplicationUser> userManager,
             IConfiguration configuration) : base(configuration, collectionName)
         {
             _mapper = mapper;
             _mediator = mediator;
+            _userManager = userManager;
         }
 
         public async Task AddFavoritePanelCutterAsync(string id, string pid)
@@ -77,5 +81,9 @@ namespace Furny.DesignerFeature.Services
         {
             return await _collection.OfType<Designer>().Find(e => !e.IsDeleted).ToListAsync();
         }
+
+        public async Task<string> GetIdByEmailAsync(string email)
+            => await _userManager.GetIdByEmailAsync(email);
+        
     }
 }

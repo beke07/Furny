@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Furny.AddressFeature\Furny.AddressFeature.csproj" />
     <ProjectReference Include="..\Furny.Common\Furny.Common.csproj" />
     <ProjectReference Include="..\Furny.Model\Furny.Model.csproj" />
   </ItemGroup>

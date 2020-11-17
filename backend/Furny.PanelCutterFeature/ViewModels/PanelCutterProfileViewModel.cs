@@ -4,7 +4,13 @@ namespace Furny.PanelCutterFeature.ViewModels
 {
     public class PanelCutterProfileViewModel
     {
+        public string Id { get; set; }
+
         public string UserName { get; set; }
+
+        public string Name { get; set; }
+
+        public string Email { get; set; }
 
         public string ImageId { get; set; }
 

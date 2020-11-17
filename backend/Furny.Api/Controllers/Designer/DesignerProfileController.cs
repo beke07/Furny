@@ -15,9 +15,9 @@ namespace Furny.Controllers
         public DesignerProfileController(IMediator mediator) : base(mediator)
         { }
 
-        [HttpGet("{id}/profile")]
-        public async Task<DesignerProfileViewModel> GetProfile(string id)
-            => await SendAsync(DesignerGetProfileCommand.Create(id));
+        [HttpGet("profile")]
+        public async Task<DesignerProfileViewModel> GetProfile([FromQuery]string id, [FromQuery] string email)
+            => await SendAsync(DesignerGetProfileCommand.Create(id, email));
 
         [HttpPatch("{id}/profile")]
         public async Task PatchProfile([FromBody] JsonPatchDocument<DesignerProfileDto> jsonPatch, string id)

@@ -4,6 +4,68 @@
     "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.AuthFeature\\Furny.AuthFeature.csproj": {}
   },
   "projects": {
+    "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.AddressFeature\\Furny.AddressFeature.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.AddressFeature\\Furny.AddressFeature.csproj",
+        "projectName": "Furny.AddressFeature",
+        "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.AddressFeature\\Furny.AddressFeature.csproj",
+        "packagesPath": "C:\\Users\\Beke\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.AddressFeature\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Beke\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj": {
+                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj"
+              },
+              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj": {
+                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.AuthFeature\\Furny.AuthFeature.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -27,6 +89,9 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
+              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.AddressFeature\\Furny.AddressFeature.csproj": {
+                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.AddressFeature\\Furny.AddressFeature.csproj"
+              },
               "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj": {
                 "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj"
               }

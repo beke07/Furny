@@ -4,7 +4,7 @@ namespace Furny.PanelCutterFeature.Data
 {
     public class PanelCutterProfileDto
     {
-        public string UserName { get; set; }
+        public string Name { get; set; }
 
         public string ImageId { get; set; }
 

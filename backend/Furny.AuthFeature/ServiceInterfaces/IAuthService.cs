@@ -15,6 +15,8 @@ namespace Furny.AuthFeature.ServiceInterfaces
 
         Task LogoutAsync();
 
-        Task<bool> IsNotRegistratedAsync(string email);
+        Task<bool> IfRegisteredCheckInRole(string email, string role);
+
+        Task<string> GetRoleByEmailAsync(string email);
     }
 }

@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
+using Furny.AddressFeature.ServiceInterfaces;
 using Furny.AuthFeature.Data;
 using Furny.Model;
-using Furny.Model.ServiceInterfaces;
-using System;
 
 namespace Furny.AuthFeature.MappingProfiles.Resolvers
 {
@@ -18,13 +17,11 @@ namespace Furny.AuthFeature.MappingProfiles.Resolvers
         public UserAddress Resolve(AuthFeatureRegisterBaseDto source, ApplicationUser destination, UserAddress destMember, ResolutionContext context)
         {
             if (source?.UserAddress == null)
-            {
-                throw new Exception("Mappelés nem sikerült, mert a megadott tulajdonság üres!");
-            }
-
+                return new UserAddress();
+            
             return new UserAddress()
             {
-                Address = _addressService.FindByIdAsync(source.UserAddress.Address._id).Result,
+                Address = _addressService.FindByIdAsync(source.UserAddress.Address.Id).Result,
                 StreetAndHouse = source.UserAddress.StreetAndHouse
             };
         }

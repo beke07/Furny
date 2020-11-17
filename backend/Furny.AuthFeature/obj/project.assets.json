@@ -2059,6 +2059,23 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "Furny.AddressFeature/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Furny.Common": "1.0.0",
+          "Furny.Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Furny.AddressFeature.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Furny.AddressFeature.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Furny.Common/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -6705,6 +6722,11 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "Furny.AddressFeature/1.0.0": {
+      "type": "project",
+      "path": "../Furny.AddressFeature/Furny.AddressFeature.csproj",
+      "msbuildProject": "../Furny.AddressFeature/Furny.AddressFeature.csproj"
+    },
     "Furny.Common/1.0.0": {
       "type": "project",
       "path": "../Furny.Common/Furny.Common.csproj",
@@ -6719,6 +6741,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "AspNetCore.Identity.MongoDbCore >= 2.1.0",
+      "Furny.AddressFeature >= 1.0.0",
       "Furny.Model >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.3"
     ]
@@ -6749,6 +6772,9 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
+            "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.AddressFeature\\Furny.AddressFeature.csproj": {
+              "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.AddressFeature\\Furny.AddressFeature.csproj"
+            },
             "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj": {
               "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj"
             }

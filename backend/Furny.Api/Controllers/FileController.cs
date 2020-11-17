@@ -15,7 +15,7 @@ namespace Furny.Controllers
         { }
 
         [HttpPost]
-        public async Task<string> Upload(IFormFile file)
+        public async Task<string> Upload([FromForm] IFormFile file)
             => await SendAsync(FileHandlerFeatureUploadCommand.Create(file));
 
         [HttpGet("{id}")]

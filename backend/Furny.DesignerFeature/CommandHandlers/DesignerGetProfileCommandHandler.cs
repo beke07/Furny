@@ -17,6 +17,9 @@ namespace Furny.DesignerFeature.Commands
 
         public async Task<DesignerProfileViewModel> Handle(DesignerGetProfileCommand request, CancellationToken cancellationToken)
         {
+            if (string.IsNullOrEmpty(request.Id))
+                request.Id = await _designerService.GetIdByEmailAsync(request.Email);
+
             return await _designerService.GetProfileAsync(request.Id);
         }
     }

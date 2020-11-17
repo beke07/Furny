@@ -6,6 +6,7 @@ using Furny.Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using MongoDB.Bson;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -34,9 +35,21 @@ namespace Furny.AuthFeature.Services
             _roleManager = roleManager;
         }
 
-        public async Task<bool> IsNotRegistratedAsync(string email)
+        public async Task<bool> IfRegisteredCheckInRole(string email, string role)
         {
-            return await _userManager.FindByEmailAsync(email) == null;
+            var user = await _userManager.FindByEmailAsync(email);
+
+            if (user == null) return true;
+
+            else
+            {
+                if (!await _userManager.IsInRoleAsync(user, role))
+                {
+                    await _userManager.AddToRoleAsync(user, role);
+                }
+            }
+
+            return false;
         }
 
         public async Task<string> LoginAsync(AuthFeatureLoginDto login)
@@ -46,10 +59,11 @@ namespace Furny.AuthFeature.Services
             if (result.Succeeded)
             {
                 var user = await _userManager.FindByNameAsync(login.UserName);
-                return _configuration.GenerateToken(user);
+                var role = await _roleManager.FindByIdAsync(user.Roles.First().ToString());
+                return _configuration.GenerateToken(user, role);
             }
 
-            throw new HttpResponseException("Username or password is wrong!", HttpStatusCode.BadRequest);
+            throw new HttpResponseException("E-mail cím vagy jelszó helytelen!", HttpStatusCode.BadRequest);
         }
 
         public async Task LogoutAsync()
@@ -74,11 +88,6 @@ namespace Furny.AuthFeature.Services
                 result = await _userManager.CreateAsync(user);
             }
 
-            if (!await _roleManager.RoleExistsAsync(role))
-            {
-                await _roleManager.CreateAsync(new ApplicationRole(role));
-            }
-
             await _userManager.AddToRoleAsync(user, role);
 
             if (!result.Succeeded)
@@ -97,6 +106,18 @@ namespace Furny.AuthFeature.Services
         public async Task RegisterPanelCutter(AuthFeaturePanelCutterRegisterDto registerDto)
         {
             await RegisterAsync<PanelCutter, AuthFeaturePanelCutterRegisterDto>(registerDto, RoleNames.PanelCutter);
+        }
+
+        public async Task<string> GetRoleByEmailAsync(string email)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+
+            if (user == null || user.Roles == null || user.Roles.Count == 0) 
+                return null;
+
+            var role = await _roleManager.FindByIdAsync(user.Roles.First().ToString());
+
+            return role.Name;
         }
     }
 }

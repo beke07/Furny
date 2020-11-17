@@ -6,12 +6,15 @@ namespace Furny.AuthFeature.Commands
     {
         public string Email { get; set; }
 
-        public AuthFeatureIsNotRegistratedCommand(string email)
+        public string Role { get; set; }
+
+        public AuthFeatureIsNotRegistratedCommand(string email, string role)
         {
             Email = email;
+            Role = role;
         }
 
-        public static AuthFeatureIsNotRegistratedCommand Create(string email)
-            => new AuthFeatureIsNotRegistratedCommand(email);
+        public static AuthFeatureIsNotRegistratedCommand Create(string email, string role)
+            => new AuthFeatureIsNotRegistratedCommand(email, role);
     }
 }

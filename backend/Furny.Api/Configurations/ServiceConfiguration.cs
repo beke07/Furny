@@ -9,7 +9,7 @@
                 .AddFurnitureFeatureServices()
                 .AddModulFeatureServices()
                 .AddPanelCutterFeatureServices()
-                .AddCommonFeatureServices()
+                .AddAddressFeatureServices()
                 .AddExportFeatureServices()
                 .AddOfferFeatureServices()
                 .AddOrderFeatureServices()

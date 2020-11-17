@@ -2,7 +2,7 @@
 {
     public class AuthFeatureAddressDto
     {
-        public string _id { get; set; }
+        public string Id { get; set; }
 
         public long ZipCode { get; set; }
 

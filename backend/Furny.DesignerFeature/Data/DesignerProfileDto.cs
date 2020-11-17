@@ -2,7 +2,7 @@
 {
     public class DesignerProfileDto
     {
-        public string UserName { get; set; }
+        public string Name { get; set; }
 
         public string ImageId { get; set; }
 
