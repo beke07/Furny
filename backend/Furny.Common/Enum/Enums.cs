@@ -17,13 +17,13 @@ namespace Furny.Common.Enums
     public enum OfferState
     {
         Created = 1,
-        Done = 2
+        Accepted = 2,
+        Declined = 3,
+        Done = 4
     }
 
     public enum OrderState
     {
-        Accepted = 1,
-        Declined = 2,
-        Done = 3
+        Done = 1
     }
 }

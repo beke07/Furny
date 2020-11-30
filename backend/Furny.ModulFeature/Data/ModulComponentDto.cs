@@ -2,6 +2,8 @@
 {
     public class ModulComponentDto
     {
+        public string Id { get; set; }
+
         public string Name { get; set; }
 
         public double Width { get; set; }
@@ -13,17 +15,12 @@
 
     public class ModulClosingsDto
     {
-        public ModulComponentClosingDto Top { get; set; }
+        public bool Top { get; set; }
 
-        public ModulComponentClosingDto Bottom { get; set; }
+        public bool Bottom { get; set; }
 
-        public ModulComponentClosingDto Left { get; set; }
+        public bool Left { get; set; }
 
-        public ModulComponentClosingDto Right { get; set; }
-    }
-
-    public class ModulComponentClosingDto
-    {
-        public bool IsClosed { get; set; }
+        public bool Right { get; set; }
     }
 }

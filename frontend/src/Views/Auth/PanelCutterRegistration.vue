@@ -43,8 +43,7 @@
         <img src="../../assets/logo.png" height="55" />
 
         <FurnyAddressSelect
-          :objectPlease="true"
-          :value.sync="user.userAddress.address"
+          :value.sync="user.userAddress.address.id"
           label="Cím"
           inputLabel="city"
           inputTrackBy="id"
@@ -83,10 +82,7 @@ import FurnyButton from "../../components/FurnyButton";
 import FurnyRequiredInput from "../../components/FurnyRequiredInput";
 import FurnyEmailInput from "../../components/FurnyEmailInput";
 import FurnyAddressSelect from "../../components/FurnyAddressSelect";
-import UserPanelCutterRegistrationDto from "../../dtos/UserPanelCutterRegistrationDto";
-import UserAddressDto from "../../dtos/UserAddressDto";
 import { registerPanelCutter } from "../../store/services/registration";
-import AddressDto from "../../dtos/AddressDto";
 import { CSVToArray } from "../../helpers/csv-helper";
 
 export default {
@@ -98,7 +94,7 @@ export default {
     FurnyAddressSelect,
   },
   data: () => ({
-    user: new UserPanelCutterRegistrationDto(),
+    user: { userAddress: { address: { id: null } } },
     extras: "",
     options: [],
   }),
@@ -106,11 +102,9 @@ export default {
     async registration() {
       this.user.extras = CSVToArray(this.extras)[0];
       await registerPanelCutter(this.user);
-      this.$router.push("/");
+      this.$store.commit("setNewRegistrated", true);
+      this.$router.push("/login");
     },
-  },
-  async beforeMount() {
-    this.user.userAddress = new UserAddressDto(new AddressDto(), "");
   },
 };
 </script>

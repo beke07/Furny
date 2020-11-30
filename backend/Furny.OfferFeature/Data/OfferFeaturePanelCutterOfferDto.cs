@@ -8,6 +8,8 @@ namespace Furny.OfferFeature.Data
 
         public IDictionary<string, string> MaterialQuantity { get; set; } = new Dictionary<string, string>();
 
+        public IDictionary<string, string> ClosingQuantity { get; set; } = new Dictionary<string, string>();
+
         public long CountedPrice { get; set; }
     }
 }

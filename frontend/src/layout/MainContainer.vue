@@ -37,7 +37,7 @@ export default {
     },
   },
   async beforeMount() {
-    this.profileImage = await this.$store.dispatch("getProfilePicture", true);
+    this.profileImage = await this.$store.dispatch("getProfilePicture");
   },
 };
 </script>

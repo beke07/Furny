@@ -27,22 +27,10 @@ namespace Furny.Test
                     Height = 1000,
                     Width = 2000,
                     Closings = new Closings(){
-                        Bottom = new ComponentClosing()
-                        {
-                            IsClosed = true
-                        },
-                        Top = new ComponentClosing()
-                        {
-                            IsClosed = false
-                        },
-                        Left = new ComponentClosing()
-                        {
-                            IsClosed = true
-                        },
-                        Right = new ComponentClosing()
-                        {
-                            IsClosed = false
-                        }
+                        Bottom = true,
+                        Top = false,
+                        Left = true,
+                        Right = false
                     }
                 }
             };
@@ -54,22 +42,10 @@ namespace Furny.Test
                     Height = 500,
                     Width = 1520,
                     Closings = new Closings(){
-                        Bottom = new ComponentClosing()
-                        {
-                            IsClosed = false
-                        },
-                        Top = new ComponentClosing()
-                        {
-                            IsClosed = false
-                        },
-                        Left = new ComponentClosing()
-                        {
-                            IsClosed = true
-                        },
-                        Right = new ComponentClosing()
-                        {
-                            IsClosed = true
-                        }
+                        Bottom = false,
+                        Top = false,
+                        Left = true,
+                        Right = true
                     }
                 }
             };

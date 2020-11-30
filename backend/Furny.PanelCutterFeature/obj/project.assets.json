@@ -2005,6 +2005,41 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "Furny.ExportFeature/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Furny.Common": "1.0.0",
+          "Furny.Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Furny.ExportFeature.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Furny.ExportFeature.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Furny.FurnitureFeature/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Furny.Common": "1.0.0",
+          "Furny.ExportFeature": "1.0.0",
+          "Furny.Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Furny.FurnitureFeature.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Furny.FurnitureFeature.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Furny.Model/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -2017,6 +2052,61 @@
         },
         "runtime": {
           "bin/placeholder/Furny.Model.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Furny.NotificationFeature/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Furny.Model": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Furny.NotificationFeature.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Furny.NotificationFeature.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Furny.OfferFeature/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Furny.Common": "1.0.0",
+          "Furny.FurnitureFeature": "1.0.0",
+          "Furny.Model": "1.0.0",
+          "Furny.NotificationFeature": "1.0.0",
+          "Furny.OrderFeature": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Furny.OfferFeature.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Furny.OfferFeature.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Furny.OrderFeature/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Furny.Common": "1.0.0",
+          "Furny.FurnitureFeature": "1.0.0",
+          "Furny.Model": "1.0.0",
+          "Furny.NotificationFeature": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Furny.OrderFeature.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Furny.OrderFeature.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -6500,17 +6590,43 @@
       "path": "../Furny.Common/Furny.Common.csproj",
       "msbuildProject": "../Furny.Common/Furny.Common.csproj"
     },
+    "Furny.ExportFeature/1.0.0": {
+      "type": "project",
+      "path": "../Furny.ExportFeature/Furny.ExportFeature.csproj",
+      "msbuildProject": "../Furny.ExportFeature/Furny.ExportFeature.csproj"
+    },
+    "Furny.FurnitureFeature/1.0.0": {
+      "type": "project",
+      "path": "../Furny.FurnitureFeature/Furny.FurnitureFeature.csproj",
+      "msbuildProject": "../Furny.FurnitureFeature/Furny.FurnitureFeature.csproj"
+    },
     "Furny.Model/1.0.0": {
       "type": "project",
       "path": "../Furny.Model/Furny.Model.csproj",
       "msbuildProject": "../Furny.Model/Furny.Model.csproj"
+    },
+    "Furny.NotificationFeature/1.0.0": {
+      "type": "project",
+      "path": "../Furny.NotificationFeature/Furny.NotificationFeature.csproj",
+      "msbuildProject": "../Furny.NotificationFeature/Furny.NotificationFeature.csproj"
+    },
+    "Furny.OfferFeature/1.0.0": {
+      "type": "project",
+      "path": "../Furny.OfferFeature/Furny.OfferFeature.csproj",
+      "msbuildProject": "../Furny.OfferFeature/Furny.OfferFeature.csproj"
+    },
+    "Furny.OrderFeature/1.0.0": {
+      "type": "project",
+      "path": "../Furny.OrderFeature/Furny.OrderFeature.csproj",
+      "msbuildProject": "../Furny.OrderFeature/Furny.OrderFeature.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "Furny.AddressFeature >= 1.0.0",
       "Furny.Common >= 1.0.0",
-      "Furny.Model >= 1.0.0"
+      "Furny.Model >= 1.0.0",
+      "Furny.OfferFeature >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -6547,6 +6663,9 @@
             },
             "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj": {
               "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj"
+            },
+            "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.OfferFeature\\Furny.OfferFeature.csproj": {
+              "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.OfferFeature\\Furny.OfferFeature.csproj"
             }
           }
         }

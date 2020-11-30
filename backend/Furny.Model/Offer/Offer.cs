@@ -15,7 +15,7 @@ namespace Furny.Model
 
         public string PanelCutterId { get; set; }
 
-        public string DesginerId { get; set; }
+        public string DesignerId { get; set; }
 
         public string FurnitureId { get; set; }
 
@@ -25,17 +25,6 @@ namespace Furny.Model
 
         public DateTime? Deadline { get; set; }
 
-        public OfferState State
-        {
-            get
-            {
-                if (Price == null && Deadline == null)
-                {
-                    return OfferState.Created;
-                }
-
-                return OfferState.Done;
-            }
-        }
+        public OfferState State { get; set; }
     }
 }

@@ -4,7 +4,7 @@ namespace Furny.MaterialFeature.Data
 {
     public class MaterialFeatureMaterialDto
     {
-        public string _id { get; set; }
+        public string Id { get; set; }
 
         public string Name { get; set; }
 

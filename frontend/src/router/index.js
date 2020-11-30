@@ -11,20 +11,20 @@ const routes = [
     component: () => import("../layout/MainContainer.vue"),
     children: [
       {
+        path: "/home",
+        name: "HomePage",
+        meta: {
+          authenticated: true,
+        },
+        component: () => import("../Views/HomePage.vue"),
+      },
+      {
         path: "/profil",
         name: "Profil",
         meta: {
           authenticated: true,
         },
         component: () => import("../Views/Profil.vue"),
-      },
-      {
-        path: "/offers",
-        name: "Offers",
-        meta: {
-          authenticated: true,
-        },
-        component: () => import("../Views/Offers.vue"),
       },
       {
         path: "/moduls",
@@ -41,6 +41,126 @@ const routes = [
           authenticated: true,
         },
         component: () => import("../Views/Designer/CreateModul.vue"),
+      },
+      {
+        path: "/furnitures",
+        name: "Frunitures",
+        meta: {
+          authenticated: true,
+        },
+        component: () => import("../Views/Designer/Furnitures.vue"),
+      },
+      {
+        path: "/create-furniture",
+        name: "CreateFurniture",
+        meta: {
+          authenticated: true,
+        },
+        component: () => import("../Views/Designer/CreateFurniture.vue"),
+      },
+      {
+        path: "/create-offer",
+        name: "CreateOffer",
+        meta: {
+          authenticated: true,
+        },
+        component: () => import("../Views/Designer/CreateOffer.vue"),
+      },
+      {
+        path: "/create-order",
+        name: "CreateOrder",
+        meta: {
+          authenticated: true,
+        },
+        component: () => import("../Views/Designer/CreateOrder.vue"),
+      },
+      {
+        path: "/designer-offers",
+        name: "DesignerOffers",
+        meta: {
+          authenticated: true,
+        },
+        component: () => import("../Views/Designer/Offers.vue"),
+      },
+      {
+        path: "/designer-orders",
+        name: "Orders",
+        meta: {
+          authenticated: true,
+        },
+        component: () => import("../Views/Designer/Orders.vue"),
+      },
+      {
+        path: "/ads",
+        name: "Ads",
+        meta: {
+          authenticated: true,
+        },
+        component: () => import("../Views/PanelCutter/Ads.vue"),
+      },
+      {
+        path: "/create-ad",
+        name: "CreateAd",
+        meta: {
+          authenticated: true,
+        },
+        component: () => import("../Views/PanelCutter/CreateAd.vue"),
+      },
+      {
+        path: "/closings",
+        name: "Closings",
+        meta: {
+          authenticated: true,
+        },
+        component: () => import("../Views/PanelCutter/Closings.vue"),
+      },
+      {
+        path: "/create-closing",
+        name: "CreateClosing",
+        meta: {
+          authenticated: true,
+        },
+        component: () => import("../Views/PanelCutter/CreateClosing.vue"),
+      },
+      {
+        path: "/create-material",
+        name: "CreateMaterial",
+        meta: {
+          authenticated: true,
+        },
+        component: () => import("../Views/PanelCutter/CreateMaterial.vue"),
+      },
+      {
+        path: "/materials",
+        name: "Materials",
+        meta: {
+          authenticated: true,
+        },
+        component: () => import("../Views/PanelCutter/Materials.vue"),
+      },
+      {
+        path: "/panelcutter-offers",
+        name: "PanelCutterOffers",
+        meta: {
+          authenticated: true,
+        },
+        component: () => import("../Views/PanelCutter/Offers.vue"),
+      },
+      {
+        path: "/panelcutter-orders",
+        name: "PanelCutterOrders",
+        meta: {
+          authenticated: true,
+        },
+        component: () => import("../Views/PanelCutter/Orders.vue"),
+      },
+      {
+        path: "/accept-offer",
+        name: "AcceptOffer",
+        meta: {
+          authenticated: true,
+        },
+        component: () => import("../Views/PanelCutter/AcceptOffer.vue"),
       },
     ],
   },

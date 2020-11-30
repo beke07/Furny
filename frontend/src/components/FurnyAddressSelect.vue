@@ -32,10 +32,6 @@ export default {
     Multiselect,
   },
   props: {
-    objectPlease: {
-      type: Boolean,
-      default: false,
-    },
     label: String,
     inputLabel: String,
     inputTrackBy: String,
@@ -43,21 +39,23 @@ export default {
     selectedId: String,
   },
   data: () => ({
+    selId: undefined,
     selected: "",
     options: Array,
   }),
   methods: {
     handleInput() {
-      const result = this.objectPlease ? this.selected : this.selected.id;
-      this.$emit("update:value", result);
+      this.$emit("update:value", this.selected.id);
     },
     name({ city, zipCode }) {
       return `${zipCode} - ${city}`;
     },
   },
   async beforeMount() {
+    this.selId = this.selectedId;
     this.options = this.$store.state.addresses;
-    this.selected = this.options.find((e) => e.id === this.selectedId);
+    if (this.selId)
+      this.selected = this.options.find((e) => e.id === this.selId);
   },
 };
 </script>

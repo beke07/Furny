@@ -3,6 +3,7 @@ using Furny.DesignerFeature.Data;
 using Furny.DesignerFeature.ViewModels;
 using Furny.Model;
 using Microsoft.AspNetCore.JsonPatch;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Furny.DesignerFeature.ServiceInterfaces
@@ -20,5 +21,7 @@ namespace Furny.DesignerFeature.ServiceInterfaces
         Task RemoveFavoritePanelCutterAsync(string id, string pid);
 
         Task<string> GetIdByEmailAsync(string email);
+
+        Task<IList<DesignerFavoriteViewModel>> GetFavoritesAsnyc(string id);
     }
 }

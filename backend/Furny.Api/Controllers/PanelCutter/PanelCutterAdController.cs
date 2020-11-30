@@ -24,6 +24,10 @@ namespace Furny.Controllers
         public async Task<IList<AdFeatureAdTableViewModel>> GetAds(string id)
             => await SendAsync(AdFeatureGetAdsCommand.Create(id));
 
+        [HttpGet("{id}/ads/{adId}")]
+        public async Task<AdFeatureAdDto> GetAd(string id, string adId)
+            => await SendAsync(AdFeatureGetAdCommand.Create(id, adId));
+
         [HttpDelete("{id}/ads/{adId}")]
         public async Task DeleteAd(string id, string adId)
             => await SendAsync(AdFeatureRemoveAdCommand.Create(id, adId));

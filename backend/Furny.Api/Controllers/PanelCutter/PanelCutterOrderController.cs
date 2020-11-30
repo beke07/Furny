@@ -14,7 +14,7 @@ namespace Furny.Controllers
         public PanelCutterOrderController(IMediator mediator) : base(mediator)
         { }
 
-        [HttpGet("panelcutter/{id}/orders")]
+        [HttpGet("{id}/orders")]
         public async Task<IList<OrderFeaturePanelCutterTableViewModel>> GetPanelCutterOffers(string id)
             => await SendAsync(OrderFeatureGetPanelCutterOrdersCommand.Create(id));
 

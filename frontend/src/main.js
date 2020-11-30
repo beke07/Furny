@@ -36,6 +36,7 @@ let vue = new Vue({
 }).$mount("#app");
 
 Vue.config.errorHandler = (err) => {
+  if (err.message === "Cannot read property 'clientWidth' of undefined") return;
   vue.$vs.notify({
     title: "Error",
     text: err,

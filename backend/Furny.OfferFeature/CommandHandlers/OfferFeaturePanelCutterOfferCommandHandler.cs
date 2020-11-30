@@ -11,7 +11,8 @@ namespace Furny.OfferFeature.CommandHandlers
 {
     public class OfferFeaturePanelCutterOfferCommandHandler :
         IRequestHandler<OfferFeatureGetPanelCutterOfferCommand, OfferFeaturePanelCutterOfferDto>,
-        IRequestHandler<OfferFeatureGetPanelCutterOfferTableCommand, IList<OfferFeaturePanelCutterOfferTableViewModel>>
+        IRequestHandler<OfferFeatureGetPanelCutterOfferTableCommand, IList<OfferFeaturePanelCutterOfferTableViewModel>>,
+        IRequestHandler<OfferFeatureGetPanelCutterFillOfferCommand>
     {
         private readonly IOfferService _offerService;
 
@@ -25,5 +26,12 @@ namespace Furny.OfferFeature.CommandHandlers
 
         public async Task<IList<OfferFeaturePanelCutterOfferTableViewModel>> Handle(OfferFeatureGetPanelCutterOfferTableCommand request, CancellationToken cancellationToken)
             => await _offerService.GetPanelCutterOfferTableAsync(request.PanelCutterId);
+
+        public async Task<Unit> Handle(OfferFeatureGetPanelCutterFillOfferCommand request, CancellationToken cancellationToken)
+        {
+            await _offerService.FillPanelCutterOfferAsync(request.Fill, request.Id);
+
+            return Unit.Value;
+        }
     }
 }

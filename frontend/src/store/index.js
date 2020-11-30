@@ -22,6 +22,10 @@ export default new Vuex.Store({
     token: null,
     picture: null,
     addresses: [],
+    panelCutters: [],
+    materials: [],
+    closings: [],
+    newRegistrated: false,
     isSidebarActive: false,
     backgroundColor: "#83a4c1",
     inputColor: "rgb(88, 140, 184)",
@@ -54,11 +58,26 @@ export default new Vuex.Store({
     setImageId(state, imageId) {
       state.user.imageId = imageId;
     },
+    setNewRegistrated(state, value) {
+      state.newRegistrated = value;
+    },
     setUser(state, user) {
       state.user = user;
     },
   },
   actions: {
+    getPanelCutters() {
+      const panelCutters = this.state.panelCutters;
+      panelCutters.forEach((panelCutter) => {
+        panelCutter.materials = this.state.materials.find(
+          (m) => m.pid === panelCutter.id
+        );
+        panelCutter.closings = this.state.closings.find(
+          (m) => m.pid === panelCutter.id
+        );
+      });
+      return panelCutters;
+    },
     async getProfilePicture() {
       const imageId = this.state.user.imageId;
       if (imageId) return `${process.env.VUE_APP_API_ENDPOINT}/file/${imageId}`;
@@ -106,17 +125,16 @@ export default new Vuex.Store({
     },
 
     async syncUserWithRole(context, role) {
-      const roleToString = role === true ? "Designer" : "PanelCutter";
-      await userSync(roleToString);
+      await userSync(role);
 
       const token = parseJwt(this.state.token);
       const picture = token.picture;
       const email = token.email;
-      const profile = await getProfile(null, roleToString, email);
+      const profile = await getProfile(null, role, email);
 
       context.commit("setSessionData", {
         user: profile,
-        role: roleToString,
+        role: role,
       });
       context.commit("setPicture", picture);
     },

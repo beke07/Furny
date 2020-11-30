@@ -6,7 +6,7 @@ namespace Furny.OfferFeature.Data
 {
     public class OfferFeatureOfferDto
     {
-        public string _id { get; set; }
+        public string Id { get; set; }
 
         public IList<OfferFeatureOfferComponentDto> Components { get; set; }
 

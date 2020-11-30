@@ -44,4 +44,17 @@ export function toParams(object) {
   };
 }
 
+export function downloadFile(response, contentType, fileName, fileExtension) {
+  const url = URL.createObjectURL(
+    new Blob([response.data], {
+      type: contentType,
+    })
+  );
+  const link = document.createElement("a");
+  link.href = url;
+  link.setAttribute("download", `${fileName}.${fileExtension}`);
+  document.body.appendChild(link);
+  link.click();
+}
+
 export default instance;

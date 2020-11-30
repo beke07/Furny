@@ -9,7 +9,7 @@
       :click-not-close="doNotClose"
       v-model="isSidebarActive"
     >
-      <div class="header-sidebar text-center" slot="header">
+      <div class="header-sidebar text-center" slot="header" to="/profil">
         <vs-avatar size="70px" :src="profileImage" />
         <h4>
           {{ user.name }}<br />
@@ -60,9 +60,7 @@ export default {
       get() {
         return this.$store.state.isSidebarActive;
       },
-      async set(val) {
-        await this.$store.dispatch("setSidebarActivate", val);
-      },
+      async set() {},
     },
   },
   methods: {
@@ -71,13 +69,8 @@ export default {
       this.setSidebar();
     },
     async setSidebar() {
-      if (this.windowWidth < 1170) {
-        await this.$store.dispatch("setSidebarActivate", false);
-        this.doNotClose = false;
-      } else {
-        await this.$store.dispatch("setSidebarActivate", true);
-        this.doNotClose = true;
-      }
+      await this.$store.dispatch("setSidebarActivate", true);
+      this.doNotClose = true;
     },
   },
   async beforeMount() {
@@ -98,3 +91,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+a {
+  text-decoration: none !important;
+}
+</style>

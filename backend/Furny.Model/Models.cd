@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Furny.Model.Component">
+    <Position X="5.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAABAAAAAAAAAAAAEQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Designer\Component.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Furny.Model.Furniture">
+    <Position X="7.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAQAAAAAAAAAAAAQCAAAAAA=</HashCode>
+      <FileName>Designer\Furniture.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Furny.Model.Modul">
+    <Position X="11" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAQAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Designer\Modul.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Furny.Model.Offer">
+    <Position X="5.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAQAIAAAAAEAAAAAAAAAAAAAAUABAAAAAA=</HashCode>
+      <FileName>Offer\Offer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Furny.Model.Order">
+    <Position X="9.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAQAAAAAAAAAAAAAAAAAAAAAAAABAAAAAg=</HashCode>
+      <FileName>Order\Order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Furny.Model.Ad">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAEAAAAACAAAAAA=</HashCode>
+      <FileName>PanelCutter\Ad.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Furny.Model.Closing">
+    <Position X="11" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PanelCutter\Closing.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Furny.Model.Material">
+    <Position X="9.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAQAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>PanelCutter\Material.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Furny.Model.ApplicationRole">
+    <Position X="3.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Users\ApplicationRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Furny.Model.ApplicationUser">
+    <Position X="1.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAgAAAAAAAAAAwAAABAAAEAgAAAIQAAAAA=</HashCode>
+      <FileName>Users\ApplicationUser.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Furny.Model.Designer">
+    <Position X="2.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAACACAAAAAA=</HashCode>
+      <FileName>Users\Designer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Furny.Model.PanelCutter">
+    <Position X="0.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AMIAAAAAAAAAAAAABAAAAAAAEAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Users\PanelCutter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Furny.Model.Address">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAMAAAAAAAAAAIAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Address.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Furny.Model.Notification">
+    <Position X="9.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASAAAAAA=</HashCode>
+      <FileName>Notification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Furny.Model.UserAddress">
+    <Position X="7.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAIAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>UserAddress.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Furny.Common.Models.MongoEntityBase" Collapsed="true">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AspNetCore.Identity.MongoDbCore.Models.MongoIdentityRole&lt;TKey&gt;" Collapsed="true">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AspNetCore.Identity.MongoDbCore.Models.MongoIdentityUser&lt;TKey&gt;" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -15,11 +15,11 @@ namespace Furny.Controllers
         public PanelCutterOfferController(IMediator mediator) : base(mediator)
         { }
 
-        [HttpPost("offers/{oid}")]
+        [HttpPost("{id}/offers/{oid}")]
         public async Task Post(OfferFeaturePanelCutterFillOfferDto fillDto, string oid)
             => await SendAsync(OfferFeatureGetPanelCutterFillOfferCommand.Create(oid, fillDto));
 
-        [HttpGet("offers/{oid}")]
+        [HttpGet("{id}/offers/{oid}")]
         public async Task<OfferFeaturePanelCutterOfferDto> Get(string oid)
             => await SendAsync(OfferFeatureGetPanelCutterOfferCommand.Create(oid));
 

@@ -147,6 +147,133 @@
         }
       }
     },
+    "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.ExportFeature\\Furny.ExportFeature.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.ExportFeature\\Furny.ExportFeature.csproj",
+        "projectName": "Furny.ExportFeature",
+        "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.ExportFeature\\Furny.ExportFeature.csproj",
+        "packagesPath": "C:\\Users\\Beke\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.ExportFeature\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Beke\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj": {
+                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj"
+              },
+              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj": {
+                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.FurnitureFeature\\Furny.FurnitureFeature.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.FurnitureFeature\\Furny.FurnitureFeature.csproj",
+        "projectName": "Furny.FurnitureFeature",
+        "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.FurnitureFeature\\Furny.FurnitureFeature.csproj",
+        "packagesPath": "C:\\Users\\Beke\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.FurnitureFeature\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Beke\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj": {
+                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj"
+              },
+              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.ExportFeature\\Furny.ExportFeature.csproj": {
+                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.ExportFeature\\Furny.ExportFeature.csproj"
+              },
+              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj": {
+                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -212,6 +339,204 @@
         }
       }
     },
+    "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.NotificationFeature\\Furny.NotificationFeature.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.NotificationFeature\\Furny.NotificationFeature.csproj",
+        "projectName": "Furny.NotificationFeature",
+        "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.NotificationFeature\\Furny.NotificationFeature.csproj",
+        "packagesPath": "C:\\Users\\Beke\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.NotificationFeature\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Beke\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj": {
+                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.OfferFeature\\Furny.OfferFeature.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.OfferFeature\\Furny.OfferFeature.csproj",
+        "projectName": "Furny.OfferFeature",
+        "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.OfferFeature\\Furny.OfferFeature.csproj",
+        "packagesPath": "C:\\Users\\Beke\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.OfferFeature\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Beke\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj": {
+                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj"
+              },
+              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.FurnitureFeature\\Furny.FurnitureFeature.csproj": {
+                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.FurnitureFeature\\Furny.FurnitureFeature.csproj"
+              },
+              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj": {
+                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj"
+              },
+              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.NotificationFeature\\Furny.NotificationFeature.csproj": {
+                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.NotificationFeature\\Furny.NotificationFeature.csproj"
+              },
+              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.OrderFeature\\Furny.OrderFeature.csproj": {
+                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.OrderFeature\\Furny.OrderFeature.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.OrderFeature\\Furny.OrderFeature.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.OrderFeature\\Furny.OrderFeature.csproj",
+        "projectName": "Furny.OrderFeature",
+        "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.OrderFeature\\Furny.OrderFeature.csproj",
+        "packagesPath": "C:\\Users\\Beke\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.OrderFeature\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Beke\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj": {
+                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Common\\Furny.Common.csproj"
+              },
+              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.FurnitureFeature\\Furny.FurnitureFeature.csproj": {
+                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.FurnitureFeature\\Furny.FurnitureFeature.csproj"
+              },
+              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj": {
+                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj"
+              },
+              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.NotificationFeature\\Furny.NotificationFeature.csproj": {
+                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.NotificationFeature\\Furny.NotificationFeature.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.PanelCutterFeature\\Furny.PanelCutterFeature.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -243,6 +568,9 @@
               },
               "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj": {
                 "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.Model\\Furny.Model.csproj"
+              },
+              "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.OfferFeature\\Furny.OfferFeature.csproj": {
+                "projectPath": "C:\\Users\\Beke\\Desktop\\diploma\\backend\\Furny.OfferFeature\\Furny.OfferFeature.csproj"
               }
             }
           }

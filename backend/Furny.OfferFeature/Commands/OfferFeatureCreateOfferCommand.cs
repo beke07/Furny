@@ -1,4 +1,5 @@
-﻿using Furny.OfferFeature.Data;
+﻿
+using Furny.OfferFeature.Data;
 using MediatR;
 
 namespace Furny.OfferFeature.Commands

@@ -10,6 +10,7 @@ using Furny.OfferFeature.Data;
 using Furny.OfferFeature.ServiceInterfaces;
 using Furny.OfferFeature.ViewModels;
 using Furny.OrderFeature.Commands;
+using Furny.OrderFeature.Data;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -24,6 +25,7 @@ namespace Furny.OfferFeature.Services
     {
         private const string collectionName = "offers";
         private const int _mm2Tom2 = 1000000;
+        private const int _mmToM = 1000;
         private const int _tableWidth = 2080;
         private const int _tableHeight = 2070;
 
@@ -39,34 +41,36 @@ namespace Furny.OfferFeature.Services
             _mediator = mediator;
         }
 
-        public async Task CreateAsnyc(OfferFeatureOfferDto offerDto, string desginerId, string furnitureId)
+        public async Task CreateAsnyc(OfferFeatureOfferDto offerDto, string designerId, string furnitureId)
         {
-            var componentsByPanelCuttes = offerDto.Components.GroupBy(e => e.PanelCutterId);
-            foreach (var components in componentsByPanelCuttes.Select(e => e.ToList()))
+            var componentsByPanelCutters = offerDto.Components.GroupBy(e => e.PanelCutterId);
+            foreach (var components in componentsByPanelCutters.Select(e => e.ToList()))
             {
                 components.ForEach(e =>
                 {
-                    e.DesignerId = desginerId;
+                    e.DesignerId = designerId;
                     e.FurnitureId = furnitureId;
                 });
 
                 var offer = new Offer()
                 {
                     PanelCutterId = components.First().PanelCutterId,
-                    DesginerId = desginerId,
+                    DesignerId = designerId,
                     FurnitureId = furnitureId,
+                    State = OfferState.Created,
                     Components = _mapper.Map<IList<OfferComponent>>(components)
                 };
 
                 await _collection.InsertOneAsync(offer);
             }
 
-            var panelCutters = componentsByPanelCuttes.Select(e => e.Key);
+            var panelCutters = componentsByPanelCutters.Select(e => e.Key);
 
             foreach (var panelCutter in panelCutters)
             {
                 await _mediator.Send(NotificationFeatureCreateNotificationCommand.Create(panelCutter, new Notification()
                 {
+                    Link = "panelcutter-offers",
                     Text = "Árajánlati kérelem érkezett!"
                 }));
             }
@@ -74,13 +78,14 @@ namespace Furny.OfferFeature.Services
 
         public async Task<IList<OfferFeatureOfferDto>> GetDesignerOffersAsnyc(string designerId, string furnitureId)
         {
-            var offers = (await Get()).Where(e => e.DesginerId == designerId && e.FurnitureId == furnitureId);
+            var offers = (await Get()).Where(e => e.DesignerId == designerId && e.FurnitureId == furnitureId);
 
             var result = new List<OfferFeatureOfferDto>();
             foreach (var offer in offers)
             {
                 var offerDto = new OfferFeatureOfferDto()
                 {
+                    Id = offer.Id.ToString(),
                     State = offer.State,
                     Deadline = offer.Deadline,
                     Price = offer.Price,
@@ -98,19 +103,20 @@ namespace Furny.OfferFeature.Services
             return result;
         }
 
-        public async Task<List<OfferFeatureDesignerOfferTableViewModel>> GetDesignerOfferTableAsnyc(string designerId, string furnitureId)
+        public async Task<List<OfferFeatureDesignerOfferTableViewModel>> GetDesignerOfferTableAsnyc(string designerId)
         {
-            var offers = (await Get()).Where(e => e.DesginerId == designerId && e.FurnitureId == furnitureId);
-
-            var furniture = await _mediator.Send(FurnitureGetFurnitureCommand.Create(designerId, furnitureId));
+            var offers = (await Get()).Where(e => e.DesignerId == designerId);
 
             var result = new List<OfferFeatureDesignerOfferTableViewModel>();
             foreach (var offer in offers)
             {
+                var furniture = await _mediator.Send(FurnitureGetFurnitureCommand.Create(designerId, offer.FurnitureId));
+
                 result.Add(new OfferFeatureDesignerOfferTableViewModel()
                 {
-                    _id = offer.Id.ToString(),
+                    Id = offer.Id.ToString(),
                     CreatedOn = offer.Id.CreationTime,
+                    FurnitureId = furniture.Id,
                     FurnitureName = furniture.Name,
                     State = offer.State
                 });
@@ -137,14 +143,32 @@ namespace Furny.OfferFeature.Services
                 {
                     var quantity = components.Sum(e => e.Component.Height * e.Component.Width) / _mm2Tom2;
                     countedPrice += (long)Math.Ceiling(material.Price * quantity);
-                    offerDto.MaterialQuantity.Add(material.Name, $"{quantity} m²");
+                    offerDto.MaterialQuantity.Add($"{material.Name} ({material.Price} Ft/m²)", $"{quantity} m²");
                 }
                 else if (material.Type == MaterialType.Table)
                 {
                     var quantity = (long)Math.Ceiling(components.Sum(e => e.Component.Height * e.Component.Width) / (_tableWidth * _tableHeight));
                     countedPrice += material.Price * quantity;
-                    offerDto.MaterialQuantity.Add(material.Name, $"{quantity} tábla");
+                    offerDto.MaterialQuantity.Add($"{material.Name} ({material.Price} Ft/tábla)", $"{quantity} tábla");
                 }
+            }
+
+            foreach (var components in offer.Components.GroupBy(c => c.Closing.Id).Select(c => c.ToList()))
+            {
+                var closing = components.First().Closing;
+                var component = components.First().Component;
+
+                double closingLengthInMM = 0;
+
+                if (component.Closings.Top) closingLengthInMM += component.Width;
+                if (component.Closings.Bottom) closingLengthInMM += component.Width;
+                if (component.Closings.Left) closingLengthInMM += component.Height;
+                if (component.Closings.Right) closingLengthInMM += component.Height;
+
+                var closingLengthInMeter = closingLengthInMM / _mmToM;
+                countedPrice += (long)closingLengthInMeter * closing.Price;
+
+                offerDto.ClosingQuantity.Add($"{closing.Name} ({closing.Price} Ft/m)", $"{closingLengthInMeter} m");
             }
 
             offerDto.CountedPrice = countedPrice;
@@ -160,10 +184,10 @@ namespace Furny.OfferFeature.Services
             {
                 result.Add(new OfferFeaturePanelCutterOfferTableViewModel()
                 {
-                    _id = offer.Id.ToString(),
+                    Id = offer.Id.ToString(),
                     CreatedOn = offer.Id.CreationTime,
                     State = offer.State,
-                    DesignerName = (await _mediator.Send(GetDesignerCommand.Create(offer.DesginerId))).Name
+                    DesignerName = (await _mediator.Send(GetDesignerCommand.Create(offer.DesignerId))).Name
                 });
             }
 
@@ -181,14 +205,52 @@ namespace Furny.OfferFeature.Services
 
             offer.Deadline = offerDto.Deadline;
             offer.Price = offerDto.Price;
+            offer.State = OfferState.Done;
 
             await UpdateAsync(offer);
 
-            await _mediator.Send(OrderFeatureCreateOrderCommand.Create(offer));
-
-            await _mediator.Send(NotificationFeatureCreateNotificationCommand.Create(offer.DesginerId, new Notification()
+            await _mediator.Send(NotificationFeatureCreateNotificationCommand.Create(offer.DesignerId, new Notification()
             {
-                Text = "Árajánlat érkezett!"
+                Text = "Árajánlat érkezett!",
+                Link = "designer-offers"
+            }));
+        }
+
+        public async Task AcceptAsnyc(string id, OrderFeatureOrderFillDto orderDto)
+        {
+            var offer = await FindByIdAsync(id);
+            offer.State = OfferState.Accepted;
+
+            await UpdateAsync(offer);
+
+            var order = new Order()
+            {
+                Offer = offer
+            };
+
+            order.Delivery = orderDto.Delivery;
+            order.Comment = orderDto.Comment;
+
+            await _mediator.Send(new OrderFeatureCreateOrderCommand(offer));
+
+            await _mediator.Send(NotificationFeatureCreateNotificationCommand.Create(offer.PanelCutterId, new Notification()
+            {
+                Text = "A megrendelő elfogadta az árajánlatot, megrendelés érkezett!",
+                Link = "accept-offer"
+            }));
+        }
+
+        public async Task DeclineAsnyc(string id)
+        {
+            var offer = await FindByIdAsync(id);
+            offer.State = OfferState.Declined;
+
+            await UpdateAsync(offer);
+
+            await _mediator.Send(NotificationFeatureCreateNotificationCommand.Create(offer.PanelCutterId, new Notification()
+            {
+                Text = "A megrendelő elutasította az árajánlatot!",
+                Link = "accept-offer"
             }));
         }
     }

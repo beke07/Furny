@@ -4,7 +4,7 @@ namespace Furny.ModulFeature.Data
 {
     public class ModulModulDto
     {
-        public string _id { get; set; }
+        public string Id { get; set; }
 
         public string Name { get; set; }
 

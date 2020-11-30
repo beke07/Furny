@@ -12,6 +12,7 @@
 
 <script>
 import { getAddresses } from "./store/services/address";
+
 export default {
   name: "App",
   async beforeMount() {

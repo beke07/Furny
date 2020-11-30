@@ -5,6 +5,6 @@ namespace Furny.DesignerFeature.ViewModels
 {
     public class DesignerHomeViewModel
     {
-        public IList<AdViewModel> Ads { get; set; }
+        public IList<AdViewModel> Ads { get; set; } = new List<AdViewModel>();
     }
 }

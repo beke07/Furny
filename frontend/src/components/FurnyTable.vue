@@ -3,9 +3,9 @@
     v-model="selected"
     pagination
     max-items="5"
+    @selected="select"
     @dblSelection="edit"
     search
-    stripe
     noDataText="Nem található adat"
     :data="rows"
   >
@@ -22,15 +22,12 @@
       <vs-th sort-key="name">
         Elenevezés
       </vs-th>
+      <vs-th></vs-th>
       <vs-th class="float-right">
-        <FurnyButton
-          type="border"
-          color="danger"
-          text="Törlés"
-          class="mb-1 mr-1"
-          @clicked="remove"
-        />
-        <FurnyButton type="border" text="Új" class="mb-1" @clicked="create" />
+        <slot name="first-button"></slot>
+        <slot name="second-button"></slot>
+        <slot name="third-button"></slot>
+        <slot name="fourth-button"></slot>
       </vs-th>
     </template>
 
@@ -40,33 +37,28 @@
           {{ data[indextr][property] }}
         </vs-td>
         <vs-td></vs-td>
+        <vs-td v-if="plusProperty"> {{ data[indextr][plusProperty] }}</vs-td>
+        <vs-td v-else></vs-td>
       </vs-tr>
     </template>
   </vs-table>
 </template>
 
 <script>
-import FurnyButton from "./FurnyButton";
-
 export default {
   name: "FurnyTable",
   props: {
     rows: Array,
     title: String,
     property: String,
-  },
-  components: {
-    FurnyButton,
+    plusProperty: String,
   },
   data: () => ({
     selected: [],
   }),
   methods: {
-    create() {
-      this.$emit("created");
-    },
-    remove() {
-      if (this.selected) this.$emit("removed", this.selected.id);
+    select() {
+      this.$emit("selected", this.selected.id);
     },
     edit() {
       if (this.selected) this.$emit("edited", this.selected.id);
@@ -78,5 +70,8 @@ export default {
 <style scoped>
 div.vs-table-text {
   justify-content: space-between;
+}
+.vs-table--td {
+  padding: 15px !important;
 }
 </style>

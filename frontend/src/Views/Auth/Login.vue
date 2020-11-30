@@ -26,13 +26,13 @@
             type="border"
             text="Designer"
             class="role-button role-button-right"
-            @clicked="setRole(true)"
+            @clicked="setRole('Designer')"
           />
           <FurnyButton
             type="border"
             text="Lapszabász"
             class="role-button"
-            @clicked="setRole(false)"
+            @clicked="setRole('PanelCutter')"
           />
         </vs-popup>
         <FurnyRouterLink to="/registration-type" text="Regisztráció" />
@@ -67,11 +67,11 @@ export default {
   methods: {
     async setRole(role) {
       await this.$store.dispatch("syncUserWithRole", role);
-      this.$router.push("/");
+      this.$router.push("/home");
     },
     async login() {
       await this.$store.dispatch("login", this.user);
-      this.$router.push("/");
+      this.$router.push("/home");
     },
     async googleLogin() {
       Firebase.login().then(async (token) => {
@@ -82,16 +82,14 @@ export default {
       });
     },
   },
-  async mounted() {
-    Firebase.auth.onAuthStateChanged(async (result) => {
-      if (result) {
-        this.user.isAuthenticated = true;
-        this.user.name = result.displayName.split(" ")[0];
-      } else {
-        this.user.isAuthenticated = false;
-        this.user.name = null;
-      }
-    });
+  created() {
+    if (this.$store.state.newRegistrated)
+      this.$vs.notify({
+        title: "Siker!",
+        text: "Sikeresen regisztráltál, jelentkezz be!",
+        color: "success",
+      });
+    this.$store.commit("setNewRegistrated", false);
   },
 };
 </script>

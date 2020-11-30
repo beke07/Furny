@@ -19,6 +19,8 @@ namespace Furny.DesignerFeature.MappingProfiles
             CreateMap<Designer, DesignerProfileViewModel>()
                 .ForMember(e => e.AddressId, opt => opt.MapFrom(e => e.UserAddress.Address.Id))
                 .ForMember(e => e.StreetAndHouse, opt => opt.MapFrom(e => e.UserAddress.StreetAndHouse));
+
+            CreateMap<PanelCutter, DesignerFavoriteViewModel>();
         }
     }
 }

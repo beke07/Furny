@@ -54,10 +54,12 @@ namespace Furny.DesignerFeature.Services
         {
             var designer = await FindByIdAsync(id);
 
-            return new DesignerHomeViewModel()
-            {
-                Ads = await _mediator.Send(GetPanelCutterAdsCommand.Create(designer.UserAddress.Address.Country))
-            };
+            var result = new DesignerHomeViewModel();
+
+            if (designer?.UserAddress?.Address?.Country != null)
+                result.Ads = await _mediator.Send(GetPanelCutterAdsCommand.Create(designer.UserAddress.Address.Country));
+
+            return result;
         }
 
         public async Task<DesignerProfileViewModel> GetProfileAsync(string id)
@@ -84,6 +86,11 @@ namespace Furny.DesignerFeature.Services
 
         public async Task<string> GetIdByEmailAsync(string email)
             => await _userManager.GetIdByEmailAsync(email);
-        
+
+        public async Task<IList<DesignerFavoriteViewModel>> GetFavoritesAsnyc(string id)
+        {
+            var designer = await FindByIdAsync(id);
+            return _mapper.Map<IList<DesignerFavoriteViewModel>>(designer.Favorites);
+        }
     }
 }

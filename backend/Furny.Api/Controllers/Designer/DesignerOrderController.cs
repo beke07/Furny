@@ -1,6 +1,8 @@
 ﻿using Furny.OrderFeature.Commands;
+using Furny.OrderFeature.ViewModels;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Furny.Controllers
@@ -13,7 +15,7 @@ namespace Furny.Controllers
         { }
 
         [HttpGet("{id}/orders")]
-        public async Task GetOffers(string id)
+        public async Task<IList<OrderFeatureDesignerTableViewModel>> GetOffers(string id)
             => await SendAsync(OrderFeatureGetDesignerOrdersCommand.Create(id));
     }
 }

@@ -18,14 +18,6 @@ namespace Furny.Controllers
         public async Task<OrderFeatureOrderViewModel> GetById(string id)
             => await SendAsync(OrderFeatureGetOrderCommand.Create(id));
 
-        [HttpPost("{id}/accept")]
-        public async Task AcceptOrder(OrderFeatureOrderFillDto fillDto, string id)
-            => await SendAsync(OrderFeatureAcceptOrderCommand.Create(id, fillDto));
-
-        [HttpPost("{id}/decline")]
-        public async Task DeclineOrder(string id)
-            => await SendAsync(OrderFeatureDeclineOrderCommand.Create(id));
-
         [HttpPost("{id}/done")]
         public async Task DoneOrder(string id)
             => await SendAsync(OrderFeatureDoneOrderCommand.Create(id));

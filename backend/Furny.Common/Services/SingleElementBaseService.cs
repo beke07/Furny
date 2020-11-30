@@ -68,15 +68,24 @@ namespace Furny.Common.Services
             return _mapper.Map<D>(elements.GetById(cid));
         }
 
-        public async Task UpdateAsync(JsonPatchDocument<D> jsonPatch, string id, string elementId)
+        public virtual D DtoManipulation(string baseId, D dto)
+        {
+            return dto;
+        }
+
+        public virtual async Task UpdateAsync(JsonPatchDocument<D> jsonPatch, string id, string elementId)
         {
             var elements = await GetPropertyAsync(id);
             var element = elements.GetById(elementId);
 
             var elementDto = _mapper.Map<D>(element);
+
+            elementDto = DtoManipulation(id, elementDto);
+
             jsonPatch.ApplyTo(elementDto);
 
-            elements.Update(_mapper.Map(elementDto, element), elementId);
+            var patched = _mapper.Map(elementDto, element);
+            elements.Update(patched, elementId);
 
             await UpdateAsync(await SetPropertyAsync(id, elements));
         }
@@ -84,6 +93,7 @@ namespace Furny.Common.Services
         public async Task RemoveAsync(string id, string elementId)
         {
             var elements = await GetPropertyAsync(id);
+
             elements.RemoveById(elementId);
 
             await UpdateAsync(await SetPropertyAsync(id, elements));
@@ -92,6 +102,7 @@ namespace Furny.Common.Services
         public virtual async Task CreateAsync(D element, string id)
         {
             var elements = await GetPropertyAsync(id);
+
             elements.Add(_mapper.Map<T>(element));
 
             await UpdateAsync(await SetPropertyAsync(id, elements));

@@ -12,7 +12,6 @@ namespace Furny.ModulFeature.MappingProfiles
             CreateMap<ModulModulDto, Modul>().ReverseMap();
             CreateMap<ModulTableViewModel, Modul>().ReverseMap();
             CreateMap<ModulComponentDto, Component>().ReverseMap();
-            CreateMap<ModulComponentClosingDto, ComponentClosing>().ReverseMap();
             CreateMap<ModulClosingsDto, Closings>().ReverseMap();
         }
     }

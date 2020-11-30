@@ -20,7 +20,6 @@ namespace Furny.FurnitureFeature.MappingProfiles
 
             CreateMap<FurnitureComponentDto, Component>().ReverseMap();
             CreateMap<FurnitureClosingsDto, Closings>().ReverseMap();
-            CreateMap<FurnitureComponentClosingDto, ComponentClosing>().ReverseMap();
             CreateMap<Component, FurnitureComponentTableViewModel>();
         }
     }

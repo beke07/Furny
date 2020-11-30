@@ -21,17 +21,12 @@ namespace Furny.Model
 
     public class Closings
     {
-        public ComponentClosing Top { get; set; }
+        public bool Top { get; set; }
 
-        public ComponentClosing Bottom { get; set; }
+        public bool Bottom { get; set; }
 
-        public ComponentClosing Left { get; set; }
+        public bool Left { get; set; }
 
-        public ComponentClosing Right { get; set; }
-    }
-
-    public class ComponentClosing
-    {
-        public bool IsClosed { get; set; }
+        public bool Right { get; set; }
     }
 }

@@ -22,7 +22,8 @@ namespace Furny.Model.Common.MappingProfiles
         {
             public string Convert(ObjectId source, string destination, ResolutionContext context)
             {
-                return source.ToString();
+                var result = source.ToString();
+                return string.IsNullOrEmpty(result.Trim('0')) ? null : result;
             }
         }
 

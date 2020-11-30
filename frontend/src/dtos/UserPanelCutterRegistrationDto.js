@@ -9,6 +9,7 @@ export default class UserPanelCutterRegistrationDto {
       this.opened = data.opened;
       this.facebook = data.facebook;
       this.extras = data.extras;
+      this.userAddress = data.userAddress;
     }
   }
 }

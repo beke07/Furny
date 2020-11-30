@@ -8,6 +8,7 @@
     <ProjectReference Include="..\Furny.AddressFeature\Furny.AddressFeature.csproj" />
     <ProjectReference Include="..\Furny.Common\Furny.Common.csproj" />
     <ProjectReference Include="..\Furny.Model\Furny.Model.csproj" />
+    <ProjectReference Include="..\Furny.OfferFeature\Furny.OfferFeature.csproj" />
   </ItemGroup>
 
 </Project>

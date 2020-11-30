@@ -11,5 +11,7 @@ namespace Furny.Model
         { }
 
         public string Name { get; set; }
+
+        public long Price { get; set; }
     }
 }

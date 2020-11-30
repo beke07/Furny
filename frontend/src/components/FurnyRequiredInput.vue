@@ -1,12 +1,13 @@
 <template>
   <vs-input
+    :disabled="disabled"
     :type="type"
     :color="color"
     :label-placeholder="labelPlaceholder"
     :danger-text="dangerText"
     :danger="error"
     @input="handleInput"
-    v-model="dataInput"
+    v-model="input"
   />
 </template>
 
@@ -17,37 +18,50 @@ export default {
   name: "FurnyRequiredInput",
   props: {
     labelPlaceholder: String,
-    inputData: String,
-    type: String,
+    inputData: {
+      type: String,
+      default: "",
+    },
+    disabled: Boolean,
+    type: {
+      type: String,
+      default: "text",
+    },
+  },
+  watch: {
+    inputData: function(newVal) {
+      this.input = newVal;
+    },
   },
   validations: {
-    dataInput: {
+    input: {
       required,
     },
   },
   data: () => ({
-    dataInput: "",
+    input: "",
   }),
+  beforeMount() {
+    this.input = this.inputData;
+  },
   computed: {
     color() {
       return this.$store.state.inputColor;
     },
     dangerText() {
-      return this.dataInput.length !== 0 && !this.$v.dataInput.required
+      return this.input?.length !== 0 && !this.$v.input.required
         ? "Kötelező"
         : "";
     },
     error() {
-      return this.dataInput.length !== 0 && this.$v.dataInput.$invalid;
+      if (this.input) return this.input?.length !== 0 && this.$v.input.$invalid;
+      return false;
     },
   },
   methods: {
     handleInput() {
-      this.$emit("update:inputData", this.dataInput);
+      this.$emit("update:inputData", this.input);
     },
-  },
-  beforeMount() {
-    if (this.inputData) this.dataInput = this.inputData;
   },
 };
 </script>

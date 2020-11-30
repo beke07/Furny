@@ -10,10 +10,6 @@ namespace Furny.OrderFeature.ServiceInterfaces
     {
         Task CreateAsnyc(Offer offer);
 
-        Task AcceptAsnyc(string id, OrderFeatureOrderFillDto orderDto);
-
-        Task DeclineAsnyc(string id);
-
         Task DoneAsnyc(string id);
 
         Task<OrderFeatureOrderViewModel> GetById(string id);

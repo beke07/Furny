@@ -1,11 +1,11 @@
 <template>
-  <div class="white-card ">
-    <h3>Offers</h3>
+  <div>
+    <h1>asd</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Offers",
+  name: "CreateOrder",
 };
 </script>

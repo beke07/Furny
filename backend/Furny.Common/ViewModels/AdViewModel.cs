@@ -12,6 +12,8 @@
 
         public string Title { get; set; }
 
+        public string ImageId { get; set; }
+
         public string HourAgo { get; set; }
     }
 }

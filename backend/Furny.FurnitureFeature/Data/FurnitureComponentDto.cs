@@ -2,6 +2,8 @@
 {
     public class FurnitureComponentDto
     {
+        public string Id { get; set; }
+
         public string Name { get; set; }
 
         public double Width { get; set; }
@@ -13,17 +15,12 @@
 
     public class FurnitureClosingsDto
     {
-        public FurnitureComponentClosingDto Top { get; set; }
+        public bool Top { get; set; }
 
-        public FurnitureComponentClosingDto Bottom { get; set; }
+        public bool Bottom { get; set; }
 
-        public FurnitureComponentClosingDto Left { get; set; }
+        public bool Left { get; set; }
 
-        public FurnitureComponentClosingDto Right { get; set; }
-    }
-
-    public class FurnitureComponentClosingDto
-    {
-        public bool IsClosed { get; set; }
+        public bool Right { get; set; }
     }
 }

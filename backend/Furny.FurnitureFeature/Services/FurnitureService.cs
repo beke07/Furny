@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace Furny.FurnitureFeature.Services
 {
@@ -30,6 +31,12 @@ namespace Furny.FurnitureFeature.Services
         {
             _mapper = mapper;
             _mediator = mediator;
+        }
+
+        public override FurnitureFurnitureDto DtoManipulation(string baseId, FurnitureFurnitureDto dto)
+        {
+            dto.DesignerId = baseId;
+            return dto;
         }
 
         public override async Task CreateAsync(FurnitureFurnitureDto element, string id)

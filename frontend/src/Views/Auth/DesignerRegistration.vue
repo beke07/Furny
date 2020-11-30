@@ -36,8 +36,7 @@
           :inputData.sync="user.phone"
         />
         <FurnyAddressSelect
-          :objectPlease="true"
-          :value.sync="user.userAddress.address"
+          :value.sync="user.userAddress.address.id"
           label="Cím"
           inputLabel="city"
           inputTrackBy="id"
@@ -65,10 +64,7 @@ import FurnyButton from "../../components/FurnyButton";
 import FurnyRequiredInput from "../../components/FurnyRequiredInput";
 import FurnyEmailInput from "../../components/FurnyEmailInput";
 import FurnyAddressSelect from "../../components/FurnyAddressSelect";
-import UserDesignerRegistrationDto from "../../dtos/UserDesignerRegistrationDto";
-import UserAddressDto from "../../dtos/UserAddressDto";
 import { registerDesigner } from "../../store/services/registration";
-import AddressDto from "../../dtos/AddressDto";
 
 export default {
   name: "DesignerRegistration",
@@ -79,16 +75,14 @@ export default {
     FurnyAddressSelect,
   },
   data: () => ({
-    user: new UserDesignerRegistrationDto(),
+    user: { userAddress: { address: { id: null } } },
   }),
   methods: {
     async registration() {
       await registerDesigner(this.user);
-      this.$router.push("/");
+      this.$store.commit("setNewRegistrated", true);
+      this.$router.push("/login");
     },
-  },
-  async beforeMount() {
-    this.user.userAddress = new UserAddressDto(new AddressDto(), "");
   },
 };
 </script>

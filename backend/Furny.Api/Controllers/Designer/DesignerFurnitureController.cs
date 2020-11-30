@@ -26,6 +26,10 @@ namespace Furny.Controllers
         public async Task<FurnitureFurnitureDto> GetById(string id, string fid)
             => await SendAsync(FurnitureGetFurnitureCommand.Create(id, fid));
 
+        [HttpDelete("{id}/furnitures/{fid}")]
+        public async Task Delete(string id, string fid)
+            => await SendAsync(FurnitureRemoveFurnitureCommand.Create(id, fid));
+
         [HttpPatch("{id}/furnitures/{fid}")]
         public async Task Patch(JsonPatchDocument<FurnitureFurnitureDto> jsonPatch, string id, string fid)
             => await SendAsync(FurnitureUpdateFurnitureCommand.Create(jsonPatch, id, fid));

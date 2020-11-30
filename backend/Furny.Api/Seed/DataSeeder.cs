@@ -34,7 +34,7 @@ namespace Furny.Seed
             var client = new MongoClient(connectionString);
             var database = client.GetDatabase(dbName);
 
-            var desginerCutterCollection = database.GetCollection<Designer>("applicationUsers");
+            var designerCutterCollection = database.GetCollection<Designer>("applicationUsers");
             var panelCutterCollection = database.GetCollection<PanelCutter>("applicationUsers");
             var roleCollection = database.GetCollection<ApplicationRole>("applicationRoles");
             var addressCollection = database.GetCollection<Address>("addresses");
@@ -51,42 +51,6 @@ namespace Furny.Seed
                     {
                         Name = RoleNames.Designer,
                         NormalizedName = RoleNames.Designer.ToUpper()
-                    }
-                });
-            }
-
-            if (await panelCutterCollection.Find(s => true).CountDocumentsAsync() == 0)
-            {
-                await panelCutterCollection.InsertOneAsync(new PanelCutter()
-                {
-                    Email = "panel-cutter@furny.hu",
-                    Name = "Panel Cutter",
-                    Phone = "06306324876",
-                    Roles = new List<ObjectId>() { roleCollection.Find(e => e.Name == RoleNames.PanelCutter).FirstOrDefault().Id },
-                    UserName = "panelcutter",
-                    Opened = "H-P 8:00-17:00",
-                    Facebook = "facebook/panel-cutter.hu",
-                    Extras = new List<string>() {
-                      "Kiszállítást vállalok"
-                    },
-                    UserAddress = new UserAddress()
-                    {
-                        Address = addressCollection.Find(e => true).FirstOrDefault(),
-                        StreetAndHouse = "Petőfi utca 11"
-                    }
-                });
-
-                await desginerCutterCollection.InsertOneAsync(new Designer()
-                {
-                    Email = "designer@furny.hu",
-                    Name = "Designer",
-                    Phone = "06306324876",
-                    Roles = new List<ObjectId>() { roleCollection.Find(e => e.Name == RoleNames.Designer).FirstOrDefault().Id },
-                    UserName = "desginer",
-                    UserAddress = new UserAddress()
-                    {
-                        Address = addressCollection.Find(e => true).FirstOrDefault(),
-                        StreetAndHouse = "Petőfi utca 12"
                     }
                 });
             }

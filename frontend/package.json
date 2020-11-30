@@ -11,6 +11,7 @@
     "axios": "^0.19.2",
     "chart.js": "^2.8.0",
     "core-js": "^3.6.4",
+    "cypress": "^6.0.0",
     "fast-json-patch": "^3.0.0-1",
     "firebase": "^7.14.2",
     "firebaseui": "^4.5.0",
@@ -21,9 +22,9 @@
     "vue-cookies": "^1.7.0",
     "vue-multiselect": "^2.1.6",
     "vue-prism-component": "^1.1.1",
-    "vue-router": "^3.1.6",
+    "vue-router": "^3.4.9",
     "vuelidate": "^0.7.6",
-    "vuesax": "^3.10.2",
+    "vuesax": "^3.12.2",
     "vuex": "^3.1.1",
     "vuex-persist": "^3.1.3"
   },
@@ -34,8 +35,8 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "sass-loader": "^8.0.0",
     "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.0",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {

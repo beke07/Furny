@@ -10,8 +10,6 @@ namespace Furny.OrderFeature.CommandHandlers
     public class OrderFeatureOrderCommandHandler :
         IRequestHandler<OrderFeatureCreateOrderCommand>,
         IRequestHandler<OrderFeatureGetOrderCommand, OrderFeatureOrderViewModel>,
-        IRequestHandler<OrderFeatureAcceptOrderCommand>,
-        IRequestHandler<OrderFeatureDeclineOrderCommand>,
         IRequestHandler<OrderFeatureDoneOrderCommand>
 
     {
@@ -35,20 +33,6 @@ namespace Furny.OrderFeature.CommandHandlers
         public async Task<Unit> Handle(OrderFeatureDoneOrderCommand request, CancellationToken cancellationToken)
         {
             await _orderService.DoneAsnyc(request.Id);
-
-            return Unit.Value;
-        }
-
-        public async Task<Unit> Handle(OrderFeatureDeclineOrderCommand request, CancellationToken cancellationToken)
-        {
-            await _orderService.DeclineAsnyc(request.Id);
-
-            return Unit.Value;
-        }
-
-        public async Task<Unit> Handle(OrderFeatureAcceptOrderCommand request, CancellationToken cancellationToken)
-        {
-            await _orderService.AcceptAsnyc(request.Id, request.Fill);
 
             return Unit.Value;
         }

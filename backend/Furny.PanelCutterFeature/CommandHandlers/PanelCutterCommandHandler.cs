@@ -1,11 +1,15 @@
-﻿using Furny.Common.ViewModels;
+﻿using Furny.Common.Enums;
+using Furny.Common.ViewModels;
 using Furny.Model;
 using Furny.Model.Common.Commands;
+using Furny.OfferFeature.Commands;
+using Furny.OrderFeature.Commands;
 using Furny.PanelCutterFeature.Commands;
 using Furny.PanelCutterFeature.ServiceInterfaces;
 using Furny.PanelCutterFeature.ViewModels;
 using MediatR;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -15,12 +19,17 @@ namespace Furny.PanelCutterFeature.CommandHandlers
         IRequestHandler<GetPanelCutterCommand, PanelCutter>,
         IRequestHandler<GetPanelCutterAdsCommand, IList<AdViewModel>>,
         IRequestHandler<PanelCutterUpdateProfileCommand>,
-        IRequestHandler<PanelCutterGetProfileCommand, PanelCutterProfileViewModel>
+        IRequestHandler<PanelCutterGetProfileCommand, PanelCutterProfileViewModel>,
+        IRequestHandler<PanelCutterGetCommand, PanelCutterHomeViewModel>
     {
+        private readonly IMediator _mediator;
         private readonly IPanelCutterService _panelCutterService;
 
-        public PanelCutterCommandHandler(IPanelCutterService panelCutterService)
+        public PanelCutterCommandHandler(
+            IMediator mediator,
+            IPanelCutterService panelCutterService)
         {
+            _mediator = mediator;
             _panelCutterService = panelCutterService;
         }
 
@@ -45,6 +54,13 @@ namespace Furny.PanelCutterFeature.CommandHandlers
             return Unit.Value;
         }
 
-
+        public async Task<PanelCutterHomeViewModel> Handle(PanelCutterGetCommand request, CancellationToken cancellationToken)
+        {
+            return new PanelCutterHomeViewModel()
+            {
+                Offers = (await _mediator.Send(new OfferFeatureGetPanelCutterOfferTableCommand(request.Id))).Where(e => e.State == OfferState.Created).Count(),
+                Orders = (await _mediator.Send(new OrderFeatureGetPanelCutterOrdersCommand(request.Id))).Where(e => !e.State.HasValue).Count(),
+            };
+        }
     }
 }

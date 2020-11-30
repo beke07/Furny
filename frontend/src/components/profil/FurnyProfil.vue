@@ -97,9 +97,9 @@ export default {
   },
   data: () => ({
     email: "",
-    observer: null,
+    observer: undefined,
     extras: "",
-    storedUser: null,
+    storedUser: undefined,
   }),
   computed: {
     roleIsPanelCutter() {
@@ -136,6 +136,8 @@ export default {
         id: this.storedUser.id,
         patch: patches,
       });
+
+      location.reload();
       this.$vs.notify({
         color: "success",
         title: "Siker",

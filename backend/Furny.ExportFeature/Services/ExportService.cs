@@ -47,10 +47,10 @@ namespace Furny.ExportFeature.ServiceInterfaces
                 _excelService.UpdateCell(_fileName, "F", row, $"{c.First().Width}");
                 _excelService.UpdateCell(_fileName, "G", row, $"{c.First().Name}");
 
-                if (c.First().Closings.Bottom.IsClosed) _excelService.UpdateCell(_fileName, "H", row, $"Válassz!");
-                if (c.First().Closings.Top.IsClosed) _excelService.UpdateCell(_fileName, "I", row, $"Válassz!");
-                if (c.First().Closings.Left.IsClosed) _excelService.UpdateCell(_fileName, "J", row, $"Válassz!");
-                if (c.First().Closings.Right.IsClosed) _excelService.UpdateCell(_fileName, "K", row, $"Válassz!");
+                if (c.First().Closings.Bottom) _excelService.UpdateCell(_fileName, "H", row, $"Válassz!");
+                if (c.First().Closings.Top) _excelService.UpdateCell(_fileName, "I", row, $"Válassz!");
+                if (c.First().Closings.Left) _excelService.UpdateCell(_fileName, "J", row, $"Válassz!");
+                if (c.First().Closings.Right) _excelService.UpdateCell(_fileName, "K", row, $"Válassz!");
 
                 row++;
             }

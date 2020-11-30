@@ -4,7 +4,7 @@ namespace Furny.OrderFeature.ViewModels
 {
     public class OrderFeatureOrderViewModel
     {
-        public string _id { get; set; }
+        public string Id { get; set; }
 
         public OrderFeatureOfferViewModel Offer { get; set; }
 

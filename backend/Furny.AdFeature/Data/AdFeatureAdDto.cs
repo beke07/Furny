@@ -2,7 +2,7 @@
 {
     public class AdFeatureAdDto
     {
-        public string _id { get; set; }
+        public string Id { get; set; }
 
         public string Title { get; set; }
 
